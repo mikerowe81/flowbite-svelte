@@ -89,7 +89,7 @@
   };
 
   let frameClass: string;
-  $: frameClass = classNames('relative flex flex-col mx-auto', $$props.class);
+  $: frameClass = classNames('relative flex flex-col w-full mx-auto', $$props.class);
 
   const isScrollable = (e: HTMLElement): boolean[] => [
     e.scrollWidth > e.clientWidth && ['scroll', 'auto'].indexOf(getComputedStyle(e).overflowX) >= 0,

@@ -127,7 +127,11 @@
     on:mouseenter
     on:mouseleave
     on:focusin
-    on:focusout>
+    on:focusout
+    on:introstart
+    on:introend
+    on:outrostart
+    on:outroend>
     <slot />
   </svelte:element>
 {:else}

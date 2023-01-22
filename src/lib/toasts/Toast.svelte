@@ -1,8 +1,10 @@
-<script lang="ts">
+<script lang='ts'>
   import Frame from '../utils/Frame.svelte';
   import classNames from 'classnames';
   import CloseButton from '../utils/CloseButton.svelte';
   import { fade } from 'svelte/transition';
+  import { createEventDispatcher } from 'svelte';
+
   export let color:
     | 'gray'
     | 'red'
@@ -25,6 +27,13 @@
   export let open: boolean = true;
   export let divClass: string = 'w-full max-w-xs p-4';
 
+  const dispatch = createEventDispatcher();
+
+  const handleClose = () => {
+    open = false;
+    dispatch('close');
+  };
+
   const positions = {
     'top-left': 'absolute top-5 left-5',
     'top-right': 'absolute top-5 right-5',
@@ -41,18 +50,25 @@
 </script>
 
 {#if open}
-  <Frame rounded border transition={fade} {...$$restProps} class={classDiv} role="alert">
+  <Frame rounded border transition={fade} {...$$restProps} class={classDiv} role='alert'
+         on:introstart
+         on:introend
+         on:outrostart
+         on:outroend
+  >
     <div class="flex {$$slots.extra ? 'items-start' : 'items-center'}">
       {#if $$slots.icon}
-        <Frame {color} rounded class={iconClass}><slot name="icon" /></Frame>
+        <Frame {color} rounded class={iconClass}>
+          <slot name='icon' />
+        </Frame>
       {/if}
 
-      <div class="text-sm font-normal w-full">
+      <div class='text-sm font-normal w-full'>
         <slot />
-        <slot name="extra" />
+        <slot name='extra' />
       </div>
       {#if !simple}
-        <CloseButton on:click={() => (open = false)} />
+        <CloseButton on:click={handleClose} />
       {/if}
     </div>
   </Frame>

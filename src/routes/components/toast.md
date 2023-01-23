@@ -371,6 +371,19 @@ The component has the following props, type, and default values. See <A href="/p
 <TableDefaultRow {items} rowState='hover' />
 </TableProp>
 
+<Htwo label="Forwarded Events" />
+
+<div class="flex flex-wrap gap-2">
+<Badge large={true}>on:mouseenter</Badge>
+<Badge large={true}>on:mouseleave</Badge>
+<Badge large={true}>on:focusin</Badge>
+<Badge large={true}>on:focusout</Badge>
+<Badge large={true}>on:introstart</Badge>
+<Badge large={true}>on:introend</Badge>
+<Badge large={true}>on:outrostart</Badge>
+<Badge large={true}>on:outroend</Badge>
+</div>
+
 <Htwo label="References" />
 
 <P>

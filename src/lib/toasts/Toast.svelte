@@ -55,6 +55,10 @@
          on:introend
          on:outrostart
          on:outroend
+         on:mouseenter
+         on:mouseleave
+         on:focusin
+         on:focusout
   >
     <div class="flex {$$slots.extra ? 'items-start' : 'items-center'}">
       {#if $$slots.icon}

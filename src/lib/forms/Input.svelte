@@ -8,22 +8,14 @@
 <script lang="ts">
   import Wrapper from '$lib/utils/Wrapper.svelte';
   import classNames from 'classnames';
-  import { getContext, onMount } from 'svelte';
+  import { getContext } from 'svelte';
   import type { InputType } from '../types';
-  import { browser } from '$app/environment';
 
   export let type: InputType = 'text';
   export let value: string | number = '';
   export let size: FormSizeType | undefined = undefined;
   export let defaultClass: string = 'block w-full disabled:cursor-not-allowed disabled:opacity-50';
   export let color: 'base' | 'green' | 'red' = 'base';
-  export let focusOnMount = false
-
-  onMount(() => {
-    if (browser && focusOnMount && inputRef) {
-      inputRef.focus()
-    }
-  })
 
   const borderClasses = {
     base: 'border-gray-300 dark:border-gray-600',
@@ -87,7 +79,6 @@
     );
   }
   let floatClass = 'flex absolute inset-y-0 items-center text-gray-500 dark:text-gray-400';
-  let inputRef:HTMLInputElement
 </script>
 
 <Wrapper class="relative w-full" show={$$slots.left || $$slots.right}>
@@ -112,7 +103,6 @@
       on:paste
       on:input
       use:setType={type}
-      bind:this={inputRef}
       class={inputClass} />
   </slot>
   {#if $$slots.right}

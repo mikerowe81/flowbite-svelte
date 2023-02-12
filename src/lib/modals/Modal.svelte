@@ -129,7 +129,7 @@
       <Frame rounded shadow {...$$restProps} class={frameClass}>
         <!-- Modal header -->
         {#if $$slots.header || title}
-          <Frame color={$$restProps.color} class="flex justify-between items-center p-4 rounded-t border-b">
+          <Frame color={$$restProps.color} class="flex justify-between items-center p-4 rounded-t border-b border-inherit">
             <slot name="header">
               <h3
                 class="text-xl font-semibold {$$restProps.color ? '' : 'text-gray-900 dark:text-white'} p-0">

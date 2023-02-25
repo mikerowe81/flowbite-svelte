@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.30.4](https://github.com/themesberg/flowbite-svelte/compare/v0.30.3...v0.30.4) (2023-02-20)
+
+
+### Bug Fixes
+
+* add types ./dist/index.d.ts to package.json ([7a88a7c](https://github.com/themesberg/flowbite-svelte/commit/7a88a7c052bf65c0944b4f16fb7e622f217711d5))
+
+### [0.30.3](https://github.com/themesberg/flowbite-svelte/compare/v0.30.2...v0.30.3) (2023-02-20)
+
+
+### Bug Fixes
+
+* remove main: index.js ([879d810](https://github.com/themesberg/flowbite-svelte/commit/879d8108c34f563e19ae4cd9b89eb95391083235))
+* update from index.ts to index.js in vite.config.ts ([a7978dd](https://github.com/themesberg/flowbite-svelte/commit/a7978dd854ded3238aa522b5ee47ebc2f0865cf9))
+
+### [0.30.2](https://github.com/themesberg/flowbite-svelte/compare/v0.30.1...v0.30.2) (2023-02-20)
+
+
+### Bug Fixes
+
+* change ts to js ([8e284dc](https://github.com/themesberg/flowbite-svelte/commit/8e284dc2b3d81b674e95fdbe14aafbb04f21df11))
+
+### [0.30.1](https://github.com/themesberg/flowbite-svelte/compare/v0.30.0...v0.30.1) (2023-02-20)
+
+
+### Bug Fixes
+
+* reinstall dependencies ([0876852](https://github.com/themesberg/flowbite-svelte/commit/08768528dd8df368052503e6ebe4a4e68fd348d3))
+* reinstall dependencies ([8ee47f8](https://github.com/themesberg/flowbite-svelte/commit/8ee47f8466e44091c9b91995ad70ebf67dca0f29))
+
+## [0.30.0](https://github.com/themesberg/flowbite-svelte/compare/v0.29.13...v0.30.0) (2023-02-20)
+
+
+### Features
+
+* add Codeflow link ([#572](https://github.com/themesberg/flowbite-svelte/issues/572)) ([c76b265](https://github.com/themesberg/flowbite-svelte/commit/c76b265aded62df0553d9a579f8b0ee6f756c528))
+* sveltekit update to 1.5.6 ([#571](https://github.com/themesberg/flowbite-svelte/issues/571)) ([c24c639](https://github.com/themesberg/flowbite-svelte/commit/c24c63950471f831bc4fdec37e9aa767f6f64c96))
+
+
+### Bug Fixes
+
+* fluid setting for Navbar ([#563](https://github.com/themesberg/flowbite-svelte/issues/563)) ([4311bbb](https://github.com/themesberg/flowbite-svelte/commit/4311bbba0bd590d66b388f6c0f8e688b1bd85a1c))
+* FooterCopyright remove space after {by} ([#578](https://github.com/themesberg/flowbite-svelte/issues/578)) ([da7a681](https://github.com/themesberg/flowbite-svelte/commit/da7a681a828b1eeab9bebedcf60ad24d55a5e7f6))
+* package.json format ([675928b](https://github.com/themesberg/flowbite-svelte/commit/675928beda860ef099cd6cc72f2acef2e0159b07))
+* remove log message in Avatar Dot ([#567](https://github.com/themesberg/flowbite-svelte/issues/567)) ([1c808c7](https://github.com/themesberg/flowbite-svelte/commit/1c808c7e21c72b7bda604852fe8e75eebcb6992a))
+
 ### [0.29.13](https://github.com/themesberg/flowbite-svelte/compare/v0.29.12...v0.29.13) (2023-01-31)
 
 ### [0.29.12](https://github.com/themesberg/flowbite-svelte/compare/v0.29.11...v0.29.12) (2023-01-23)

@@ -2,6 +2,147 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.34.9](https://github.com/themesberg/flowbite-svelte/compare/v0.34.8...v0.34.9) (2023-04-11)
+
+### [0.34.8](https://github.com/themesberg/flowbite-svelte/compare/v0.34.7...v0.34.8) (2023-04-11)
+
+
+### Bug Fixes
+
+* add main: index.js to package.json ([ce82350](https://github.com/themesberg/flowbite-svelte/commit/ce823503b9ef21abf5d751ae7f3606e26db3d2c7))
+
+### [0.34.7](https://github.com/themesberg/flowbite-svelte/compare/v0.34.6...v0.34.7) (2023-04-05)
+
+
+### Bug Fixes
+
+* typo in docs ([#645](https://github.com/themesberg/flowbite-svelte/issues/645)) ([d010eef](https://github.com/themesberg/flowbite-svelte/commit/d010eef360a32460eff383e585cd14cd31ee3bfa))
+
+### [0.34.6](https://github.com/themesberg/flowbite-svelte/compare/v0.34.5...v0.34.6) (2023-04-05)
+
+
+### Bug Fixes
+
+* remove TabHead and TabHeadItem ([c255797](https://github.com/themesberg/flowbite-svelte/commit/c25579742f17a822f8f2a2c325da2c7c98c375cc))
+
+### [0.34.5](https://github.com/themesberg/flowbite-svelte/compare/v0.34.4...v0.34.5) (2023-04-04)
+
+
+### Bug Fixes
+
+* clean up & remove ExampleDiv, GitHubSource, and CompoDescription ([#639](https://github.com/themesberg/flowbite-svelte/issues/639)) ([113df27](https://github.com/themesberg/flowbite-svelte/commit/113df2716cde7f0c3e0c7aa904bafdc3ece15cd1))
+* forward input event ([#627](https://github.com/themesberg/flowbite-svelte/issues/627)) ([22d20db](https://github.com/themesberg/flowbite-svelte/commit/22d20dbb6845e5ed0d7188e304c406a5c8cb8758))
+* remove unused components and update props ([#642](https://github.com/themesberg/flowbite-svelte/issues/642)) ([e6a4fb5](https://github.com/themesberg/flowbite-svelte/commit/e6a4fb5c63888e1aa90229414d5814e9a3c5fe27))
+* sidebar z-10 to z-30 for front page ([79b5adc](https://github.com/themesberg/flowbite-svelte/commit/79b5adc075633b2fb4904f7b907b0d8e50dc28a3))
+* sidebar z-50 to z-10 for modals ([4b76f75](https://github.com/themesberg/flowbite-svelte/commit/4b76f75650bb5670117c4959cb6b622f639242db))
+
+### [0.34.4](https://github.com/themesberg/flowbite-svelte/compare/v0.34.3...v0.34.4) (2023-03-31)
+
+
+### Features
+
+* add color, gradient, shadow, and outline props to speed-dial ([#636](https://github.com/themesberg/flowbite-svelte/issues/636)) ([563a7ee](https://github.com/themesberg/flowbite-svelte/commit/563a7eecdf69301da232aa7ccd6734e49dc87f4c))
+
+
+### Bug Fixes
+
+* update props ([cb92b47](https://github.com/themesberg/flowbite-svelte/commit/cb92b47bd79f8833aea263d106675881a6fcd456))
+
+### [0.34.3](https://github.com/themesberg/flowbite-svelte/compare/v0.34.2...v0.34.3) (2023-03-30)
+
+
+### Bug Fixes
+
+* dropdown page ([d3d4827](https://github.com/themesberg/flowbite-svelte/commit/d3d48276e27cc18300de1b1cc2a26ce05de733d8))
+* dropdown page add dark:text-white to MenuButton and change to color:green for Avatar ([900feca](https://github.com/themesberg/flowbite-svelte/commit/900feca1d8f4e617821c6a4ccf3687839a302cf0))
+* remove duplicate theme from tailwind.config ([5d0ebe5](https://github.com/themesberg/flowbite-svelte/commit/5d0ebe5ab587e489498bba825527d613cddb2eaf))
+* TextPlaceHolder remove w-full ([e3ec175](https://github.com/themesberg/flowbite-svelte/commit/e3ec175bc3ec366a5e027feb5e21721fdd223243))
+* top navbar margin top ([d9c83b4](https://github.com/themesberg/flowbite-svelte/commit/d9c83b46bcd0c67d176ad60b0cbd3089a62471ab))
+* typo CardPlaceholder ([71bea4d](https://github.com/themesberg/flowbite-svelte/commit/71bea4d98b5046d866aa2ded2e00cc30e4b44b61))
+* update props table and github links ([0a184d1](https://github.com/themesberg/flowbite-svelte/commit/0a184d11469729e2697ea91117ad487e2b6e3741))
+* update skeleton components ([b1ffbc7](https://github.com/themesberg/flowbite-svelte/commit/b1ffbc789536f0e6be4bcca3e4083466c62fe85e))
+
+### [0.34.2](https://github.com/themesberg/flowbite-svelte/compare/v0.34.1...v0.34.2) (2023-03-21)
+
+
+### Bug Fixes
+
+* button size ([#623](https://github.com/themesberg/flowbite-svelte/issues/623)) ([f845373](https://github.com/themesberg/flowbite-svelte/commit/f845373bb75d4a908386753049174b526cebf5dd))
+
+### [0.34.1](https://github.com/themesberg/flowbite-svelte/compare/v0.33.1...v0.34.1) (2023-03-18)
+
+
+### Bug Fixes
+
+* GitHubSource change tree to blob ([69f0e15](https://github.com/themesberg/flowbite-svelte/commit/69f0e15b7dcafa8018e23ee33c8c7e2bb2e8ebd6))
+* GitHubSource links ([8d4e976](https://github.com/themesberg/flowbite-svelte/commit/8d4e9760255daf81546dca91d0abb0843a1a2a5c))
+* package.json format ([f836a5c](https://github.com/themesberg/flowbite-svelte/commit/f836a5c733cc57240040aa9821732056ccbcee24))
+
+### [0.32.2](https://github.com/themesberg/flowbite-svelte/compare/v0.30.6...v0.32.2) (2023-03-14)
+
+
+
+### Features
+
+* add svelte snapshot example ([#598](https://github.com/themesberg/flowbite-svelte/issues/598)) ([35da46d](https://github.com/themesberg/flowbite-svelte/commit/35da46d847b333308bcd21ff89834a7a1ded783e))
+* allow faster import ([3a17023](https://github.com/themesberg/flowbite-svelte/commit/3a1702332b62583cde1ee7dd23d8664e2546f2aa))
+
+
+### Bug Fixes
+
+* add carbon ([#602](https://github.com/themesberg/flowbite-svelte/issues/602)) ([0ed5ebc](https://github.com/themesberg/flowbite-svelte/commit/0ed5ebc1b3bf94749f833ee5a3aa14e0802b89bd))
+* event forwarding for numberinput ([#596](https://github.com/themesberg/flowbite-svelte/issues/596)) ([5d67a83](https://github.com/themesberg/flowbite-svelte/commit/5d67a833aa6ff769b85ca79c52b29de56690a2aa))
+* incorrect aria-expanded in <h2> ([#604](https://github.com/themesberg/flowbite-svelte/issues/604)) ([f562e91](https://github.com/themesberg/flowbite-svelte/commit/f562e91e42fae6e76c5d042e6b19b34f7c0d7692))
+* inline script in <DarkMode> ([#610](https://github.com/themesberg/flowbite-svelte/issues/610)) ([7ac48ba](https://github.com/themesberg/flowbite-svelte/commit/7ac48ba643f87b92ad51a6b540b14741bc6fd229))
+* navbar-li undefined ([#595](https://github.com/themesberg/flowbite-svelte/issues/595)) ([ab5d080](https://github.com/themesberg/flowbite-svelte/commit/ab5d080c7f214b81a748a812bd487d8d22af8895))
+* remove preceding dir name from the export ([68bdf74](https://github.com/themesberg/flowbite-svelte/commit/68bdf7485005f566d8401eec352aa0236d7d0796))
+* snapshot page ([#603](https://github.com/themesberg/flowbite-svelte/issues/603)) ([f9ecfed](https://github.com/themesberg/flowbite-svelte/commit/f9ecfedbc834530f5abab79f3d3b06e2c2c811a4))
+* snapshot page update 2 ([#605](https://github.com/themesberg/flowbite-svelte/issues/605)) ([e7b36e6](https://github.com/themesberg/flowbite-svelte/commit/e7b36e6ad579bfe642747f6ce2624d129397e49a))
+
+  
+### [0.33.1](https://github.com/themesberg/flowbite-svelte/compare/v0.32.1...v0.33.1) (2023-03-16)
+  
+### Bug Fixes
+
+* add gallery components and page ([#618](https://github.com/themesberg/flowbite-svelte/issues/618)) ([8c3b1f3](https://github.com/themesberg/flowbite-svelte/commit/8c3b1f3ff37eb8da4616001d7a3a510a6848cb76))
+  
+  
+### [0.32.1](https://github.com/themesberg/flowbite-svelte/compare/v0.31.1...v0.32.1) (2023-03-12)
+
+### [0.31.1](https://github.com/themesberg/flowbite-svelte/compare/v0.30.7...v0.31.1) (2023-03-12)
+
+### [0.30.7](https://github.com/themesberg/flowbite-svelte/compare/v0.30.6...v0.30.7) (2023-03-12)
+
+
+### Features
+
+* add svelte snapshot example ([#598](https://github.com/themesberg/flowbite-svelte/issues/598)) ([35da46d](https://github.com/themesberg/flowbite-svelte/commit/35da46d847b333308bcd21ff89834a7a1ded783e))
+
+
+### Bug Fixes
+
+* add carbon ([#602](https://github.com/themesberg/flowbite-svelte/issues/602)) ([0ed5ebc](https://github.com/themesberg/flowbite-svelte/commit/0ed5ebc1b3bf94749f833ee5a3aa14e0802b89bd))
+* event forwarding for numberinput ([#596](https://github.com/themesberg/flowbite-svelte/issues/596)) ([5d67a83](https://github.com/themesberg/flowbite-svelte/commit/5d67a833aa6ff769b85ca79c52b29de56690a2aa))
+* incorrect aria-expanded in <h2> ([#604](https://github.com/themesberg/flowbite-svelte/issues/604)) ([f562e91](https://github.com/themesberg/flowbite-svelte/commit/f562e91e42fae6e76c5d042e6b19b34f7c0d7692))
+* inline script in <DarkMode> ([#610](https://github.com/themesberg/flowbite-svelte/issues/610)) ([7ac48ba](https://github.com/themesberg/flowbite-svelte/commit/7ac48ba643f87b92ad51a6b540b14741bc6fd229))
+* navbar-li undefined ([#595](https://github.com/themesberg/flowbite-svelte/issues/595)) ([ab5d080](https://github.com/themesberg/flowbite-svelte/commit/ab5d080c7f214b81a748a812bd487d8d22af8895))
+* snapshot page ([#603](https://github.com/themesberg/flowbite-svelte/issues/603)) ([f9ecfed](https://github.com/themesberg/flowbite-svelte/commit/f9ecfedbc834530f5abab79f3d3b06e2c2c811a4))
+* snapshot page update 2 ([#605](https://github.com/themesberg/flowbite-svelte/issues/605)) ([e7b36e6](https://github.com/themesberg/flowbite-svelte/commit/e7b36e6ad579bfe642747f6ce2624d129397e49a))
+
+### [0.30.6](https://github.com/themesberg/flowbite-svelte/compare/v0.30.5...v0.30.6) (2023-03-01)
+
+
+### Bug Fixes
+
+* li classes cascaded from ul ([#593](https://github.com/themesberg/flowbite-svelte/issues/593)) ([90a4c74](https://github.com/themesberg/flowbite-svelte/commit/90a4c74fa8e9a95b652f67525fbaee67f40d6f0b))
+
+### [0.30.5](https://github.com/themesberg/flowbite-svelte/compare/v0.30.4...v0.30.5) (2023-02-27)
+
+
+### Features
+
+* add transition to SidebarDropdownWrapper ([#590](https://github.com/themesberg/flowbite-svelte/issues/590)) ([36f4971](https://github.com/themesberg/flowbite-svelte/commit/36f49711aece1535e78804d785a841d11f8e0459))
+
 ### [0.30.4](https://github.com/themesberg/flowbite-svelte/compare/v0.30.3...v0.30.4) (2023-02-20)
 
 

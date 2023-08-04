@@ -14,8 +14,6 @@ thumnailSize: w-64
   import { props as items1 } from '../../props/A.json'
 </script>
 
-
-
 Get started with the link component to enable hyperlinks across pages and external websites applied to elements such as inline text, buttons, cards, inside paragraphs, and more.
 
 Hyperlinks are a great way to reduce bounce rate of the current page and encourage visitors to browse your website and become a returning user.
@@ -52,7 +50,7 @@ This example can be used to set a hyperlink on a button component.
 <Button href="/">Read more</Button>
 ```
 
-## Pagagraph
+## Paragraph
 
 Use this example to set a link inside a paragraph with an underline style.
 
@@ -74,7 +72,7 @@ This example can be used to set a custom SVG icon inside the hyperlink element.
 </script>
 
 <P>500,000 people have made over a million apps with Glide. 
-  <A href="/" textColor="text-blue-600 dark:text-blue-500" aClass="inline-flex items-center font-medium  hover:underline">
+  <A href="/" textColor="text-primary-600 dark:text-primary-500" aClass="inline-flex items-center font-medium  hover:underline">
     Read their stories
     <svg aria-hidden="true" class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
   </A>
@@ -136,7 +134,9 @@ This example can be used to set a hyperlink on an image inside a card component.
 
 ## Props
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
+
+- Use the `class` prop to overwrite the `a` tag class.
 
 <TableProp>
   <TableDefaultRow items={items1} rowState='hover' />

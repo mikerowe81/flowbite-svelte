@@ -17,8 +17,6 @@ thumbnailSize: w-72
   const events = ["on:change","on:click"];
 </script>
 
-
-
 The toggle component can be used to receive a simple “yes” or “no” type of answer from the user by choosing a single option from two options available in multiple sizes, styles, and colors coded with the utility classes from Tailwind CSS and with dark mode support.
 
 ## Setup
@@ -63,19 +61,23 @@ Get started with the default toggle component example as a checkbox element to r
 
 ```svelte example class="flex flex-col gap-2" hideScript
 <script>
-  import { Toggle } from 'flowbite-svelte'
+  import { Toggle } from 'flowbite-svelte';
+  const customSize = 'w-16 h-10 after:top-1 after:left-[4px]  after:h-8 after:w-8';
 </script>
 
 <Toggle size="small">Small toggle</Toggle>
 <Toggle size="default" checked>Default toggle</Toggle>
 <Toggle size="large" checked>Large toggle</Toggle>
+<Toggle size="custom" {customSize}>Custom toggle</Toggle>
 ```
 
 ## Props
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Toggle
+
+- Use the `class` prop to overwrite the `span` and the `Checkbox` component.
 
 <TableProp>
   <TableDefaultRow {items} rowState='hover' />
@@ -84,3 +86,7 @@ The component has the following props, type, and default values. See <A href="/d
 ## Forwarded Events
 
 <DocBadgeList items={events} />
+
+## References
+
+- [Flowbite Switch (Toggle)](https://flowbite.com/docs/forms/toggle/)

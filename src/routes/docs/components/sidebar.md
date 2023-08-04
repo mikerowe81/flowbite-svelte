@@ -23,8 +23,6 @@ thumnailSize: w-72
 
   const events = ["on:blur","on:click","on:focus","on:keydown","on:keypress","on:keyup","on:mouseenter","on:mouseleave","on:mouseover"];
 </script>
-
-
 The sidebar component can be used as a complementary element relative to the navbar shown on either the left or right side of the page used for the navigation on your web application, including menu items, multi-level dropdown items, call to actions elements, and more.
 
 Disclaimer: this sidebar component is based on this <A class="text-primary-700" href="https://github.com/shinokada/svelte-sidebar" target="_blank" rel="noreferrer">sidebar menu</A> plugin.
@@ -75,12 +73,12 @@ Use this example to show a responsive list of menu items inside the sidebar with
         </svelte:fragment>
         <svelte:fragment slot="subtext">
           <span
-            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200"
+            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-primary-600 bg-primary-200 rounded-full dark:bg-primary-900 dark:text-primary-200"
             >3</span
           >
         </svelte:fragment>
       </SidebarItem>
-      <SidebarItem label="Sidebar" href='/component/sidebar' active={activeUrl === '/components/sidebar'}>
+      <SidebarItem label="Sidebar" href='/docs/components/sidebar' active={activeUrl === '/docs/components/sidebar'}>
         <svelte:fragment slot="icon">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
         </svelte:fragment>
@@ -143,7 +141,7 @@ Use this sidebar example to create multi-level menu items by using the dSidebarD
         </svelte:fragment>
         <svelte:fragment slot="subtext">
           <span
-            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200"
+            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-primary-600 bg-primary-200 rounded-full dark:bg-primary-900 dark:text-primary-200"
             >3</span
           >
         </svelte:fragment>
@@ -219,7 +217,7 @@ Use the following example to show the active item. Use the `activeClass` prop to
   <SidebarWrapper>
     <SidebarGroup>
       <SidebarItem label="Dashboard" href='/dashboard' active={activeUrl === '/dashboard'} />
-      <SidebarItem label="Sidebar" href='/component/sidebar' active={activeUrl === '/components/sidebar'} />
+      <SidebarItem label="Sidebar" href='/docs/component/sidebar' active={activeUrl === '/docs/components/sidebar'} />
     </SidebarGroup>
   </SidebarWrapper>
 </Sidebar>
@@ -243,7 +241,7 @@ Use the following example to show the active item. Use the `activeClass` prop to
       <SidebarItem label="Dashboard" active={activeUrl === '/dashboard'} />
       <SidebarDropdownWrapper label="E-commerce" isOpen={containPath}>
         <SidebarDropdownItem label="Products" href='/components/products' active={activeUrl === '/components/products'} />
-        <SidebarDropdownItem label="Sidebar" href='/components/sidebar' active={activeUrl === '/components/sidebar'}/>
+        <SidebarDropdownItem label="Sidebar" href='/docs/components/sidebar' active={activeUrl === '/docs/components/sidebar'}/>
       </SidebarDropdownWrapper>
       <SidebarDropdownWrapper label="Items">
         <SidebarDropdownItem label="Item 1" href='/components/item1' active={activeUrl === '/components/item'} />
@@ -289,7 +287,7 @@ Separate the content inside the sidebar component by applying a border separator
         </svelte:fragment>
         <svelte:fragment slot="subtext">
           <span
-            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200"
+            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-primary-600 bg-primary-200 rounded-full dark:bg-primary-900 dark:text-primary-200"
             >3</span
           >
         </svelte:fragment>
@@ -372,7 +370,7 @@ Use this example to add a CTA button inside the sidebar component and encourage 
         </svelte:fragment>
         <svelte:fragment slot="subtext">
           <span
-            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200"
+            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-primary-600 bg-primary-200 rounded-full dark:bg-primary-900 dark:text-primary-200"
             >3</span
           >
         </svelte:fragment>
@@ -396,7 +394,7 @@ Use this example to add a CTA button inside the sidebar component and encourage 
         <svelte:fragment slot="icon">
           <button
             type="button"
-            class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-900 rounded-lg focus:ring-2 focus:ring-blue-400 p-1 hover:bg-blue-200 inline-flex h-6 w-6 dark:bg-blue-900 dark:text-blue-400 dark:hover:bg-blue-800"
+            class="ml-auto -mx-1.5 -my-1.5 bg-primary-50 text-primary-900 rounded-lg focus:ring-2 focus:ring-primary-400 p-1 hover:bg-primary-200 inline-flex h-6 w-6 dark:bg-primary-900 dark:text-primary-400 dark:hover:bg-primary-800"
             data-collapse-toggle="dropdown-cta"
             aria-label="Close"
           >
@@ -404,12 +402,12 @@ Use this example to add a CTA button inside the sidebar component and encourage 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
         </svelte:fragment>
-        <p class="mb-3 text-sm text-blue-900 dark:text-blue-400">
+        <p class="mb-3 text-sm text-primary-900 dark:text-primary-400">
           Preview the new Flowbite dashboard navigation! You can turn the new navigation off for a
           limited time in your profile.
         </p>
         <a
-          class="text-sm text-blue-900 underline hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+          class="text-sm text-primary-900 underline hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300"
           href="/">Turn new navigation off</a
         >
       </SidebarCta>
@@ -460,7 +458,7 @@ Show the logo of your brand and link back to the homepage from the top part of t
         </svelte:fragment>
         <svelte:fragment slot="subtext">
           <span
-            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200"
+            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-primary-600 bg-primary-200 rounded-full dark:bg-primary-900 dark:text-primary-200"
             >3</span
           >
         </svelte:fragment>
@@ -513,7 +511,7 @@ You can add own transition by setting `transitionType` and `transitionParams`.
       <SidebarItem label="Dashboard" active={activeUrl === '/dashboard'} />
       <SidebarDropdownWrapper label="E-commerce" isOpen={containPath} transitionType="fly" {transitionParams}>
         <SidebarDropdownItem label="Products" href='/components/products' active={activeUrl === '/components/products'} />
-        <SidebarDropdownItem label="Sidebar" href='/components/sidebar' active={activeUrl === '/components/sidebar'}/>
+        <SidebarDropdownItem label="Sidebar" href='/docs/components/sidebar' active={activeUrl === '/docs/components/sidebar'}/>
       </SidebarDropdownWrapper>
       <SidebarDropdownWrapper label="Items" transitionType="fly" {transitionParams}>
         <SidebarDropdownItem label="Item 1" href='/components/item1' active={activeUrl === '/components/item'} />
@@ -526,9 +524,11 @@ You can add own transition by setting `transitionType` and `transitionParams`.
 
 ## Props
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Sidebar
+
+- Use the `class` prop to overwrite `asideClass`.
 
 <TableProp>
   <TableDefaultRow {items} rowState='hover' />
@@ -536,11 +536,15 @@ The component has the following props, type, and default values. See <A href="/d
 
 ### SidebarBrand
 
+- Use the `class` prop to overwrite `aClass`.
+
 <TableProp>
   <TableDefaultRow items={items2} rowState='hover' />
 </TableProp>
 
 ### SidebarCta
+
+- Use the `class` prop to overwrite the default class.
 
 <TableProp>
   <TableDefaultRow items={items3} rowState='hover' />
@@ -548,11 +552,15 @@ The component has the following props, type, and default values. See <A href="/d
 
 ### SidebarDropdownItem
 
+- Use the `class` prop to overwrite `divWrapperClass`.
+
 <TableProp>
   <TableDefaultRow items={items4} rowState='hover' />
 </TableProp>
 
 ### SidebarDropdownWrapper
+
+- Use the `class` prop to overwrite `btnClass`.
 
 <TableProp>
   <TableDefaultRow items={items5} rowState='hover' />
@@ -560,11 +568,15 @@ The component has the following props, type, and default values. See <A href="/d
 
 ### SidebarGroup
 
+- Use the `class` prop to overwrite `ulClass`.
+
 <TableProp>
   <TableDefaultRow items={items6} rowState='hover' />
 </TableProp>
 
 ### SidebarItem
+
+- Use the `class` prop to overwrite the `a` tag class.
 
 <TableProp>
   <TableDefaultRow items={items7} rowState='hover' />
@@ -572,21 +584,18 @@ The component has the following props, type, and default values. See <A href="/d
 
 ### SidebarWrapper
 
+- Use the `class` prop to overwrite `divClass`.
+
 <TableProp>
   <TableDefaultRow items={items8} rowState='hover' />
 </TableProp>
 
 ## Forwarded Events
 
-<Heading tag="h3" customSize="text-xl font-semibold" class="mb-4">SidebarDropdownItem, SidebarItem</Heading>
+### SidebarDropdownItem, SidebarItem
 
 <DocBadgeList items={events} />
 
-
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/sidebar/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite Sidebar</A
-  >
-</P>
+- [Flowbite Sidebar](https://flowbite.com/docs/components/sidebar/)

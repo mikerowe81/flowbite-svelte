@@ -15,8 +15,6 @@ thumnailSize: w-64
   import { props as breadcrumbItemProps } from '../../props/BreadcrumbItem.json'
 </script>
 
-
-
 The breadcrumb component is an important part of any website or application that can be used to show the current location of a page in a hierarchical structure of pages.
 
 Flowbite includes two styles of breadcrumb elements, one that has a transparent background and a few more that come with a background in different colors.
@@ -94,9 +92,12 @@ Use the `icon` slot to change icons.
 
 ## Props
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Breadcrumb
+
+- Use the `class` prop to overwrite a class in the `nav` tag
+- Use the `classOl` prop to overwrite a class in the `ol` tag.
 
 <TableProp>
   <TableDefaultRow items={breadcrumbProps} rowState='hover' />
@@ -104,14 +105,15 @@ The component has the following props, type, and default values. See <A href="/d
 
 ### BreadcrumbItem
 
+- Use the `class` prop to overwrite a class in the `li` tag
+- Use the `classHome` prop to overwrite `homeClass`.
+- Use the `classLink` prop to overwrite `linkClass`.
+- Use the `classSpan` prop to overwrite `spanClass`.
+
 <TableProp>
   <TableDefaultRow items={breadcrumbItemProps} rowState='hover' />
 </TableProp>
 
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/breadcrumb/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite Breadcrumb</A
-  >
-</P>
+- [Flowbite Breadcrumb](https://flowbite.com/docs/components/breadcrumb/)

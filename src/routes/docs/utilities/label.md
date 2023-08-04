@@ -16,8 +16,6 @@ description: The Label components are used throughout the library and you can us
   let theadClass = 'text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white';
 </script>
 
-
-
 ## Label
 
 Use the `Label` component when you need to add a label.
@@ -34,9 +32,9 @@ Use the `Label` component when you need to add a label.
 
 ## Props
 
-The component has the following props, type, and default values. 
-See <A class="hover:underline" href="/docs/pages/typescript">the types page</A>
-for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
+
+- Use the `class` prop to overwrite `defaultClass`.
 
 <TableProp>
   <TableDefaultRow {items} rowState="hover" />

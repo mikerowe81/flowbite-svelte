@@ -3,7 +3,7 @@
 
   export let tag: string = 'div';
   export let show: boolean;
-  export let use: Action = () => {};
+  export let use: Action<HTMLElement, any> = () => {};
 </script>
 
 {#if show}
@@ -11,3 +11,11 @@
 {:else}
   <slot />
 {/if}
+
+<!--
+  @component
+  ## Props
+  @prop tag: string = 'div';
+  @prop show: boolean;
+  @prop use: Action = () => {};
+-->

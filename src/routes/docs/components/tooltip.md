@@ -15,8 +15,6 @@ thumnailSize: w-24
   import { props as items2 } from '../../props/Frame.json'
 </script>
 
-
-
 Flowbite-Svelte allows you to show extra information when hovering or focusing over an element in multiple positions, styles, and animations.
 
 ## Setup
@@ -40,20 +38,20 @@ To get started with using tooltips all you need to do is set `triggeredBy` attri
 <Tooltip>Tooltip content</Tooltip>
 ```
 
-## Tooltip styles
+## Tooltip types
 
-You can use choose between dark and light version styles for the tooltip component by changing the utility classes from Tailwind CSS and by applying the `style={light|dark}` data attribute.
+You can use choose between dark and light version styles for the tooltip component by changing the utility classes from Tailwind CSS and by applying the `type={light|dark}` data attribute.
 
 ```svelte example class="flex items-end gap-2 h-32"
 <script>
   import { Tooltip, Button } from 'flowbite-svelte';
-  let style = 'dark';
+  let type = 'dark';
 </script>
 
-<Button id="style-light">Light tooltip</Button>
-<Button id="style-auto">Default tooltip</Button>
-<Button id="style-dark">Dark tooltip</Button>
-<Tooltip {style} triggeredBy="[id^='style-']" on:show={ev => style = ev.target.id.split('-')[1]}>Tooltip content</Tooltip>
+<Button id="type-light">Light tooltip</Button>
+<Button id="type-auto">Default tooltip</Button>
+<Button id="type-dark">Dark tooltip</Button>
+<Tooltip {type} triggeredBy="[id^='type-']" on:show={ev => type = ev.target.id.split('-')[1]}>Tooltip content</Tooltip>
 ```
 
 ## Placement
@@ -101,12 +99,12 @@ The positioning of the tooltip element relative to the triggering element (eg. b
 <Tooltip arrow={false} triggeredBy='#disable-arrow'>Tooltip content</Tooltip>
 ```
 
-## Custom style
+## Custom type
 
 Various color palettes can be set for a tooltip by using the `color` property from the underlying `Frame` component.
-(Setting `color` prop sets the `style` to `custom` implicitly.)
+(Setting `color` prop sets the `type` to `custom` implicitly.)
 
-When you want to add a fully custom styles, use `style="custom"`, `defaultClass`, and `class` to modify the style.
+When you want to add a fully custom styles, use `type="custom"`, `defaultClass`, and `class` to modify the tooltip styling.
 
 ```svelte example class="flex items-center h-64 gap-2"
 <script>
@@ -119,10 +117,10 @@ When you want to add a fully custom styles, use `style="custom"`, `defaultClass`
 <Button>Yellow tooltip</Button>
 <Tooltip  color="yellow">Tooltip content</Tooltip>
 
-<Button>Custom style</Button>
+<Button>Custom type</Button>
 <Tooltip
   placement="right"
-  style="custom"
+  type="custom"
   defaultClass=""
   class="p-4 text-lg font-medium bg-purple-500 text-gray-100"
   arrow={false}
@@ -135,8 +133,7 @@ When you want to add a fully custom styles, use `style="custom"`, `defaultClass`
 
 ### Tooltip
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types 
- page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 <TableProp>
   <TableDefaultRow {items} rowState='hover' />
@@ -146,13 +143,12 @@ The component has the following props, type, and default values. See <A href="/d
 
 The component inherits the following props, type, and default values from `Frame`. See [types page](/docs/pages/typescript) for type information.
 
+- Use the `class` prop to overwrite the default class.
+
 <TableProp>
   <TableDefaultRow items={items2} rowState='hover' />
 </TableProp>
 
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/tooltips/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite Tooltip</A>
-</P>
+- [Flowbite Tooltip](https://flowbite.com/docs/components/tooltips/)

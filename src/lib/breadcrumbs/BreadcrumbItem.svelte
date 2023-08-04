@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { twMerge } from 'tailwind-merge';
   export let home: boolean = false;
   export let href: string | undefined = undefined;
   export let linkClass: string =
@@ -8,9 +9,9 @@
     'inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white';
 </script>
 
-<li class="inline-flex items-center" {...$$restProps}>
+<li class={twMerge('inline-flex items-center', $$props.class)} {...$$restProps}>
   {#if home}
-    <a class={homeClass} {href}>
+    <a class={twMerge(homeClass, $$props.classHome)} {href}>
       {#if $$slots.icon}
         <slot name="icon" />
       {:else}
@@ -35,13 +36,30 @@
           clip-rule="evenodd" /></svg>
     {/if}
     {#if href}
-      <a class={linkClass} {href}>
+      <a class={twMerge(linkClass, $$props.classLink)} {href}>
         <slot />
       </a>
     {:else}
-      <span class={spanClass}>
+      <span class={twMerge(spanClass, $$props.classSpan)}>
         <slot />
       </span>
     {/if}
   {/if}
 </li>
+
+<!--
+  @component
+  ## Features
+  [Go to Breadcrumb](https://flowbite-svelte.com/docs/components/breadcrumb)
+  - Setup
+  - Default Breadcrumb
+  - Solid Breadcrumb
+  - Icons
+  ## Props
+  @prop home: boolean = false;
+  @prop href: string | undefined = undefined;
+  @prop linkClass: string = 'ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white';
+  @prop spanClass: string = 'ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400';
+  @prop homeClass: string = 'inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white';
+  
+-->

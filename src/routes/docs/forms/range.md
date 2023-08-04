@@ -17,8 +17,6 @@ description: Get started with the range component to receive a number from the u
   let minmaxValue=5
 </script>
 
-
-
 The range component can be used as an input field to get a number from the user based on your custom selection (ie. from 1 to 100) by using a sliding animation.
 
 ## Setup
@@ -102,7 +100,9 @@ Since we added `$$restProps` to input field, you can contain the props which are
 
 ## Props
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
+
+Use the `class` prop to overwrite the default class.
 
 <TableProp>
   <TableDefaultRow {items} rowState='hover' />
@@ -112,3 +112,6 @@ The component has the following props, type, and default values. See <A href="/d
 
 <DocBadgeList items={events} />
 
+## References
+
+- [Flowbite Range Slider](https://flowbite.com/docs/forms/range/)

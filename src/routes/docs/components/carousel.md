@@ -19,8 +19,6 @@ thumnailSize: w-48
   import { props as items6 } from '../../props/Thumbnail.json'
 </script>
 
-
-
 The carousel component can be used to cycle through a set of elements using custom options, controls, and indicators.
 
 ## Setup
@@ -260,10 +258,14 @@ The carousel component can be used to cycle through a set of elements using cust
 
 ## Props
 
-<p>The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types 
- page</A> for type information.</p>
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Carousel
+
+- Use the `classDiv` prop to overwrite `divClass`.
+- Use the `classIndicatorDiv` prop to overwrite `indicatorDivCls`.
+- Use the `classCaption` prop to overwrite `captionClass`.
+- Use the `classIndicator` prop to overwrite `indicatorClass`.
 
 <TableProp>
   <TableDefaultRow {items} rowState='hover' />
@@ -301,8 +303,4 @@ The carousel component can be used to cycle through a set of elements using cust
 
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/carousel/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite carousel</A
-  >
-</P>
+- [Flowbite Carousel](https://flowbite.com/docs/components/carousel/)

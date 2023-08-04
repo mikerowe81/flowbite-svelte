@@ -7,15 +7,16 @@
 
 <script lang="ts">
   import Wrapper from '$lib/utils/Wrapper.svelte';
-  import classNames from 'classnames';
-  import {getContext, onMount} from 'svelte'
+  import { twMerge } from 'tailwind-merge';
+  import { getContext, onMount} from 'svelte';
   import type { InputType } from '../types';
 
   export let type: InputType = 'text';
-  export let value: string | number = '';
+  export let value: any = undefined;
   export let size: FormSizeType | undefined = undefined;
   export let defaultClass: string = 'block w-full disabled:cursor-not-allowed disabled:opacity-50';
   export let color: 'base' | 'green' | 'red' = 'base';
+  export let floatClass: string = 'flex absolute inset-y-0 items-center text-gray-500 dark:text-gray-400';
 
   onMount(() => {
     if(inputRef && $$props.autofocus) {
@@ -33,7 +34,7 @@
   };
 
   const ringClasses = {
-    base: 'focus:border-blue-500 focus:ring-blue-500 dark:focus:border-blue-500 dark:focus:ring-blue-500',
+    base: 'focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500',
     green:
       'focus:ring-green-500 focus:border-green-500 dark:focus:border-green-500 dark:focus:ring-green-500',
     red: 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500'
@@ -52,16 +53,6 @@
 
   let group: { size: SizeType } = getContext('group');
 
-  // you need to this to avoid 2-way binding
-  const setType = (node: HTMLInputElement, _type: string) => {
-    node.type = _type;
-    return {
-      update(_type: string) {
-        node.type = _type;
-      }
-    };
-  };
-
   const textSizes = { sm: 'sm:text-xs', md: 'text-sm', lg: 'sm:text-base' };
   const leftPadding = { sm: 'pl-9', md: 'pl-10', lg: 'pl-11' };
   const rightPadding = { sm: 'pr-9', md: 'pr-10', lg: 'pr-11' };
@@ -71,28 +62,27 @@
   let inputClass: string;
   $: {
     const _color = color === 'base' && background ? 'tinted' : color;
-    inputClass = classNames(
+    inputClass = twMerge([
       defaultClass,
-      $$slots.left && leftPadding[_size],
-      $$slots.right && rightPadding[_size],
+      ($$slots.left && leftPadding[_size]) || ($$slots.right && rightPadding[_size]) || inputPadding[_size],
       ringClasses[color],
       colorClasses[_color],
       borderClasses[_color],
-      inputPadding[_size],
       textSizes[_size],
       group || 'rounded-lg',
       group && 'first:rounded-l-lg last:rounded-r-lg',
       group && 'border-l-0 first:border-l last:border-r',
       $$props.class
-    );
+    ]);
   }
-  let floatClass = 'flex absolute inset-y-0 items-center text-gray-500 dark:text-gray-400';
   let inputRef: HTMLInputElement
 </script>
 
 <Wrapper class="relative w-full" show={$$slots.left || $$slots.right}>
   {#if $$slots.left}
-    <div class="{floatClass} left-0 pl-2.5 pointer-events-none"><slot name="left" /></div>
+    <div class="{twMerge(floatClass, $$props.classLeft)} left-0 pl-2.5 pointer-events-none">
+      <slot name="left" />
+    </div>
   {/if}
   <slot props={{ ...$$restProps, class: inputClass }}>
     <input
@@ -112,10 +102,69 @@
       on:mouseleave
       on:paste
       on:input
-      use:setType={type}
+      {...{ type }}
       class={inputClass} />
   </slot>
   {#if $$slots.right}
-    <div class="{floatClass} right-0 pr-2.5"><slot name="right" /></div>
+    <div class="{twMerge(floatClass, $$props.classRight)} right-0 pr-2.5"><slot name="right" /></div>
   {/if}
 </Wrapper>
+
+<!--
+  @component
+  ## Feature
+  [Go to Input Fields](https://flowbite-svelte.com/docs/forms/input-field)
+  - Setup
+  - Input fields
+  - Input sizes
+  - Disabled state
+  - Validation
+  - Input with icon
+  - Input group
+  - Icon click handler
+  - Helper text
+  - Number input
+  - Search input
+  - Dropdown
+  - Advanced usage
+  ## Props
+  @prop type: InputType = 'text';
+  @prop value: any = '';
+  @prop size: FormSizeType | undefined = undefined;
+  @prop defaultClass: string = 'block w-full disabled:cursor-not-allowed disabled:opacity-50';
+  @prop color: 'base' | 'green' | 'red' = 'base';
+  ## Event
+  - on:blur
+  - on:change
+  - on:click
+  - on:contextmenu
+  - on:focus
+  - on:keydown
+  - on:keypress
+  - on:keyup
+  - on:mouseover
+  - on:mouseenter
+  - on:mouseleave
+  - on:paste
+  - on:input
+  ## Example
+  ```
+  <form>
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+      <div>
+        <Label for="first_name" class="mb-2">First name</Label>
+        <Input type="text" id="first_name" placeholder="John" required  />
+      </div>
+      <div>
+        <Label for="last_name" class="mb-2">Last name</Label>
+        <Input type="text" id="last_name" placeholder="Doe" required />
+      </div>
+      <div>
+        <Label for="company" class="mb-2">Company</Label>
+        <Input type="text" id="company" placeholder="Flowbite" required />
+      </div>
+    </div>
+    <Button type="submit">Submit</Button>
+  </form>
+  ```
+-->

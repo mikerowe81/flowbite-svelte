@@ -14,8 +14,6 @@ thumnailSize: w-48
   import { props as items } from '../../props/Progressbar.json'
 </script>
 
-
-
 The progress bar component can be used as an indicator to show the completion rate of data sets or it can be used as an animated loader component. There are multiple sizes, colors, and styles available.
 
 ## Setup
@@ -109,8 +107,8 @@ Use the `color` prop to change the color of a progress bar.
 </div>
 
 <div class="my-4">
-<div class="mb-1 text-base font-medium text-blue-700 dark:text-blue-500">Blue/Default</div>
-  <Progressbar progress="50" />
+<div class="mb-1 text-base font-medium text-blue-700 dark:text-blue-500">Blue</div>
+  <Progressbar progress="50" color="blue"/>
 </div>
 
 <div class="my-4">
@@ -177,7 +175,10 @@ Use `labelInsideClass` prop to style your progressbar.
 
 ## Props
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
+
+- Use the `class` prop to overwrite the `div` class.
+- Use the `classLabelOutside` prop to overwrite the outside `div` class.
 
 <TableProp>
   <TableDefaultRow {items} rowState='hover' />
@@ -185,8 +186,4 @@ The component has the following props, type, and default values. See <A href="/d
 
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/progress/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite Progress bar</A
-  >
-</P>
+- [Flowbite Progress Bar](https://flowbite.com/docs/components/progress/)

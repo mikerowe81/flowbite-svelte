@@ -1,8 +1,10 @@
 <script context="module" lang="ts">
   // this part is shared between Radio and Checkbox
-  import classNames from 'classnames';
+  import { twMerge } from 'tailwind-merge';
 
   const colorClasses: Record<FormColorType, string> = {
+    primary: 'text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600',
+    secondary: 'text-secondary-600 focus:ring-secondary-500 dark:focus:ring-secondary-600',
     red: 'text-red-600 focus:ring-red-500 dark:focus:ring-red-600',
     green: 'text-green-600 focus:ring-green-500 dark:focus:ring-green-600',
     purple: 'text-purple-600 focus:ring-purple-500 dark:focus:ring-purple-600',
@@ -13,18 +15,19 @@
   };
 
   export const labelClass = (inline: boolean, extraClass: string) =>
-    classNames(inline ? 'inline-flex' : 'flex', 'items-center', extraClass);
+    twMerge(inline ? 'inline-flex' : 'flex', 'items-center', extraClass);
+  export let spacing: string = 'mr-2';
 
   export const inputClass = (
     custom: boolean,
     color: FormColorType,
     rounded: boolean,
     tinted: boolean,
-    extraClass: string | boolean
+    extraClass: string
   ) =>
-    classNames(
+    twMerge(
       'w-4 h-4 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 focus:ring-2',
-      extraClass === true && 'mr-2',
+      spacing,
       tinted ? 'dark:bg-gray-600 dark:border-gray-500' : 'dark:bg-gray-700 dark:border-gray-600',
       custom && 'sr-only peer',
       rounded && 'rounded',
@@ -38,7 +41,7 @@
   import type { FormColorType } from '../types';
   import Label from './Label.svelte';
 
-  export let color: FormColorType = 'blue';
+  export let color: FormColorType = 'primary';
   export let custom: boolean = false;
   export let inline: boolean = false;
   export let group: number | string = '';
@@ -67,3 +70,49 @@
     {...$$restProps}
     class={inputClass(custom, color, false, background, $$slots.default || $$props.class)} /><slot />
 </Label>
+
+<!--
+  @component
+  ## Feature
+  [Go to Radio](https://flowbite-svelte.com/docs/forms/radio)
+  - Setup
+  - Radio examples
+  - Disabled state
+  - Alternative syntax
+  - Radio with a link
+  - Helper text
+  - Bordered
+  - Radio list group
+  - Horizontal list group
+  - Radio in dropdown
+  - Inline layout
+  - Colors
+  - Advanced layout
+  ## Props
+  @prop color: FormColorType = 'primary';
+  @prop custom: boolean = false;
+  @prop inline: boolean = false;
+  @prop group: number | string = '';
+  @prop value: number | string = '';
+  ## Event
+  - on:blur
+  - on:change
+  - on:click
+  - on:focus
+  - on:keydown
+  - on:keypress
+  - on:keyup
+  - on:mouseenter
+  - on:mouseleave
+  - on:mouseover
+  - on:paste
+  ## Example
+  ```
+  <script>
+    import { Radio } from 'flowbite-svelte'
+  </script>
+
+  <Radio name="example">Default radio</Radio>
+  <Radio name="example">Checked state</Radio>
+  ```
+-->

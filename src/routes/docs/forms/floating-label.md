@@ -17,8 +17,6 @@ thumnailSize: w-40
   const events = ["on:blur","on:change","on:click","on:focus","on:keydown","on:keypress","on:keyup","on:mouseenter","on:mouseleave","on:mouseover","on:paste"];
 </script>
 
-
-
 The floating label style was first pioneered by Google in its infamous Material UI design system and it’s basically a label tag which floats just above the input field when it is being focused or already has content inside.
 
 On this page you will find a three different input field styles including a standard, outlined, and filled style including validation styles and sizes coded with Tailwind CSS and supported for dark mode.
@@ -135,19 +133,27 @@ Add a helper text in addition to the label if you want to show more information 
 </script>
 
 <FloatingLabelInput style="filled" id="floating_helper" aria-describedby="floating_helper_text" name="floating_helper" type="text" label="Floating helper"/>
-<Helper class="pt-2">Remember, contributions to this topic should follow our <a href="/" class="text-blue-600 dark:text-blue-500 hover:underline">Community Guidelines</a>.</Helper>
+<Helper class="pt-2">Remember, contributions to this topic should follow our <a href="/" class="text-primary-600 dark:text-primary-500 hover:underline">Community Guidelines</a>.</Helper>
 ```
 
 ## Props
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types 
- page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
+
+### FloatingLabelInput
+
+- Use the `classDiv` prop to overwrite the div class.
+- Use the `classInput` prop to overwrite the input class.
+- Use the `classLabel` prop to overwrite the label class.
+
 
 <TableProp>
   <TableDefaultRow {items} rowState='hover' />
 </TableProp>
 
 ### Helper
+
+- Use the `class` prop to overwrite the `p` tag class.
 
 <TableProp>
 <TableDefaultRow items={items2} rowState='hover' />
@@ -156,3 +162,7 @@ The component has the following props, type, and default values. See <A href="/d
 ## Forwarded Events
 
 <DocBadgeList items={events} />
+
+## References
+
+- [Flowbite Floating Label](https://flowbite.com/docs/forms/floating-label/)

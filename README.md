@@ -1,4 +1,4 @@
-# FLOWBITE-SVELTE 
+# FLOWBITE-SVELTE
 
 [![npm version](https://badgen.net/npm/v/flowbite-svelte)](https://www.npmjs.com/package/flowbite-svelte)
 [![npm downloads](https://badgen.net/npm/dw/flowbite-svelte)](https://www.npmjs.com/package/flowbite-svelte)
@@ -31,7 +31,7 @@ You can find all the starters in the Starters directory.
 
 You can find all the examples in the Examples directory.
 
-- [Flowbite SvelteKit responsive sidebar layout](https://github.com/themesberg/flowbite-svelte/tree/main/examples/flowbite-sveltekit-responsive-sidebar-layout)
+- [Flowbite SvelteKit responsive sidebar layout](https://github.com/shinokada/flowbite-sveltekit-responsive-sidebar-layout)
 
 ## Installation
 

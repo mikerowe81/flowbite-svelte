@@ -7,15 +7,11 @@ dir: Experimental
 description: Start receiving date and time data from your users using this free datepicker element based on Tailwind utility-classes and vanilla JavaScript
 thumnailSize: w-28
 ---
-
-
 <script>
   import { TableProp, TableDefaultRow } from '../../utils'
   import { Alert } from '$lib'
   import { props as items } from '../../props/Datepicker.json'
 </script>
-
-
 Date picker component
 
 <div class="p-8">
@@ -122,7 +118,7 @@ You can also add a title to the datepicker by using the `datepicker-title="title
 
 ## Props
 
-The component has the following props, type, and default values. See <a href="/docs/pages/typescript">types page</a> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 <TableProp>
     <TableDefaultRow {items} rowState="hover" />

@@ -17,8 +17,6 @@ thumnailSize: w-64
   const events = ["on:blur","on:click","on:focus","on:keydown","on:keypress","on:keyup","on:mouseenter","on:mouseleave","on:mouseover"];
 </script>
 
-
-
 The tabs component can be used either as an extra navigational hierarchy complementing the main navbar or you can also use it to change content inside a container just below the tabs using the data attributes from Flowbite.
 
 ## Setup
@@ -254,16 +252,19 @@ To get a custom look and feel for the `Tabs` component, do not set `style` prop,
 
 ## Props
 
-<p>The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types 
- page</A> for type information.</p>
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### TabItem
+
+- Use the `class` prop to overwrite the `li` tag class.
 
 <TableProp>
   <TableDefaultRow items={items3} rowState='hover' />
 </TableProp>
 
 ### Tabs
+
+- Use the `class` prop to overwrite `defaultClass`.
 
 <TableProp>
   <TableDefaultRow items={items4} rowState='hover' />
@@ -273,10 +274,6 @@ To get a custom look and feel for the `Tabs` component, do not set `style` prop,
 
 <DocBadgeList items={events} />
 
-
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/tabs/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite Tabs</A>
-</P>
+- [Flowbite Tabs](https://flowbite.com/docs/components/tabs/)

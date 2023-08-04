@@ -15,8 +15,6 @@ description: Use the textarea component as a multi-line text field input and use
   const events = ["on:blur","on:change","on:click","on:focus","on:input","on:keydown","on:keypress","on:keyup","on:mouseenter","on:mouseleave","on:mouseover","on:paste"];
 </script>
 
-
-
 The textarea component is a multi-line text field input that can be used to receive longer chunks of text from the user in the form of a comment box, description field, and more.
 
 ## Setup
@@ -90,7 +88,7 @@ Most often the textarea component is used as the main text field input element i
     </div>
   </Textarea>
 </form>
-<p class="ml-auto text-xs text-gray-500 dark:text-gray-400">Remember, contributions to this topic should follow our <a href="/" class="text-blue-600 dark:text-blue-500 hover:underline">Community Guidelines</a>.</p>
+<p class="ml-auto text-xs text-gray-500 dark:text-gray-400">Remember, contributions to this topic should follow our <a href="/" class="text-primary-600 dark:text-primary-500 hover:underline">Community Guidelines</a>.</p>
 ```
 
 ## Chatroom input
@@ -115,7 +113,7 @@ If you want to build a chatroom component you will usually want to use a textare
         <span class="sr-only">Add emoji</span>
     </ToolbarButton>
     <Textarea id="chat" class="mx-4" rows="1" placeholder="Your message..."/>
-    <ToolbarButton type="submit" color="blue" class="rounded-full text-blue-600 dark:text-blue-500">
+    <ToolbarButton type="submit" color="blue" class="rounded-full text-primary-600 dark:text-primary-500">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
         <span class="sr-only">Send message</span>
     </ToolbarButton>
@@ -126,7 +124,9 @@ If you want to build a chatroom component you will usually want to use a textare
 
 ## Props
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
+
+Use the `class` prop to overwrite the `textarea` tag.
 
 <TableProp>
 <TableDefaultRow {items} rowState='hover' />
@@ -136,3 +136,6 @@ The component has the following props, type, and default values. See <A href="/d
 
 <DocBadgeList items={events} />
 
+## References
+
+- [Flowbite Textarea](https://flowbite.com/docs/forms/textarea/)

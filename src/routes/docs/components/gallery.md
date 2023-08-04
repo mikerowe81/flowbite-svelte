@@ -19,8 +19,6 @@ thumnailSize: w-64
   let slotItems = [['default', 'For a button label.']]
 </script>
 
-
-
 The gallery component can be used to show multiple images inside a masonry grid layout styles with the utility-first classes from Tailwind CSS to show a collection of pictures to your users based on various layouts, styles, sizes, and colors.
 
 This component is recommended for usage within marketing UI interfaces and website sections when you want to show pictures of your team members, office pictures, or even case study images.
@@ -249,9 +247,12 @@ This example shows how to get a complete control over the gallery images look an
 
 ## Props
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Gallery
+
+- Use the `class` prop to overwrite the `div` tag.
+- Use the `classImg` prop to overwrite `imgClass`.
 
 <TableProp>
 <TableDefaultRow items={galleryProps} rowState='hover' />
@@ -259,7 +260,4 @@ The component has the following props, type, and default values. See <A href="/d
 
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/gallery/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite Gallery</A>
-</P>
+- [Flowbite Gallery](https://flowbite.com/docs/components/forms/)

@@ -13,16 +13,14 @@ thumbnailSize: w-64
   import { Button, P, A } from '$lib'
   import { props as items1 }  from '../../props/Timeline.json'
   import { props as items2 }  from '../../props/TimelineItem.json'
-  import { props as items3 }  from '../../props/TimelineItemVertical.json'
   import { props as items4 }  from '../../props/TimelineHorizontal.json'
-  import { props as items5 }  from '../../props/TimelineItemHorizontal.json'
   import { props as items6 }  from '../../props/Activity.json'
   import { props as items7 }  from '../../props/ActivityItem.json'
   import { props as items8 }  from '../../props/Group.json'
   import { props as items9 }  from '../../props/GroupItem.json'
+  import { props as timelineItemVerticalProp }  from '../../props/TimelineItemVertical.json'
+  import { props as timelineItemHorizontalProp }  from '../../props/TimelineItemHorizontal.json'
 </script>
-
-
 
 The timeline component can be used to show series of data in a chronological order for use cases such as activity feeds, user actions, application updates, and more.
 
@@ -87,10 +85,10 @@ Use this vertical timeline component with icons and badges to show a more advanc
   <TimelineItem title="Flowbite Application UI v2.0.0" date="Released on January 13th, 2022">
     <svelte:fragment slot="icon">
       <span
-        class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+        class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-primary-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-primary-900">
         <svg
           aria-hidden="true"
-          class="w-3 h-3 text-blue-600 dark:text-blue-400"
+          class="w-3 h-3 text-primary-600 dark:text-primary-400"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -108,10 +106,10 @@ Use this vertical timeline component with icons and badges to show a more advanc
   <TimelineItem title="Flowbite Figma v1.3.0" date="Released on December 7th, 2021">
     <svelte:fragment slot="icon">
       <span
-        class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+        class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-primary-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-primary-900">
         <svg
           aria-hidden="true"
-          class="w-3 h-3 text-blue-600 dark:text-blue-400"
+          class="w-3 h-3 text-primary-600 dark:text-primary-400"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -129,10 +127,10 @@ Use this vertical timeline component with icons and badges to show a more advanc
   <TimelineItem title="Flowbite Library v1.2.2" date="Released on December 2nd, 2021">
     <svelte:fragment slot="icon">
       <span
-        class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+        class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-primary-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-primary-900">
         <svg
           aria-hidden="true"
-          class="w-3 h-3 text-blue-600 dark:text-blue-400"
+          class="w-3 h-3 text-primary-600 dark:text-primary-400"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -163,8 +161,8 @@ Use this horizontally aligned timeline component to show a series of data in a c
   <TimelineItem title="Flowbite Library v1.0.0" date="Released on December 2nd, 2021">
     <svelte:fragment slot="icon">
         <div class="flex items-center">
-          <div class="flex z-10 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-              <svg aria-hidden="true" class="w-3 h-3 text-blue-600 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+          <div class="flex z-10 justify-center items-center w-6 h-6 bg-primary-200 rounded-full ring-0 ring-white dark:bg-primary-900 sm:ring-8 dark:ring-gray-900 shrink-0">
+              <svg aria-hidden="true" class="w-3 h-3 text-primary-600 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
           </div>
           <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
       </div>
@@ -176,8 +174,8 @@ Use this horizontally aligned timeline component to show a series of data in a c
   <TimelineItem title="Flowbite Library v1.2.0" date="Released on December 23th, 2021">
     <svelte:fragment slot="icon">
         <div class="flex items-center">
-          <div class="flex z-10 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-              <svg aria-hidden="true" class="w-3 h-3 text-blue-600 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+          <div class="flex z-10 justify-center items-center w-6 h-6 bg-primary-200 rounded-full ring-0 ring-white dark:bg-primary-900 sm:ring-8 dark:ring-gray-900 shrink-0">
+              <svg aria-hidden="true" class="w-3 h-3 text-primary-600 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
           </div>
           <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
       </div>
@@ -189,8 +187,8 @@ Use this horizontally aligned timeline component to show a series of data in a c
   <TimelineItem title="Flowbite Library v1.3.0" date="Released on January 5th, 2021">
     <svelte:fragment slot="icon">
         <div class="flex items-center">
-          <div class="flex z-10 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-              <svg aria-hidden="true" class="w-3 h-3 text-blue-600 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+          <div class="flex z-10 justify-center items-center w-6 h-6 bg-primary-200 rounded-full ring-0 ring-white dark:bg-primary-900 sm:ring-8 dark:ring-gray-900 shrink-0">
+              <svg aria-hidden="true" class="w-3 h-3 text-primary-600 dark:text-primary-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
           </div>
           <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
       </div>
@@ -212,7 +210,7 @@ This component can be used to show the timline of a user’s activity history in
   let activities = [
     {
       title:
-        'Bonnie moved <a href="/" class="font-semibold text-blue-600 dark:text-blue-500 hover:underline">Jese Leos</a> to <span class="bg-gray-100 text-gray-800 text-xs font-normal mr-2 px-2.5 py-0.5 rounded dark:bg-gray-600 dark:text-gray-300">Funny Group</span>',
+        'Bonnie moved <a href="/" class="font-semibold text-primary-600 dark:text-primary-500 hover:underline">Jese Leos</a> to <span class="bg-gray-100 text-gray-800 text-xs font-normal mr-2 px-2.5 py-0.5 rounded dark:bg-gray-600 dark:text-gray-300">Funny Group</span>',
       date: 'just now',
       alt: 'image alt here',
       src: '/images/profile-picture-2.webp'
@@ -274,10 +272,11 @@ Use this component to group multiple data entries inside a single date and show 
 
 ## Props
 
-<p>The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types 
- page</A> for type information.</p>
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Timeline
+
+- Use the `class` prop to overwrite the `ol` tag class.
 
 <TableProp>
   <TableDefaultRow items={items1} rowState='hover' />
@@ -285,29 +284,29 @@ Use this component to group multiple data entries inside a single date and show 
 
 ### TimelineItem
 
+- Use the `classLi` prop to overwrite the `li` tag class.
+- Use the `classDiv` prop to overwrite the `div` tag class.
+- Use the `classTime` prop to overwrite the `time` tag class.
+
 <TableProp>
   <TableDefaultRow items={items2} rowState='hover' />
 </TableProp>
 
-### TimelineItemVertical
-
-<TableProp>
-  <TableDefaultRow items={items3} rowState='hover' />
-</TableProp>
-
 ### TimelineHorizontal
+
+- Use the `liClass` prop to overwrite `classLi`.
+- Use the `divClass` prop to overwrite `classDiv`.
+- Use the `timeClass` prop to overwrite `classTime`.
+- Use the `pClass` prop to overwrite `classP`.
+- Use the `aClass` prop to overwrite `classA`.
 
 <TableProp>
   <TableDefaultRow items={items4} rowState='hover' />
 </TableProp>
 
-### TimelineItemHorizontal
-
-<TableProp>
-  <TableDefaultRow items={items5} rowState='hover' />
-</TableProp>
-
 ### Activity
+
+- Use the `class` prop to overwrite `olClass`.
 
 <TableProp>
   <TableDefaultRow items={items6} rowState='hover' />
@@ -315,11 +314,24 @@ Use this component to group multiple data entries inside a single date and show 
 
 ### ActivityItem
 
+- Use the `classLi` prop to overwrite  `liClass`.
+- Use the `classSpan` prop to overwrite  `spanClass`.
+- Use the `classImg` prop to overwrite  `imgClass`.
+- Use the `classOuterDiv` prop to overwrite  `outerDivClass`.
+- Use the `classInnerDiv` prop to overwrite  `innerDivClass`.
+- Use the `classTime` prop to overwrite  `timeClass`.
+- Use the `classTitle` prop to overwrite  `titleClass`.
+- Use the `classText` prop to overwrite  `textClass`.
+
 <TableProp>
   <TableDefaultRow items={items7} rowState='hover' />
 </TableProp>
 
 ### Group
+
+- Use the `classDiv` prop to overwrite `divClass`.
+- Use the `classTime` prop to overwrite `timeClass`.
+- Use the `classOl` prop to overwrite `olClass`.
 
 <TableProp>
   <TableDefaultRow items={items8} rowState='hover' />
@@ -327,14 +339,35 @@ Use this component to group multiple data entries inside a single date and show 
 
 ### GroupItem
 
+- Use the `classA` prop to overwrite `aClass`.
+- Use the `classImg` prop to overwrite `imgClass`.
+- Use the `classDiv` prop to overwrite `divClass`.
+- Use the `classTitle` prop to overwrite `titleClass`.
+- Use the `classSpan` prop to overwrite `spanClass`.
+
 <TableProp>
   <TableDefaultRow items={items9} rowState='hover' />
 </TableProp>
 
+### TimelineItemVertical
+
+- Use the `classLi` prop to overwrite `liClass`.
+- Use the `classSpan` prop to overwrite `spanClass`.
+- Use the `classH3` prop to overwrite `h3Class`.
+- Use the `classTime` prop to overwrite `timeClass`.
+
+<TableProp>
+  <TableDefaultRow items={timelineItemVerticalProp} rowState='hover' />
+</TableProp>
+
+### TimelineItemHorizonal
+
+- Use the `class` prop to overwrite the `ol` tag class.
+
+<TableProp>
+  <TableDefaultRow items={timelineItemHorizontalProp} rowState='hover' />
+</TableProp>
+
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/timeline/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite timeline</A
-  >
-</P>
+- [Flowbite Timeline](https://flowbite.com/docs/components/timeline/)

@@ -18,8 +18,6 @@ thumnailSize: w-72
   const events = ["on:blur","on:change","on:click","on:focus","on:keydown","on:keypress","on:keyup","on:mouseenter","on:mouseleave","on:mouseover","on:paste"];
 </script>
 
-
-
 The radio component can be used to allow the user to choose a single option from one or more available options coded with the utility classes from Tailwind CSS and available in multiple styles, variants, and colors and support dark mode.
 
 ## Setup
@@ -98,7 +96,7 @@ Use this example if you want to add an anchor link inside the label of the radio
   import { Radio } from 'flowbite-svelte'
 </script>
 
-<Radio name="with-link">I agree with the <a href="/" class="text-blue-600 dark:text-blue-500 hover:underline ml-1">terms and conditions</a>.</Radio>
+<Radio name="with-link">I agree with the <a href="/" class="text-primary-600 dark:text-primary-500 hover:underline ml-1">terms and conditions</a>.</Radio>
 ```
 
 ## Helper text
@@ -181,19 +179,21 @@ Here’s an example of a list group that you can use right away.
 </script>
 
 <Button><Chevron>Dropdown radio</Chevron></Button>
-<Dropdown class="w-60 p-3 space-y-1">
-  <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
-    <Radio name="group3" bind:group={group3} value={1}>Enable notifications</Radio>
-    <Helper class="pl-6">Some helpful instruction goes over here.</Helper>
-  </li>
-  <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
-    <Radio name="group3" bind:group={group3} value={2}>Enable 2FA auth</Radio>
-    <Helper class="pl-6">Some helpful instruction goes over here.</Helper>
-  </li>
-  <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
-    <Radio name="group3" bind:group={group3} value={3}>Subscribe newsletter</Radio>
-    <Helper class="pl-6">Some helpful instruction goes over here.</Helper>
-  </li>
+<Dropdown class="w-60">
+  <ul class="p-2">
+    <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+      <Radio name="group3" bind:group={group3} value={1}>Enable notifications</Radio>
+      <Helper class="pl-6">Some helpful instruction goes over here.</Helper>
+    </li>
+    <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+      <Radio name="group3" bind:group={group3} value={2}>Enable 2FA auth</Radio>
+      <Helper class="pl-6">Some helpful instruction goes over here.</Helper>
+    </li>
+    <li class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+      <Radio name="group3" bind:group={group3} value={3}>Subscribe newsletter</Radio>
+      <Helper class="pl-6">Some helpful instruction goes over here.</Helper>
+    </li>
+  </ul>
 </Dropdown>
 ```
 
@@ -260,7 +260,7 @@ Use this example of an advanced layout of radio elements where the label parent 
 <p class="mb-5 text-lg font-medium text-gray-900 dark:text-white">Choose technology:</p>
 <div class="grid gap-6 w-full md:grid-cols-2">
   <Radio name="custom" custom>
-    <div class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <div class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-primary-500 peer-checked:border-primary-600 peer-checked:text-primary-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
       <div>
         <div class="w-full text-lg font-semibold">0-50 MB</div>
         <div class="w-full">Good for small websites</div>
@@ -269,7 +269,7 @@ Use this example of an advanced layout of radio elements where the label parent 
     </div>
   </Radio>
   <Radio name="custom" custom>
-    <div for="hosting-big" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <div for="hosting-big" class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-primary-500 peer-checked:border-primary-600 peer-checked:text-primary-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
         <div class="block">
           <div class="w-full text-lg font-semibold">500-1000 MB</div>
           <div class="w-full">Good for large websites</div>
@@ -282,18 +282,21 @@ Use this example of an advanced layout of radio elements where the label parent 
 
 ## Props
 
-The component has the following props, type, and default values. See <a href="/docs/pages/typescript">types
-page</a> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 All attributes of the `input` element like: name, id, autofocus, etc, can be set directly as component props.
 
 ### Radio
+
+- Use the `class` prop to overwrite the `label` and `input` tag class.
 
 <TableProp>
 <TableDefaultRow items={items} rowState='hover' />
 </TableProp>
 
 ### Helper
+
+- Use the `class` prop to overwrite the `p` tag class.
 
 <TableProp>
 <TableDefaultRow items={items3} rowState='hover' />
@@ -302,3 +305,7 @@ All attributes of the `input` element like: name, id, autofocus, etc, can be set
 ## Forwarded Events
 
 <DocBadgeList items={events} />
+
+## References
+
+- [Flowbite Radio](https://flowbite.com/docs/forms/radio/)

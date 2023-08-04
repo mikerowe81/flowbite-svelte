@@ -15,13 +15,12 @@ thumnailSize: w-64
   import { props as items2 } from '../../props/SpeedDialButton.json'
 </script>
 
-
-
 Get started with the speed dial component to show a list of buttons or menu items positioned relative to the body in either corner as a quick way to allow certains actions to be made by your users.
 
 ## Default speed dial
 
 To initialize a speed dial component you need to wrap the trigger element and the list of items inside an element and use the data-dial-init data attribute on it.
+
 
 <Alert>
 
@@ -357,7 +356,7 @@ This example can be used to show an alternative style when showing a list of men
 
 <SpeedDial defaultClass="absolute right-24 bottom-6" tooltip="none" placement="top-end">
     <svg slot="icon" aria-hidden="true" class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path></svg>
-    <Listgroup class="w-24" active>
+    <Listgroup active>
         <ListgroupItem class="flex">
             <svg aria-hidden="true" class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
             Share
@@ -378,7 +377,7 @@ This example can be used to show an alternative style when showing a list of men
 </SpeedDial>
 
 <SpeedDial defaultClass="absolute right-6 bottom-6" tooltip="none" pill={false} placement="top-end">
-    <Listgroup class="w-24" active>
+    <Listgroup active>
         <ListgroupItem class="flex">
             <svg aria-hidden="true" class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
             Share
@@ -420,16 +419,16 @@ Control the main button position using the flexbox utility classes from Tailwind
 
 {#each placements as [position, placement, tooltip]}
     <SpeedDial defaultClass="absolute {position}" {placement}>
-        <SpeedDialButton name="Share" placement={tooltip}>
+        <SpeedDialButton name="Share" {tooltip}>
             <svg aria-hidden="true" class="w-6 h-6 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
         </SpeedDialButton>
-        <SpeedDialButton name="Print" placement={tooltip}>
+        <SpeedDialButton name="Print" {tooltip}>
             <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clip-rule="evenodd"></path></svg>
         </SpeedDialButton>
-        <SpeedDialButton name="Download" placement={tooltip}>
+        <SpeedDialButton name="Download" {tooltip}>
             <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-5L9 4H4zm7 5a1 1 0 00-2 0v1.586l-.293-.293a.999.999 0 10-1.414 1.414l2 2a.999.999 0 001.414 0l2-2a.999.999 0 10-1.414-1.414l-.293.293V9z" fill-rule="evenodd"></path></svg>
         </SpeedDialButton>
-        <SpeedDialButton name="Copy" placement={tooltip}>
+        <SpeedDialButton name="Copy" {tooltip}>
             <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z"></path><path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z"></path></svg>
         </SpeedDialButton>
     </SpeedDial>
@@ -477,16 +476,34 @@ The default trigger type is hover for each speed dial component.
         <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z"></path><path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z"></path></svg>
     </SpeedDialButton>
 </SpeedDial>
+```
 
+## Control open state
+
+Use the `open` property to control the state of the popup menu.
+
+```svelte example class="relative h-96"
+<script>
+  import { SpeedDial, SpeedDialButton } from 'flowbite-svelte';
+  let open = false;
+
+  const close = () => {open =  false};
+</script>
+
+<SpeedDial bind:open defaultClass="absolute right-6 bottom-6">
+    <SpeedDialButton name="Share" on:click={close}>Share</SpeedDialButton>
+    <SpeedDialButton name="Print" on:click={close}>Print</SpeedDialButton>
+</SpeedDial>
 ```
 
 The default trigger type is hover for each speed dial component.
 ## Props
 
-<p>The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types 
- page</A> for type information.</p>
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### SpeedDial
+
+- Use the `class` prop to overwrite `defaultClass`.
 
 <TableProp>
   <TableDefaultRow items={items1} rowState='hover' />
@@ -494,13 +511,12 @@ The default trigger type is hover for each speed dial component.
 
 ### SpeedDialButton
 
+- Use the `class` prop to overwrite `btnDefaultClass`.
+
 <TableProp>
   <TableDefaultRow items={items2} rowState='hover' />
 </TableProp>
 
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/speed-dial/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite Speed Dial</A>
-</P>
+- [Flowbite Speed Dial](https://flowbite.com/docs/components/speed-dial/)

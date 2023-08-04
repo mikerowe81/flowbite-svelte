@@ -18,8 +18,6 @@ thumnailSize: w-40
   import { props as items5} from '../../props/ArrowKeyUp.json'
 </script>
 
-
-
 The KBD (Keyboard) component can be used to indicate a textual user input from the keyboard inside other elements such as in text, tables, cards, and more.
 
 ## Setup
@@ -224,10 +222,11 @@ This example can be used to denote function keys inside the KBD component.
 
 ## Props
 
-<p>The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types 
- page</A> for type information.</p>
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Kbd
+
+- Use the `class` prop to overwrite `kbdClass`.
 
 <TableProp>
   <TableDefaultRow items={items} rowState='hover' />
@@ -235,11 +234,15 @@ This example can be used to denote function keys inside the KBD component.
 
 ### ArrowKeyDown
 
+- Use the `class` prop to overwrite `svgClass`.
+
 <TableProp>
   <TableDefaultRow items={items2} rowState='hover' />
 </TableProp>
 
 ### ArrowKeyLeft
+
+- Use the `class` prop to overwrite `svgClass`.
 
 <TableProp>
   <TableDefaultRow items={items3} rowState='hover' />
@@ -247,11 +250,15 @@ This example can be used to denote function keys inside the KBD component.
 
 ### ArrowKeyRight
 
+- Use the `class` prop to overwrite `svgClass`.
+
 <TableProp>
   <TableDefaultRow items={items4} rowState='hover' />
 </TableProp>
 
 ### ArrowKeyUp
+
+- Use the `class` prop to overwrite `svgClass`.
 
 <TableProp>
   <TableDefaultRow items={items5} rowState='hover' />
@@ -259,8 +266,4 @@ This example can be used to denote function keys inside the KBD component.
 
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/kbd/" target="_blank" rel="noreferrer" class="link"
-    >Tailwind CSS KBD (Keyboard)</A
-  >
-</P>
+- [Flowbite KBD (Keyboard)](https://flowbite.com/docs/components/kbd/)

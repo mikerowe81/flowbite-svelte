@@ -2,7 +2,7 @@
   import { getContext } from 'svelte';
   import type { TabCtxType } from './Tabs.svelte';
   import { writable } from 'svelte/store';
-  import classNames from 'classnames';
+  import { twMerge } from 'tailwind-merge';
 
   export let open: boolean = false;
   export let title: string = 'Tab title';
@@ -28,7 +28,7 @@
   }
 
   let buttonClass: string;
-  $: buttonClass = classNames(
+  $: buttonClass = twMerge(
     defaultClass,
     open ? activeClasses ?? ctx.activeClasses : inactiveClasses ?? ctx.inactiveClasses,
     open && 'active'
@@ -36,7 +36,7 @@
   );
 </script>
 
-<li class={classNames('group', $$props.class)} role="presentation">
+<li class={twMerge('group', $$props.class)} role="presentation">
   <button
     type="button"
     on:click={() => (open = true)}
@@ -64,3 +64,53 @@
     </div>
   {/if}
 </li>
+
+<!--
+  @component
+  ## Features
+  [Go to Tab](https://flowbite-svelte.com/docs/components/tab)
+  ## Props
+  @prop open: boolean = false;
+  @prop title: string = 'Tab title';
+  @prop activeClasses: string | undefined = undefined;
+  @prop inactiveClasses: string | undefined = undefined;
+  @prop defaultClass: string =
+    'inline-block text-sm font-medium text-center disabled:cursor-not-allowed';
+  ## Event
+  - on:blur
+  - on:click
+  - on:contextmenu
+  - on:focus
+  - on:keydown
+  - on:keypress
+  - on:keyup
+  - on:mouseenter
+  - on:mouseleave
+  - on:mouseover
+  ## Example
+  ```
+  <script>
+    import { Tabs, TabItem } from 'flowbite-svelte';
+  </script>
+  
+  <Tabs>
+    <TabItem open title="Profile">
+      <p class="text-sm text-gray-500 dark:text-gray-400"><b>Profile:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </TabItem>
+    <TabItem title="Settings">
+      <p class="text-sm text-gray-500 dark:text-gray-400"><b>Settings:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </TabItem>
+    <TabItem title="Users">
+      <p class="text-sm text-gray-500 dark:text-gray-400"><b>Users:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </TabItem>
+    <TabItem title="Dashboard">
+      <p class="text-sm text-gray-500 dark:text-gray-400"><b>Dashboard:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </TabItem>
+    <TabItem disabled>
+      <span slot="title" class="text-gray-400 dark:text-gray-500">Disabled</span>
+      <p class="text-sm text-gray-500 dark:text-gray-400"><b>Disabled:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </TabItem>
+  </Tabs>
+  ```
+  
+-->

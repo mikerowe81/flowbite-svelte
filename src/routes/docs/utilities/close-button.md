@@ -16,8 +16,6 @@ description: Get started with the CloseButton components to hide a target elemen
 	let theadClass = 'text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-white';
 </script>
 
-
-
 ## CloseButton
 
 Use `CloseButton` component to close a component.
@@ -46,9 +44,7 @@ Use `CloseButton` component to close a component.
 
 ## Props
 
-The component has the following props, type, and default values. 
-See <A class="hover:underline" href="/docs/pages/typescript">the types page</A>
-for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 <TableProp>
 	<TableDefaultRow {items} rowState="hover" />

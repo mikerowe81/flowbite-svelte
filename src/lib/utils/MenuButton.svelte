@@ -1,12 +1,12 @@
 <script lang="ts">
-  import classNames from 'classnames';
+  import { twMerge } from 'tailwind-merge';
   import ToolbarButton from '$lib/toolbar/ToolbarButton.svelte';
 
   export let name: string | undefined = undefined;
   export let vertical: boolean = false;
 </script>
 
-<ToolbarButton on:click {name} {...$$restProps} class={classNames($$props.class)} let:svgSize>
+<ToolbarButton on:click {name} {...$$restProps} class={twMerge($$props.class)} let:svgSize>
   <svg
     class={svgSize}
     aria-hidden="true"
@@ -22,3 +22,12 @@
     {/if}
   </svg>
 </ToolbarButton>
+
+<!--
+  @component
+  ## Props
+  @prop name: string | undefined = undefined;
+  @prop vertical: boolean = false;
+  ## Event
+  - on:click
+-->

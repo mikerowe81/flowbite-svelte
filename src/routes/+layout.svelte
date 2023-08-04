@@ -2,7 +2,7 @@
   import { page } from '$app/stores';
   import { DarkMode, Navbar, NavBrand, NavHamburger, NavLi, NavUl } from '$lib';
   import Tooltip from '$lib/tooltips/Tooltip.svelte';
-  import { setContext } from 'svelte';
+  import { onMount, setContext } from 'svelte';
   import { writable, type Writable } from 'svelte/store';
   import '../app.css';
   import DocBadge from './utils/DocBadge.svelte';
@@ -10,16 +10,14 @@
   import GitHub from './utils/icons/GitHub.svelte';
   import YouTube from './utils/icons/YouTube.svelte';
   import ToolbarLink from './utils/ToolbarLink.svelte';
-  import type { LayoutData } from './$types';
   import NavSidebarHamburger from '$lib/navbar/NavSidebarHamburger.svelte';
   import AlgoliaSearch from './utils/AlgoliaSearch.svelte';
-
-  export let data: LayoutData;
+  import { browser } from '$app/environment';
 
   let isHomePage: boolean;
   $: isHomePage = $page.route.id === '/';
 
-  let version = data.package.version ?? 'N/A';
+  let version = import.meta.env.VITE_APP_VERSION;
 
   $: activeUrl = $page.url.pathname;
   let logo = '/images/flowbite-svelte-icon-logo.svg';
@@ -33,6 +31,17 @@
   const toggleDrawer = () => {
     drawerHiddenStore.update((state) => !state);
   };
+
+  onMount(() => {
+    // Workaround until https://github.com/sveltejs/kit/issues/2664 is fixed
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const deepLinkedElement = document.getElementById(window.location.hash.substring(1));
+
+      if (deepLinkedElement) {
+        window.setTimeout(() => deepLinkedElement.scrollIntoView(), 100);
+      }
+    }
+  });
 </script>
 
 <header
@@ -57,6 +66,10 @@
 
     {#if !isHomePage}
       <AlgoliaSearch />
+    {:else}
+      <div id="home">
+        <AlgoliaSearch />
+      </div>
     {/if}
 
     <NavUl
@@ -109,7 +122,7 @@
       <DocBadge
         large
         class="ml-2 xl:ml-6 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-800 dark:hover:text-white">
-        v{version} 
+        v{version}
       </DocBadge>
     </a>
 

@@ -4,12 +4,15 @@ node_modules
 /.svelte-kit
 /package
 /dist
-.env
-.env.*
-!.env.example
 
 .vercel
 .vscode/
 
 /src/routes/compotests
 /src/routes/typechecktests
+
+package-lock.json
+yarn.lock
+
+src/routes/testdir/*
+

@@ -19,8 +19,6 @@ description: Use the footer section at the bottom of every page to show valuable
   import { props as items6 } from '../../props/FooterLinkGroup.json'
 </script>
 
-
-
 The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.
 
 ## Setup
@@ -64,7 +62,7 @@ The footer is one of the most underestimated sections of a website being located
   <div class="sm:flex sm:items-center sm:justify-between">
     <FooterBrand
       href="https://flowbite.com"
-      src="https://flowbite.com/docs/images/logo.svg"
+      src="/images/flowbite-svelte-icon-logo.svg"
       alt="Flowbite Logo"
       name="Flowbite"
     />
@@ -94,7 +92,7 @@ The footer is one of the most underestimated sections of a website being located
     <div class="mb-6 md:mb-0">
       <FooterBrand
         href="https://flowbite.com"
-        src="https://flowbite.com/docs/images/logo.svg"
+        src="/images/flowbite-svelte-icon-logo.svg"
         alt="Flowbite Logo"
         name="Flowbite"
       />
@@ -236,10 +234,11 @@ Use this example to set create a sticky footer by using a fixed position to the 
 
 ## Props
 
-<p>The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types 
- page</A> for type information.</p>
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Footer
+
+- Use the `class` prop to overwrite the default class.
 
 <TableProp>
   <TableDefaultRow {items} rowState='hover' />
@@ -247,11 +246,18 @@ Use this example to set create a sticky footer by using a fixed position to the 
 
 ### FooterBrand
 
+- Use the `classA` prop to overwrite `aClass`.
+- Use the `classSpan` prop to overwrite `spanClass`.
+- Use the `classImg` prop to overwrite `imgClass`.
+
 <TableProp>
   <TableDefaultRow items={items2} rowState='hover' />
 </TableProp>
 
 ### FooterCopyright
+
+- Use `classSpan` prop to overwrite  `classSpan`.
+- Use `classA` prop to overwrite  `aClass`.
 
 <TableProp>
   <TableDefaultRow items={items3} rowState='hover' />
@@ -259,11 +265,16 @@ Use this example to set create a sticky footer by using a fixed position to the 
 
 ### FooterIcon
 
+- Use the `class` prop to overwrite `aClass`.
+
 <TableProp>
   <TableDefaultRow items={items4} rowState='hover' />
 </TableProp>
 
 ### FooterLink
+
+- Use the `classLi` prop to overwrite `liClass`.
+- Use the `classA` prop to overwrite `aClass`.
 
 <TableProp>
   <TableDefaultRow items={items5} rowState='hover' />
@@ -271,14 +282,12 @@ Use this example to set create a sticky footer by using a fixed position to the 
 
 ### FooterLinkGroup
 
+- Use the `class` prop to overwrite `ulClass`.
+
 <TableProp>
   <TableDefaultRow items={items6} rowState='hover' />
 </TableProp>
 
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/footer/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite Footer</A
-  >
-</P>
+- [Flowbite Footer](https://flowbite.com/docs/components/footer/)

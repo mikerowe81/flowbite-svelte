@@ -17,12 +17,10 @@ description: The navbar component can be used to show a list of navigation links
   import { props as items4 } from '../../props/NavUl.json'
   import { props as items5 } from '../../props/NavHamburger.json'
   import { props as items6 } from '../../props/Menu.json'
-  import { props as items7 } from '../../props/NavDropdown.json'
+  import { props as sidebarMenuProp } from '../../props/SidebarMenu.json'
 
   const events = ["on:blur","on:change","on:click","on:focus","on:keydown","on:keypress","on:keyup","on:mouseenter","on:mouseleave","on:mouseover"];
 </script>
-
-
 
 Get started with the responsive navbar component from Flowbite to quickly set up a navigation menu for your website and set up the logo, list of pages, CTA button, search input, user profile options with a dropdown, and more.
 
@@ -46,7 +44,7 @@ Use this example of a navigation bar built with the utility classes from Tailwin
 <Navbar let:hidden let:toggle>
   <NavBrand href="/">
     <img
-      src="https://flowbite.com/docs/images/logo.svg"
+      src="/images/flowbite-svelte-icon-logo.svg"
       class="mr-3 h-6 sm:h-9"
       alt="Flowbite Logo"
     />
@@ -77,7 +75,7 @@ This example can be used to show a secondary dropdown menu when clicking on one 
 <Navbar let:hidden let:toggle>
   <NavBrand href="/">
     <img
-      src="https://flowbite.com/docs/images/logo.svg"
+      src="/images/flowbite-svelte-icon-logo.svg"
       class="mr-3 h-6 sm:h-9"
       alt="Flowbite Logo"
     />
@@ -115,7 +113,7 @@ Use this example of a navbar element to also show a search input element that yo
 <Navbar let:hidden let:toggle>
   <NavBrand href="/">
     <img
-      src="https://flowbite.com/docs/images/logo.svg"
+      src="/images/flowbite-svelte-icon-logo.svg"
       class="mr-3 h-6 sm:h-9"
       alt="Flowbite Logo"
     />
@@ -155,7 +153,7 @@ Use the following navbar element to show a call to action button alongside the l
 <Navbar let:hidden let:toggle>
   <NavBrand href="/">
     <img
-      src="https://flowbite.com/docs/images/logo.svg"
+      src="/images/flowbite-svelte-icon-logo.svg"
       class="mr-3 h-6 sm:h-9"
       alt="Flowbite Logo"
     />
@@ -193,7 +191,7 @@ Use this example to keep the navbar positioned fixed to the top side as you scro
     let:toggle
   >
     <NavBrand href="/">
-      <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
+      <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
       <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
     </NavBrand>
     <NavHamburger on:click={toggle} />
@@ -224,7 +222,7 @@ Use this example to create a navigation bar with a user profile or button to tog
 
 <Navbar let:hidden let:toggle>
   <NavBrand href="/">
-    <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
+    <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
   </NavBrand>
   <div class="flex items-center md:order-2">
@@ -263,7 +261,7 @@ Use this example to show a solid background for the navbar component instead of 
 
 <Navbar let:hidden let:toggle rounded color="form">
   <NavBrand href="/">
-    <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
+    <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
   </NavBrand>
   <NavHamburger on:click={toggle} />
@@ -279,10 +277,12 @@ Use this example to show a solid background for the navbar component instead of 
 
 ## Props
 
-<p>The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types 
- page</A> for type information.</p>
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Navbar
+
+- Use the `class` prop to overwrite `navClass`.
+- Use the `classNavDiv` prop to overwrite `navDivClass`.
 
 <TableProp>
   <TableDefaultRow {items} rowState='hover' />
@@ -290,17 +290,16 @@ Use this example to show a solid background for the navbar component instead of 
 
 ### NavBrand
 
+- Use the `class` prop to overwrite the `a` tag class.
+
 <TableProp>
   <TableDefaultRow items={items2} rowState='hover' />
 </TableProp>
 
-### NavDropdown
-
-<TableProp>
-  <TableDefaultRow items={items7} rowState='hover' />
-</TableProp>
-
 ### NavHamburger
+
+- Use the `class` prop to overwrite `btnClass`.
+- Use the `classMenu` prop to overwrite `menuClass`.
 
 <TableProp>
   <TableDefaultRow items={items5} rowState='hover' />
@@ -308,11 +307,17 @@ Use this example to show a solid background for the navbar component instead of 
 
 ### NavLi
 
+- Use the `class` prop to overwrite the `li` tag.
+
 <TableProp>
   <TableDefaultRow items={items3} rowState='hover' />
 </TableProp>
 
 ### NavUl
+
+- Use the `class` prop to overwrite the `div` tag.
+- Use the `classUl` prop to overwrite the `ul` tag.
+
 
 <TableProp>
   <TableDefaultRow items={items4} rowState='hover' />
@@ -320,9 +325,21 @@ Use this example to show a solid background for the navbar component instead of 
 
 ### Menu
 
+- Use the `class` prop to overwrite the `svg` tag class.
+
 <TableProp>
   <TableDefaultRow items={items6} rowState='hover' />
 </TableProp>
+
+### SidebarMenu
+
+- Use the `class` prop to overwrite the outer class.
+- Use the `classSideMenu` prop to overwrite  the inner class.
+
+<TableProp>
+  <TableDefaultRow items={sidebarMenuProp} rowState='hover' />
+</TableProp>
+
 
 ## Forwarded Events
 
@@ -330,11 +347,6 @@ Use this example to show a solid background for the navbar component instead of 
 
 <DocBadgeList items={events} />
 
-
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/navbar/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite Navbar</A
-  >
-</P>
+- [Flowbite Navbar](https://flowbite.com/docs/components/navbar/)

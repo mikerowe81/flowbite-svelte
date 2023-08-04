@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { SizeType } from '$lib/types';
-  import classNames from 'classnames';
+  import { twMerge } from 'tailwind-merge';
   import { getContext } from 'svelte';
   import { clampSize } from '$lib/forms/Input.svelte';
 
@@ -32,7 +32,7 @@
   // size: explicit, inherited, default
   $: _size = size || clampSize(group?.size) || 'md';
 
-  $: divClass = classNames(
+  $: divClass = twMerge(
     textSizes[_size],
     prefixPadding[_size],
     background ? borderClasses['tinted'] : borderClasses['base'],
@@ -48,3 +48,21 @@
 <div {...$$restProps} class={divClass}>
   <slot />
 </div>
+
+<!--
+  @component
+  ## Feature
+  [Go to Input Fields](https://flowbite-svelte.com/docs/forms/input-field)
+  ## Props
+  @prop size: 'sm' | 'md' | 'lg' | undefined = undefined;
+  ## Example
+  ```
+  <div>
+    <Label class="mb-2" for="input-addon-sm">Small additional text</Label>
+    <ButtonGroup class="w-full" size="sm">
+      <InputAddon>@</InputAddon>
+      <Input id="input-addon-sm" type="email" placeholder="elonmusk" />
+    </ButtonGroup>
+  </div>
+  ```
+-->

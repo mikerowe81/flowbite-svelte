@@ -22,8 +22,6 @@ description: Use the accordion component to show hidden information based on the
 
 </script>
 
-
-
 The accordion component is a collection of vertically collapsing header and body elements that can be used to show and hide information based on the Tailwind CSS utility classes and JavaScript from Flowbite.
 
 A popular use case would be the “Frequently Asked Questions” section of a website or page when you can show questions and answers for each child element.
@@ -88,7 +86,7 @@ Use the `open` prop to make an item open on mount.
 
 ## Color option
 
-You can control the look and feel of `AccordionItems` by overwriting the `activeClasses` and `inactiveClasses` properties. You can define them in `Accordion` so that they will apply to all children or set them individually on each `AccordionItem`.
+You can control the look and feel of `AccordionItems` by overwriting the `activeClass` and `inactiveClass` properties. You can define them in `Accordion` so that they will apply to all children or set them individually on each `AccordionItem`.
 
 ```svelte example hideScript
 <script>
@@ -96,8 +94,8 @@ You can control the look and feel of `AccordionItems` by overwriting the `active
 </script>
 
 <Accordion
-  activeClasses="bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800"
-  inactiveClasses="text-gray-500 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800">
+  activeClass="bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800"
+  inactiveClass="text-gray-500 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800">
   <AccordionItem class="">
     <span slot="header">Header 2-1</span>
     <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
@@ -224,7 +222,7 @@ Example how to use the `multiple` option together with expand all behavior.
 
 ## Custom transitions
 
-The default transition of `AccordionItem`s is <A href="https://svelte.dev/docs#run-time-svelte-transition-slide">slide</A>. Use the `transitionType` and `transitionParams` props to make custom transitions.
+The default transition of `AccordionItem`s is <A href="https://svelte.dev/docs#run-time-svelte-transition-slide">slide</A>. Use the `transitionType` and `transitionParams` prop to make custom transitions.
 
 ```svelte example hideScript
 <script>
@@ -246,17 +244,65 @@ The default transition of `AccordionItem`s is <A href="https://svelte.dev/docs#r
 </Accordion>
 ```
 
+## Nesting accordians
+
+Accordions can be nested. All of the mentioned options are supported.
+
+```svelte example hideScript
+<script>
+  import {AccordionItem, Accordion} from 'flowbite-svelte'
+</script>
+<Accordion>
+  <AccordionItem open>
+    <span slot="header">My Header 1</span>
+    <Accordion>
+      <AccordionItem>
+        <span slot="header">My Header 1</span>
+        <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
+        <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/" target="_blank" rel="noreferrer" class="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
+      </AccordionItem>
+      <AccordionItem>
+        <span slot="header">My Header 2</span>
+        <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
+        <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
+        <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
+        <ul class="list-disc pl-5 dark:text-gray-400 text-gray-500">
+          <li><a href="/" target="_blank" rel="noreferrer" class="text-blue-600 dark:text-blue-500 hover:underline" >Lorem ipsum</a></li>
+          <li><a href="https://tailwindui.com/" rel="noreferrer" target="_blank"  class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
+        </ul>
+      </AccordionItem>
+    </Accordion>
+  </AccordionItem>
+  <AccordionItem>
+    <span slot="header">My Header 2</span>
+    <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
+    <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
+    <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
+    <ul class="list-disc pl-5 dark:text-gray-400 text-gray-500">
+      <li><a href="/" target="_blank" rel="noreferrer" class="text-blue-600 dark:text-blue-500 hover:underline" >Lorem ipsum</a></li>
+      <li><a href="https://tailwindui.com/" rel="noreferrer" target="_blank"  class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
+    </ul>
+  </AccordionItem>
+</Accordion>
+```
+
 ## Props
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Accordion
+
+- Use the `class` prop to overwrite `defaultClass`.
+- Use the `classActive` prop to overwrite `activeClass`.
+- Use the `classInactive` prop to overwrite `inactiveClass`.
 
 <TableProp>
   <TableDefaultRow items={accordionProps} rowState='hover' />
 </TableProp>
 
 ### AccordionItem
+
+- Use the `class` prop to overwrite `defaultClass`.
 
 <TableProp>
   <TableDefaultRow items={accordionItemProps} rowState='hover' />
@@ -278,4 +324,4 @@ The component has the following props, type, and default values. See <A href="/d
 
 ## References
 
-<P><A href="https://flowbite.com/docs/components/accordion/" target="_blank" rel="noreferrer" class="link">Flowbite Accordion</A></P>
+- [Flowbite Accordion](https://flowbite.com/docs/components/accordion/)

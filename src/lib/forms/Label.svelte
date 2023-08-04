@@ -1,5 +1,5 @@
 <script lang="ts">
-  import classNames from 'classnames';
+  import { twMerge } from 'tailwind-merge';
 
   export let color: 'gray' | 'green' | 'red' | 'disabled' = 'gray';
   export let defaultClass: string = 'text-sm font-medium block';
@@ -20,7 +20,7 @@
     color = control?.disabled ? 'disabled' : color;
   }
 
-  $: labelClass = classNames(defaultClass, colorClasses[color], $$props.class);
+  $: labelClass = twMerge(defaultClass, colorClasses[color], $$props.class);
 </script>
 
 {#if show}
@@ -29,3 +29,23 @@
 {:else}
   <slot />
 {/if}
+
+<!--
+  @component
+  ## Feature
+  [Go to Label](https://flowbite-svelte.com/docs/utilities/label)
+  ## Props
+  @prop color: 'gray' | 'green' | 'red' | 'disabled' = 'gray';
+  @prop defaultClass: string = 'text-sm font-medium block';
+  @prop show: boolean = true;
+  ## Example
+  ```
+  <script>
+    import { Label, Checkbox } from 'flowbite-svelte'
+  </script>
+
+  <Label color="red" class="mt-4 flex items-center font-bold italic">
+    <Checkbox class="mr-2" /> Your Label
+  </Label>
+  ```
+-->

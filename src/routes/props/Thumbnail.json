@@ -1,1 +1,11 @@
-{"props":[["thumbImg","string ","''"],["altTag","string ","''"],["titleLink","string ","''"],["   id"," number",""],["   thumbWidth"," number",""],["selected","boolean ","false"]]}
+{
+  "props": [
+    ["thumbImg", "string", "''"],
+    ["altTag", "string", "''"],
+    ["titleLink", "string", "''"],
+    ["id", "number", ""],
+    ["thumbWidth", "number", "100"],
+    ["selected", "boolean", "false"],
+    ["thumbClass", "string", "''"]
+  ]
+}

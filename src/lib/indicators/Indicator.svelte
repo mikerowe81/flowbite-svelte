@@ -1,37 +1,19 @@
 <script lang="ts">
-  import classNames from 'classnames';
+  import { twMerge } from 'tailwind-merge';
+  import type { PlacementType } from '../types';
 
-  export let color:
-    | 'gray'
-    | 'dark'
-    | 'blue'
-    | 'green'
-    | 'red'
-    | 'purple'
-    | 'indigo'
-    | 'yellow'
-    | 'teal'
-    | 'none' = 'gray';
+  export let color: IndicatorColorType = 'gray';
   export let rounded: boolean = false;
   export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
   export let border: boolean = false;
-  export let placement:
-    | 'top-left'
-    | 'top-center'
-    | 'top-right'
-    | 'center-left'
-    | 'center'
-    | 'center-right'
-    | 'bottom-left'
-    | 'bottom-center'
-    | 'bottom-right'
-    | undefined = undefined;
+  export let placement: PlacementType | undefined = undefined;
   export let offset: boolean = true;
 
   const colors = {
     gray: 'bg-gray-200',
     dark: 'bg-gray-900 dark:bg-gray-700',
     blue: 'bg-blue-600',
+    orange: 'bg-orange-600',
     green: 'bg-green-500',
     red: 'bg-red-500',
     purple: 'bg-purple-500',
@@ -40,6 +22,8 @@
     teal: 'bg-teal-500',
     none: ''
   };
+
+  type IndicatorColorType = keyof typeof colors;
 
   const sizes = {
     xs: 'w-2 h-2',
@@ -84,7 +68,7 @@
   };
 
   let dotClass: string;
-  $: dotClass = classNames(
+  $: dotClass = twMerge(
     'flex-shrink-0',
     rounded ? 'rounded' : 'rounded-full',
     border && 'border-2 border-white dark:border-gray-800',
@@ -98,3 +82,34 @@
 </script>
 
 <div class={dotClass}><slot /></div>
+
+<!--
+  @component
+  ## Features
+  [Go to Indicators](https://flowbite-svelte.com/docs/components/indicators)
+  - Setup
+  - Default indicator
+  - Legend indicator
+  - Indicator count
+  - Status indicator
+  - Badge indicator
+  - Stepper indicator
+  - Indicator position
+  ## Props
+  @prop color: IndicatorColorType = 'gray';
+  @prop rounded: boolean = false;
+  @prop size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+  @prop border: boolean = false;
+  @prop placement: IndicatorPlacementType = undefined;
+  @prop offset: boolean = true;
+  ## Example
+  ```
+  <script>
+    import { Indicator } from 'flowbite-svelte'
+  </script>
+  
+  <Indicator color="gray"/>
+  <Indicator color="dark"/>
+  <Indicator color="blue"/>
+  ```
+-->

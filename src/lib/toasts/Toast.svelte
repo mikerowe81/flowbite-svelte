@@ -79,7 +79,16 @@
 </script>
 
 {#if open}
-  <Frame rounded transition={fade} color="none" {...$$restProps} class={finalDivClass} role="alert">
+  <Frame rounded transition={fade} color="none" {...$$restProps} class={finalDivClass} role="alert"
+         on:introstart
+         on:introend
+         on:outrostart
+         on:outroend
+         on:mouseenter
+         on:mouseleave
+         on:focusin
+         on:focusout
+  >
     {#if $$slots.icon}
       <Frame rounded color="none" class={iconClass}>
         <slot name="icon" />

@@ -20,7 +20,7 @@
   onMount(() => {
     if(inputRef && $$props.autofocus) {
       setTimeout(() => {
-        inputRef.focus()
+        inputRef?.focus()
       }, 50)
     }
   })

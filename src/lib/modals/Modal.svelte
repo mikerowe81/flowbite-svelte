@@ -35,7 +35,7 @@
   export let placement: ModalPlacementType = 'center';
   export let autoclose: boolean = false;
   export let permanent: boolean = false;
-  export let backdropClass: string = 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80';
+  export let backdropClass: string = 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 backdrop-blur';
   export let defaultClass: string = 'relative flex flex-col mx-auto';
   export let outsideclose: boolean = false;
 

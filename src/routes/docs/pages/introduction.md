@@ -1,11 +1,12 @@
 ---
 layout: componentLayout
-breadcrumb_title: Svelte UI Components - Flowbite Svelte 
+breadcrumb_title: Svelte UI Components - Flowbite Svelte
 title: Flowbite Svelte - UI Component Library
 component_title: Introduction
 dir: Pages
 description: Learn more about the free and open-source Flowbite Svelte UI components and start building modern web applications using native Svelte components based on Tailwind CSS
 ---
+
 [Flowbite Svelte](https://github.com/themesberg/flowbite-svelte) is a free and open-source UI component library based on the core Flowbite components and built with native Svelte components and interactivity handling.
 
 This library features hundreds of interactive elements such as navbars, dropdowns, modals, and sidebars all handled by Svelte and based on the utility classes from Tailwind CSS.
@@ -21,7 +22,7 @@ You can install SvelteKit or Svelte to start your app. For SvelteKit:
 ```bash example
 npm create svelte@latest my-app
 cd my-app
-npm install
+pnpm install
 ```
 
 ### Using Svelte
@@ -31,7 +32,7 @@ If you want to get started with Svelte:
 ```bash
 npm create vite@latest myapp -- --template svelte
 cd myapp
-npm install
+pnpm install
 ```
 
 ### Install Tailwind CSS
@@ -40,13 +41,13 @@ In order to enable the utility classes from Tailwind CSS install the package usi
 
 ```bash
 npx svelte-add@latest tailwindcss
-npm i
+pnpm install
 ```
 
 Run a local development server by running:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ### Install Flowbite Svelte
@@ -54,7 +55,7 @@ npm run dev
 Run the following command to install all Flowbite dependencies and libraries:
 
 ```sh
-npm i flowbite flowbite-svelte tailwind-merge @floating-ui/dom
+pnpm i -D flowbite-svelte
 ```
 
 ### Configuration
@@ -65,14 +66,9 @@ In the provided code below, you can customize the primary color by modifying the
 
 ```js
 const config = {
-  content: [
-    "./src/**/*.{html,js,svelte,ts}",
-    "./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}",
-  ],
+  content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'],
 
-  plugins: [
-    require('flowbite/plugin')
-  ],
+  plugins: [require('flowbite/plugin')],
 
   darkMode: 'class',
 
@@ -80,7 +76,18 @@ const config = {
     extend: {
       colors: {
         // flowbite-svelte
-        primary: { 50: '#FFF5F2', 100: '#FFF1EE', 200: '#FFE4DE', 300: '#FFD5CC', 400: '#FFBCAD', 500: '#FE795D', 600: '#EF562F', 700: '#EB4F27', 800: '#CC4522', 900: '#A5371B'},
+        primary: {
+          50: '#FFF5F2',
+          100: '#FFF1EE',
+          200: '#FFE4DE',
+          300: '#FFD5CC',
+          400: '#FFBCAD',
+          500: '#FE795D',
+          600: '#EF562F',
+          700: '#EB4F27',
+          800: '#CC4522',
+          900: '#A5371B'
+        }
       }
     }
   }
@@ -118,4 +125,3 @@ Check out [contributing guide](/docs/pages/how-to-contribute) to learn how you c
 ## License
 
 Flowbite Svelte is a free and open-source UI component library licensed under the [MIT License](https://github.com/themesberg/flowbite-svelte/blob/main/LICENSE).
-

@@ -1,23 +1,26 @@
 <script lang="ts">
+  import { getContext } from 'svelte';
+
   export let items: Array<Array<string>>;
   export let html: boolean = false;
   export let rowState: 'striped' | 'hover' | undefined = undefined;
+  
+  const category = getContext('category');
+// console.log('category: ', category)
   let trClass: string;
   let trLastClass: string;
   if (rowState === 'striped') {
-    trClass =
-      'border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700';
+    trClass = 'border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700';
     trLastClass = 'odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700';
   } else if (rowState === 'hover') {
-    trClass =
-      'bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600';
+    trClass = 'bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600';
     trLastClass = 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600';
   } else {
     trClass = 'bg-white border-b dark:bg-gray-800 dark:border-gray-700';
     trLastClass = 'bg-white dark:bg-gray-800';
   }
 </script>
-
+{#if category === 'props'}
 {#each items as item, i}
   {#if i === items.length - 1}
     <tr class={trLastClass}>
@@ -65,3 +68,14 @@
     </tr>
   {/if}
 {/each}
+{:else}
+{#each items as tagName}
+<tr class={trClass}>
+ 
+  <td class="px-6 py-4">
+      {tagName}
+</td>
+ 
+</tr>
+{/each}
+{/if}

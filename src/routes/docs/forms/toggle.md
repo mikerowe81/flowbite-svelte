@@ -9,12 +9,11 @@ thumbnailSize: w-72
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, DocBadgeList } from '../../utils'
+  import { TableProp, TableDefaultRow, CompoAttributesViewer, DocBadgeList } from '../../utils'
   import { onMount } from 'svelte';
   import { Toggle, Badge, A } from '$lib'
-  import { props as items } from '../../props/Toggle.json'
 
-  const events = ["on:change","on:click"];
+  const components = 'Toggle'
 </script>
 
 The toggle component can be used to receive a simple “yes” or “no” type of answer from the user by choosing a single option from two options available in multiple sizes, styles, and colors coded with the utility classes from Tailwind CSS and with dark mode support.
@@ -23,7 +22,7 @@ The toggle component can be used to receive a simple “yes” or “no” type 
 
 ```svelte example hideOutput
 <script>
-  import { Toggle } from 'flowbite-svelte'
+  import { Toggle } from 'flowbite-svelte';
 </script>
 ```
 
@@ -33,7 +32,7 @@ Get started with the default toggle component example as a checkbox element to r
 
 ```svelte example class="flex flex-col gap-2" hideScript
 <script>
-  import { Toggle } from 'flowbite-svelte'
+  import { Toggle } from 'flowbite-svelte';
 </script>
 
 <Toggle>Toggle me</Toggle>
@@ -46,7 +45,7 @@ Get started with the default toggle component example as a checkbox element to r
 
 ```svelte example class="flex justify-between" hideScript
 <script>
-  import { Toggle } from 'flowbite-svelte'
+  import { Toggle } from 'flowbite-svelte';
 </script>
 
 <Toggle color="red" checked>Red</Toggle>
@@ -59,7 +58,7 @@ Get started with the default toggle component example as a checkbox element to r
 
 ## Sizes
 
-```svelte example class="flex flex-col gap-2" hideScript
+```svelte example class="flex flex-col gap-2"
 <script>
   import { Toggle } from 'flowbite-svelte';
   const customSize = 'w-16 h-10 after:top-1 after:left-[4px]  after:h-8 after:w-8';
@@ -71,21 +70,16 @@ Get started with the default toggle component example as a checkbox element to r
 <Toggle size="custom" {customSize}>Custom toggle</Toggle>
 ```
 
-## Props
+## Component data
 
 The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
-### Toggle
+### Toggle styling
 
-- Use the `class` prop to overwrite the `span` and the `Checkbox` component.
+- Use the `class` prop to overwrite the `Checkbox` component.
+- Use the 'classDiv`prop to overwrite the`divClass`.
 
-<TableProp>
-  <TableDefaultRow {items} rowState='hover' />
-</TableProp>
-
-## Forwarded Events
-
-<DocBadgeList items={events} />
+<CompoAttributesViewer {components}/>
 
 ## References
 

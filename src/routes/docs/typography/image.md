@@ -9,9 +9,10 @@ thumnailSize: w-64
 ---
 
 <script>
-  import { TableProp, TableDefaultRow} from '../../utils'
+  import { TableProp, TableDefaultRow, CompoAttributesViewer } from '../../utils'
   import { A, Heading } from '$lib'
-  import { props as items1 } from '../../props/Img.json'
+
+  const components = 'Img'
 </script>
 
 Get started with a collection of responsive image components coded with the utility classes from Tailwind CSS that you can use inside articles, cards, sections, and other components based on multiple styles, sizes, layouts, and hover animations.
@@ -33,7 +34,7 @@ Use this example to show the a responsive image that won’t grow beyond the max
   import { Img } from 'flowbite-svelte';
 </script>
 
-<Img src="/images/examples/image-1@2x.jpg" alt="sample 1"/>
+<Img src="/images/examples/image-1@2x.jpg" alt="sample 1" />
 ```
 
 ## Image caption
@@ -52,7 +53,7 @@ This example can be used to add a caption for the image often used inside articl
 
 Apply rounded corners to the image by using the specific utility classes from Tailwind CSS.
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Border radius</Heading>
+### Border radius
 
 Use this example to apply rounded corners to the image by using the rounded-size class where the size can be anything from small to extra large.
 
@@ -64,7 +65,7 @@ Use this example to apply rounded corners to the image by using the rounded-size
 <Img src="/images/examples/image-1@2x.jpg" alt="sample 1" size="max-w-lg" class="rounded-lg" />
 ```
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Full circle</Heading>
+### Full circle
 
 Use this example to mask the image inside a circle using the rounded-full utility class from Tailwind CSS.
 
@@ -85,7 +86,7 @@ This example can be used to show a shadow effect for the image using the shadow-
   import { Img } from 'flowbite-svelte';
 </script>
 
-<Img src="/images/examples/image-2@2x.jpg" alt="sample 1" size="max-w-xl"  class="shadow-xl dark:shadow-gray-800" />
+<Img src="/images/examples/image-2@2x.jpg" alt="sample 1" size="max-w-xl" class="shadow-xl dark:shadow-gray-800" />
 ```
 
 ## Retina-ready
@@ -97,7 +98,7 @@ Use the srcset attribute to set Retina-ready images with double resolution.
   import { Img } from 'flowbite-svelte';
 </script>
 
-<Img srcset="/images/examples/image-1.jpg 1x, /images/examples/image-1@2x.jpg 2x" alt="sample 1" size="w-full max-w-xl" class="rounded-lg"/>
+<Img srcset="/images/examples/image-1.jpg 1x, /images/examples/image-1@2x.jpg 2x" alt="sample 1" size="w-full max-w-xl" class="rounded-lg" />
 ```
 
 ## Image card
@@ -116,7 +117,7 @@ Use this example to make the image a card item with a link and a short text desc
 
 Use image effects such as grayscale or blur to change the appearances of the image when being hovered.
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Grayscale</Heading>
+### Grayscale
 
 Use the filter option and apply a grayscale to the image element using the grayscale class.
 
@@ -128,7 +129,7 @@ Use the filter option and apply a grayscale to the image element using the grays
 <Img src="/images/examples/content-gallery-3.png" size="max-w-lg" alt="My gallery" class="rounded-lg transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0" />
 ```
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Blur</Heading>
+### Blur
 
 Apply a blur by using the blur-size utility class from Tailwind CSS to an image component.
 
@@ -144,7 +145,7 @@ Apply a blur by using the blur-size utility class from Tailwind CSS to an image 
 
 Align the image component to the left, center or right side of the document page using margin styles.
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Left</Heading>
+### Left
 
 By default, the image component will be aligned to the left side of the page.
 
@@ -153,10 +154,10 @@ By default, the image component will be aligned to the left side of the page.
   import { Img } from 'flowbite-svelte';
 </script>
 
-<Img src="/images/examples/image-1@2x.jpg" size="max-w-lg" alt="sample 1"/>
+<Img src="/images/examples/image-1@2x.jpg" size="max-w-lg" alt="sample 1" />
 ```
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Center</Heading>
+### Center
 
 Horizontally align the image to the center of the page using the `mx-auto` class.
 
@@ -165,10 +166,10 @@ Horizontally align the image to the center of the page using the `mx-auto` class
   import { Img } from 'flowbite-svelte';
 </script>
 
-<Img src="/images/examples/image-1@2x.jpg" size="max-w-lg" alignment="mx-auto" alt="sample 1"/>
+<Img src="/images/examples/image-1@2x.jpg" size="max-w-lg" alignment="mx-auto" alt="sample 1" />
 ```
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Right</Heading>
+### Right
 
 Use the `ml-auto` class to align the image to the right side of the page.
 
@@ -177,14 +178,14 @@ Use the `ml-auto` class to align the image to the right side of the page.
   import { Img } from 'flowbite-svelte';
 </script>
 
-<Img src="/images/examples/image-1@2x.jpg" size="max-w-lg" alignment="ml-auto" alt="sample 1"/>
+<Img src="/images/examples/image-1@2x.jpg" size="max-w-lg" alignment="ml-auto" alt="sample 1" />
 ```
 
 ## Sizes
 
 Set the size of the image using the w-size and h-size or max-w-size utility classes from Tailwind CSS to set the width and height of the element.
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Small</Heading>
+### Small
 
 Use the `max-w-xs` class to set a small size of the image.
 
@@ -193,10 +194,10 @@ Use the `max-w-xs` class to set a small size of the image.
   import { Img } from 'flowbite-svelte';
 </script>
 
-<Img src="/images/examples/image-1@2x.jpg" size="max-w-xs" alt="sample 1"/>
+<Img src="/images/examples/image-1@2x.jpg" size="max-w-xs" alt="sample 1" />
 ```
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Medium</Heading>
+### Medium
 
 Use the `max-w-md` class to set a medium size of the image.
 
@@ -205,10 +206,10 @@ Use the `max-w-md` class to set a medium size of the image.
   import { Img } from 'flowbite-svelte';
 </script>
 
-<Img src="/images/examples/image-1@2x.jpg" size="max-w-md" alt="sample 1"/>
+<Img src="/images/examples/image-1@2x.jpg" size="max-w-md" alt="sample 1" />
 ```
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Large</Heading>
+### Large
 
 Use the max-w-xl class to set a large size of the image.
 
@@ -217,10 +218,10 @@ Use the max-w-xl class to set a large size of the image.
   import { Img } from 'flowbite-svelte';
 </script>
 
-<Img src="/images/examples/image-1@2x.jpg" size="max-w-xl" alt="sample 1"/>
+<Img src="/images/examples/image-1@2x.jpg" size="max-w-xl" alt="sample 1" />
 ```
 
-<Heading tag="h3" class='mb-4 mt-8' customSize="text-xl font-semibold">Full width</Heading>
+### Full width
 
 Use the max-w-full class to set the full width of the image as long as it doesn’t become larger than the original source.
 
@@ -229,15 +230,15 @@ Use the max-w-full class to set the full width of the image as long as it doesn�
   import { Img } from 'flowbite-svelte';
 </script>
 
-<Img src="/images/examples/image-1@2x.jpg" size="max-w-full" alt="sample 1"/>
+<Img src="/images/examples/image-1@2x.jpg" size="max-w-full" alt="sample 1" />
 ```
 
-## Props
+## Component data
 
 The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
+### Img Styling
+
 - Use the `class` prop to overwrite the `img` tag class.
 
-<TableProp>
-  <TableDefaultRow items={items1} rowState='hover' />
-</TableProp>
+<CompoAttributesViewer {components}/>

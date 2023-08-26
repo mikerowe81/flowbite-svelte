@@ -9,13 +9,13 @@ export { default as PageHeadSection } from './PageHeadSection.svelte';
 export { default as MetaTag } from './MetaTag.svelte';
 export { default as TableDefaultRow } from './TableDefaultRow.svelte';
 export { default as TableProp } from './TableProp.svelte';
+export { default as CompoAttributesViewer } from './CompoAttributesViewer.svelte'
 export { default as Toc } from './Toc.svelte';
 
 const basename = (path: string) => path.split('/').pop()?.split('.').shift() ?? '';
 const filePath = (path: string) => '/' + basename(path);
 const fileDir = (path: string) => '/' + path.split('/').slice(0, -1).pop();
-const sortByList = (order: string[]) => (a: [string, any], b: [string, any]) =>
-  [a[0], b[0]].map((x) => order.indexOf(basename(x))).reduce((x, y) => (x < 0 ? 1 : y < 0 ? -1 : x - y));
+const sortByList = (order: string[]) => (a: [string, any], b: [string, any]) => [a[0], b[0]].map((x) => order.indexOf(basename(x))).reduce((x, y) => (x < 0 ? 1 : y < 0 ? -1 : x - y));
 
 export const fetchMarkdownPosts = async () => {
   const componentFiles = import.meta.glob<Mdsvex>('/src/routes/docs/components/*.md');
@@ -26,6 +26,7 @@ export const fetchMarkdownPosts = async () => {
   const extendFiles = import.meta.glob<Mdsvex>('/src/routes/docs/extend/*.md');
   const exampleFiles = import.meta.glob<Mdsvex>('/src/routes/docs/examples/*.md');
   const experimentalFiles = import.meta.glob<Mdsvex>('/src/routes/docs/experimental/*.md');
+  const pluginsFiles = import.meta.glob<Mdsvex>('/src/routes/docs/plugins/*.md');
   // returns an array of files
   const iterableComponentFiles = Object.entries(componentFiles);
   const iterableFormFiles = Object.entries(formFiles);
@@ -35,6 +36,7 @@ export const fetchMarkdownPosts = async () => {
   const iterableExtendFiles = Object.entries(extendFiles);
   const iterableExampleFiles = Object.entries(exampleFiles);
   const iterableExperimentalFiles = Object.entries(experimentalFiles);
+  const iterablePluginsFiles = Object.entries(pluginsFiles);
 
   const allComponents = await Promise.all(
     iterableComponentFiles.map(async ([path, resolver]) => {
@@ -76,17 +78,18 @@ export const fetchMarkdownPosts = async () => {
     })
   );
 
+  const allPlugins = await Promise.all(
+    iterablePluginsFiles.map(async ([path, resolver]) => {
+      const { metadata } = await resolver();
+      return {
+        meta: metadata,
+        path: filePath(path)
+      };
+    })
+  );
+
   // returns an array of paths, /introduction from /src/routes/pages/introduction.md
-  const pageOrder: string[] = [
-    'introduction',
-    'quickstart',
-    'colors',
-    'customization',
-    'typescript',
-    'compiler-speed',
-    'how-to-contribute',
-    'license'
-  ];
+  const pageOrder: string[] = ['introduction', 'quickstart', 'colors', 'customization', 'typescript', 'compiler-speed', 'how-to-contribute', 'license'];
   const allPages = await Promise.all(
     iterablePageFiles.sort(sortByList(pageOrder)).map(async ([path, resolver]) => {
       const { metadata } = await resolver();
@@ -137,6 +140,7 @@ export const fetchMarkdownPosts = async () => {
     examples: allExamples,
     extend: allExtends,
     utilities: allUtils,
+    plugins: allPlugins,
     experimental: allExperimental
   };
 };

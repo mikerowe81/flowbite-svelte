@@ -1,7 +1,0 @@
-{
-  "props": [
-    ["color", "string", ""],
-    ["large", "boolean", "false"],
-    ["dismissable", "boolean", "false"]
-  ]
-}

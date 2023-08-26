@@ -28,9 +28,12 @@
   @apply mt-8 mb-4 text-2xl font-bold text-gray-900 dark:text-white;
 }
 
-#mainContent > h3,
-#mainContent > h4 {
+#mainContent > h3 {
   @apply mt-8 mb-4 text-xl font-bold text-gray-900 dark:text-white;
+}
+
+#mainContent > h4 {
+  @apply mt-8 mb-4 text-lg font-bold text-gray-900 dark:text-white;
 }
 
 #mainContent > p {
@@ -70,6 +73,7 @@
 }
 
 #mainContent > ul,
+#mainContent > div > div > ul,
 #mainContent > ol {
   padding-left: 1rem;
 }
@@ -113,13 +117,7 @@ pre[class*='language-'] {
 }
 
 /* when after preview */
-.code-preview-wrapper
-  + .code-syntax-wrapper
-  > .code-syntax
-  > .relative
-  > [data-code-wrapper]
-  > .highlight
-  pre[class*='language-'],
+.code-preview-wrapper + .code-syntax-wrapper > .code-syntax > .relative > [data-code-wrapper] > .highlight pre[class*='language-'],
 .code-preview-wrapper + .code-syntax-wrapper > .code-syntax {
   overflow: auto;
   @apply mt-0 rounded-none;
@@ -129,13 +127,7 @@ pre[class*='language-'] {
   @apply mb-4;
 }
 
-.code-preview-wrapper
-  + .code-syntax-wrapper
-  > .code-syntax
-  > .relative
-  > [data-code-wrapper]
-  > .highlight
-  > pre[class*='language-'] {
+.code-preview-wrapper + .code-syntax-wrapper > .code-syntax > .relative > [data-code-wrapper] > .highlight > pre[class*='language-'] {
   @apply p-4 m-0 bg-gray-50 dark:bg-gray-800;
 }
 
@@ -337,8 +329,7 @@ pre.language-svelte .token.comment {
   padding: initial;
 }
 #carbonads {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-    'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   @apply m-0;
 }
 #carbonads {

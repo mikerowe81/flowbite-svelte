@@ -20,9 +20,11 @@
 
   /* MGR: Adds an autofocus option to input fields */
   onMount(() => {
-    if(inputRef && $$props.autofocus) {
+    if(inputRef && inputRef.focus && $$props.autofocus) {
       setTimeout(() => {
-        inputRef.focus()
+        if(inputRef && inputRef.focus) {
+          inputRef.focus()
+        }
       }, 50)
     }
   })

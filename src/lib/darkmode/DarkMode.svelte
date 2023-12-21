@@ -13,6 +13,12 @@
   const toggleTheme = () => {
     const isDark = window.document.documentElement.classList.toggle('dark');
     localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+    const event = new CustomEvent('darkModeChange', {
+      detail: {
+        mode: isDark ? 'dark' : 'light'
+      }
+    });
+    document.body.dispatchEvent(event);
   };
 </script>
 

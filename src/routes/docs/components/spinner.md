@@ -9,12 +9,11 @@ thumnailSize: w-48
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, } from '../../utils'
+  import { TableProp, TableDefaultRow, CompoAttributesViewer } from '../../utils'
   import { P, A } from '$lib'
-  import { props as items }  from '../../props/Spinner.json'
+  
+  const components = 'Spinner'
 </script>
-
-
 
 The spinner component can be used as a loading indicator which comes in multiple colors, sizes, and styles separately or inside elements such as buttons to improve the user experience whenever data is being fetched from your server.
 
@@ -79,9 +78,7 @@ Because the spinner component is an inline HTML element it can easily be aligned
   import { Spinner } from 'flowbite-svelte';
 </script>
 
-<div class="text-left"><Spinner/></div>
-<div class="text-center"><Spinner/></div>
-<div class="text-right"><Spinner/></div>
+<div class="text-left"><Spinner /></div><div class="text-center"><Spinner /></div><div class="text-right"><Spinner /></div>
 ```
 
 ## Buttons
@@ -105,17 +102,16 @@ The spinner component can also be used inside elements such as buttons when subm
 </div>
 ```
 
-## Props
+## Component data
 
-The component has the following props, type, and default values. See <A href="/docs/pages/typescript">types page</A> for type information.
+The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
-<TableProp>
-  <TableDefaultRow {items} rowState='hover' />
-</TableProp>
+### Spinner styling
+
+- Use the `class` prop to overwrite the default class.
+
+<CompoAttributesViewer {components}/>
 
 ## References
 
-<P>
-  <A href="https://flowbite.com/docs/components/spinner/" target="_blank" rel="noreferrer" class="link"
-    >Flowbite Spinner</A>
-</P>
+- [Flowbite Spinner (Loader)](https://flowbite.com/docs/components/spinner/)

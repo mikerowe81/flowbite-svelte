@@ -10,20 +10,23 @@ const selectorTabbable = `
   iframe, object, embed, *[tabindex]:not([tabindex='-1']):not([disabled]), *[contenteditable=true]
 `;
 
+/** @type {import('svelte/action').Action<HTMLElement, any>} */
 export default function focusTrap(node) {
+  /** @type {(e:KeyboardEvent)=>void} */
   function handleFocusTrap(e) {
-    const tabbable = Array.from(node.querySelectorAll(selectorTabbable)).filter(n => n.offsetParent !== null);
-
     let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
 
     if (!isTabPressed) {
       return;
     }
 
-    let index = tabbable.indexOf(document.activeElement);
+    const tabbable = Array.from(node.querySelectorAll(selectorTabbable)).filter(n => n.offsetParent !== null);
+
+    let index = tabbable.indexOf(document.activeElement ?? node);
     if (index === -1 && e.shiftKey) index = 0;
     index += tabbable.length + (e.shiftKey ? -1 : 1);
     index %= tabbable.length;
+    /** @ts-ignore */
     tabbable[index].focus();
 
     e.preventDefault();

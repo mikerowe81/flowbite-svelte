@@ -1,7 +1,7 @@
 ---
 layout: componentLayout
-breadcrumb_title: Svelte Typescript
-title: Svelte TypeScript Types - Flowbite
+breadcrumb_title: Typescript
+title: TypeScript Types - Flowbite Svelte
 dir: Pages
 component_title: Typescript
 description: Learn more about the value types and class interfaces that you can use and extend with Flowbite coupled with Svelte by leveraging the features of TypeScript
@@ -19,7 +19,7 @@ The following excerpt shows you the full list of TypeScript types and interfaces
   // const highlighted = Prism.highlight(TypeList, Prism.languages.js, 'js');
 
   // Load assets as strings
-  import TypeList from '../../../lib/types.js?raw';
+  import TypeList from '../../../lib/types.ts?raw';
 </script>
 
 <pre><code>{@html TypeList}</code></pre>

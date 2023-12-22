@@ -11,3 +11,12 @@
     opacity: 1;
   }
 </style>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/)
+## Component data
+@prop export let name: string = '';
+@prop export let selected: boolean = false;
+@prop export let indicatorClass: string = '';
+-->

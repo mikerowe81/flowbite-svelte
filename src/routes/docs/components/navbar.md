@@ -8,10 +8,9 @@ description: The navbar component can be used to show a list of navigation links
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, CompoAttributesViewer, DocBadgeList } from '../../utils'
+  import { CompoAttributesViewer, DocBadgeList, GitHubCompoLinks, toKebabCase } from '../../utils'
   import { Badge, Heading, P, A } from '$lib';
-
-  const components = 'Navbar, NavBrand, NavLi, NavUl, NavHamburger, Menu, SidebarMenu'
+  const dirName = toKebabCase(component_title)
 </script>
 
 Get started with the responsive navbar component from Flowbite to quickly set up a navigation menu for your website and set up the logo, list of pages, CTA button, search input, user profile options with a dropdown, and more.
@@ -28,18 +27,20 @@ Get started with the responsive navbar component from Flowbite to quickly set up
 
 Use this example of a navigation bar built with the utility classes from Tailwind CSS to enable users to navigate across the pages of your website.
 
-```svelte example hideScript
+By default navbar content width is controled by Tailwind class `container`. If you want your navbar to be full page width set the prop `fluid=true`.
+
+```svelte example hideScript class="h-96 md:h-80"
 <script>
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
 </script>
 
-<Navbar let:hidden let:toggle>
+<Navbar  >
   <NavBrand href="/">
-    <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+    <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
   </NavBrand>
-  <NavHamburger on:click={toggle} />
-  <NavUl {hidden}>
+  <NavHamburger  />
+  <NavUl >
     <NavLi href="/">Home</NavLi>
     <NavLi href="/about">About</NavLi>
     <NavLi href="/docs/components/navbar">Navbar</NavLi>
@@ -47,26 +48,54 @@ Use this example of a navigation bar built with the utility classes from Tailwin
     <NavLi href="/contact">Contact</NavLi>
   </NavUl>
 </Navbar>
+
+```
+
+## Navbar container
+
+If you need more control on navbar content use underlying `NavContainer` component and style it with `class` property.
+
+```svelte example hideScript
+<script>
+  import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
+</script>
+
+<Navbar let:NavContainer color="primary">
+  <NavContainer class="border px-5 py-2 rounded-lg bg-white dark:bg-gray-600">
+    <NavBrand href="/">
+      <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
+      <span class="self-center whitespace-nowrap text-xl font-semibold">Flowbite</span>
+    </NavBrand>
+    <NavHamburger />
+    <NavUl>
+      <NavLi href="/">Home</NavLi>
+      <NavLi href="/about">About</NavLi>
+      <NavLi href="/docs/components/navbar">Navbar</NavLi>
+      <NavLi href="/pricing">Pricing</NavLi>
+      <NavLi href="/contact">Contact</NavLi>
+    </NavUl>
+  </NavContainer>
+</Navbar>
 ```
 
 ## Active class
 
 Utilize the `href` prop within the `NavLi` component to incorporate a hyperlink. To initiate the application of the active class, include the `activeUrl` prop within the `NavUl` component:
 
-```svelte example
+```svelte example class="h-96 md:h-80"
 <script>
   import { page } from '$app/stores';
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
   $: activeUrl = $page.url.pathname;
 </script>
 
-<Navbar let:hidden let:toggle>
+<Navbar>
   <NavBrand href="/">
-    <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+    <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
   </NavBrand>
-  <NavHamburger on:click={toggle} />
-  <NavUl {activeUrl} {hidden}>
+  <NavHamburger />
+  <NavUl {activeUrl}>
     <NavLi href="/">Home</NavLi>
     <NavLi href="/docs/components/navbar">Navbar</NavLi>
     <NavLi href="/docs/components/accordion">Accordion</NavLi>
@@ -78,7 +107,7 @@ Utilize the `href` prop within the `NavLi` component to incorporate a hyperlink.
 
 Control the `active` and `nonactive` class by using `activeClass` and `nonActiveClass`:
 
-```svelte example
+```svelte example class="h-96 md:h-80"
 <script>
   import { page } from '$app/stores';
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
@@ -87,13 +116,13 @@ Control the `active` and `nonactive` class by using `activeClass` and `nonActive
   let nonActiveClass = 'text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent';
 </script>
 
-<Navbar let:hidden let:toggle>
+<Navbar>
   <NavBrand href="/">
-    <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+    <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
   </NavBrand>
-  <NavHamburger on:click={toggle} />
-  <NavUl {activeUrl} {hidden} {activeClass} {nonActiveClass}>
+  <NavHamburger />
+  <NavUl {activeUrl} {activeClass} {nonActiveClass}>
     <NavLi href="/">Home</NavLi>
     <NavLi href="/docs/components/navbar">Navbar</NavLi>
     <NavLi href="/docs/components/accordion">Accordion</NavLi>
@@ -107,35 +136,35 @@ Control the `active` and `nonactive` class by using `activeClass` and `nonActive
 
 This example can be used to show a secondary dropdown menu when clicking on one of the navigation links.
 
-```svelte example class="h-80"
+```svelte example class="h-96 md:h-80"
 <script>
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Dropdown, DropdownItem, DropdownDivider } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { ChevronDownOutline } from 'flowbite-svelte-icons';
   import { page } from '$app/stores';
   $: activeUrl = $page.url.pathname;
 </script>
 
-<Navbar let:hidden let:toggle>
+<Navbar>
   <NavBrand href="/">
-    <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+    <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
   </NavBrand>
-  <NavHamburger on:click={toggle} />
-  <NavUl {hidden} {activeUrl}>
+  <NavHamburger />
+  <NavUl {activeUrl}>
     <NavLi href="/">Home</NavLi>
-    <NavLi id="nav-menu1" class="cursor-pointer">
-      Dropdown<Icon name="chevron-down-outline" class="w-3 h-3 ml-2 text-primary-800 dark:text-white inline" />
+    <NavLi class="cursor-pointer">
+      Dropdown<ChevronDownOutline class="w-3 h-3 ms-2 text-primary-800 dark:text-white inline" />
     </NavLi>
-    <NavLi href="/settings">Setting</NavLi>
-    <NavLi href="/pricing">Pricing</NavLi>
-    <NavLi href="/contact">Contact</NavLi>
-    <Dropdown triggeredBy="#nav-menu1" class="w-44 z-20">
+    <Dropdown class="w-44 z-20">
       <DropdownItem href="/">Dashboard</DropdownItem>
       <DropdownItem href="/docs/components/navbar">Settings</DropdownItem>
       <DropdownItem href="/">Earnings</DropdownItem>
       <DropdownDivider />
       <DropdownItem href="/">Sign out</DropdownItem>
     </Dropdown>
+    <NavLi href="/settings">Setting</NavLi>
+    <NavLi href="/pricing">Pricing</NavLi>
+    <NavLi href="/contact">Contact</NavLi>
   </NavUl>
 </Navbar>
 ```
@@ -144,30 +173,30 @@ This example can be used to show a secondary dropdown menu when clicking on one 
 
 Use this example of a navbar element to also show a search input element that you can integrate for a site-wide search.
 
-```svelte example class="h-80"
+```svelte example class="h-96 md:h-80"
 <script>
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Button, Input } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { SearchOutline } from 'flowbite-svelte-icons';
 </script>
 
-<Navbar let:hidden let:toggle>
+<Navbar>
   <NavBrand href="/">
-    <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+    <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
   </NavBrand>
   <div class="flex md:order-2">
-    <Button color="none" data-collapse-toggle="mobile-menu-3" aria-controls="mobile-menu-3" aria-expanded="false" class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1">
-      <Icon name="search-outline" class="w-5 h-5" />
+    <Button color="none" data-collapse-toggle="mobile-menu-3" aria-controls="mobile-menu-3" aria-expanded="false" class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
+      <SearchOutline class="w-5 h-5" />
     </Button>
     <div class="hidden relative md:block">
-      <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-        <Icon name="search-outline" class="w-4 h-4" />
+      <div class="flex absolute inset-y-0 start-0 items-center ps-3 pointer-events-none">
+        <SearchOutline class="w-4 h-4" />
       </div>
-      <Input id="search-navbar" class="pl-10" placeholder="Search..." />
+      <Input id="search-navbar" class="ps-10" placeholder="Search..." />
     </div>
-    <NavHamburger on:click={toggle} />
+    <NavHamburger />
   </div>
-  <NavUl {hidden}>
+  <NavUl>
     <NavLi href="/" active={true}>Home</NavLi>
     <NavLi href="/about">About</NavLi>
     <NavLi href="/docs/components/navbar">Navbar</NavLi>
@@ -179,21 +208,21 @@ Use this example of a navbar element to also show a search input element that yo
 
 Use the following navbar element to show a call to action button alongside the logo and page links.
 
-```svelte example class="h-80 md:h-64"
+```svelte example class="h-96 md:h-80"
 <script>
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Button, Input } from 'flowbite-svelte';
 </script>
 
-<Navbar let:hidden let:toggle>
+<Navbar>
   <NavBrand href="/">
-    <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+    <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
   </NavBrand>
   <div class="flex md:order-2">
     <Button size="sm">Get started</Button>
-    <NavHamburger on:click={toggle} />
+    <NavHamburger />
   </div>
-  <NavUl {hidden} class="order-1">
+  <NavUl class="order-1">
     <NavLi href="/" active={true}>Home</NavLi>
     <NavLi href="/about">About</NavLi>
     <NavLi href="/docs/components/navbar">Navbar</NavLi>
@@ -207,19 +236,19 @@ Use the following navbar element to show a call to action button alongside the l
 
 Use this example to keep the navbar positioned fixed to the top side as you scroll down the document page.
 
-```svelte example class="h-80"
+```svelte example class="p-2 sm:p-6 h-96 md:h-80 overflow-hidden"
 <script>
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, ImagePlaceholder, Skeleton, TextPlaceholder } from 'flowbite-svelte';
 </script>
 
 <div class="relative px-8">
-  <Navbar navClass="px-2 sm:px-4 py-2.5 absolute w-full z-20 top-0 left-0 border-b" let:hidden let:toggle>
+  <Navbar class="px-2 sm:px-4 py-2.5 fixed w-full z-20 top-0 start-0 border-b">
     <NavBrand href="/">
-      <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+      <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
       <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
     </NavBrand>
-    <NavHamburger on:click={toggle} />
-    <NavUl {hidden}>
+    <NavHamburger />
+    <NavUl>
       <NavLi href="/" active={true}>Home</NavLi>
       <NavLi href="/about">About</NavLi>
       <NavLi href="/docs/components/navbar">Navbar</NavLi>
@@ -239,19 +268,19 @@ Use this example to keep the navbar positioned fixed to the top side as you scro
 
 Use this example to create a navigation bar with a user profile or button to toggle a dropdown menu.
 
-```svelte example class="h-80"
+```svelte example class="h-96 md:h-80"
 <script>
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Avatar, Dropdown, DropdownItem, DropdownHeader, DropdownDivider } from 'flowbite-svelte';
 </script>
 
-<Navbar let:hidden let:toggle>
+<Navbar>
   <NavBrand href="/">
-    <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+    <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
   </NavBrand>
   <div class="flex items-center md:order-2">
     <Avatar id="avatar-menu" src="/images/profile-picture-3.webp" />
-    <NavHamburger on:click={toggle} class1="w-full md:flex md:w-auto md:order-1" />
+    <NavHamburger class1="w-full md:flex md:w-auto md:order-1" />
   </div>
   <Dropdown placement="bottom" triggeredBy="#avatar-menu">
     <DropdownHeader>
@@ -264,7 +293,7 @@ Use this example to create a navigation bar with a user profile or button to tog
     <DropdownDivider />
     <DropdownItem>Sign out</DropdownItem>
   </Dropdown>
-  <NavUl {hidden}>
+  <NavUl>
     <NavLi href="/" active={true}>Home</NavLi>
     <NavLi href="/about">About</NavLi>
     <NavLi href="/docs/components/navbar">Navbar</NavLi>
@@ -278,18 +307,18 @@ Use this example to create a navigation bar with a user profile or button to tog
 
 Use this example to show a solid background for the navbar component instead of being transparent.
 
-```svelte example
+```svelte example class="h-96 md:h-80"
 <script>
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
 </script>
 
-<Navbar let:hidden let:toggle rounded color="form">
+<Navbar rounded color="form">
   <NavBrand href="/">
-    <img src="/images/flowbite-svelte-icon-logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+    <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
     <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
   </NavBrand>
-  <NavHamburger on:click={toggle} />
-  <NavUl {hidden}>
+  <NavHamburger />
+  <NavUl>
     <NavLi href="/" active={true}>Home</NavLi>
     <NavLi href="/about">About</NavLi>
     <NavLi href="/docs/components/navbar">Navbar</NavLi>
@@ -305,8 +334,7 @@ The component has the following props, type, and default values. See [types page
 
 ### Navbar styling
 
-- Use the `class` prop to overwrite `navClass`.
-- Use the `classNavDiv` prop to overwrite `navDivClass`.
+- Use the `class` prop to overwrite default stylint.
 
 ### NavBrand styling
 
@@ -330,13 +358,10 @@ The component has the following props, type, and default values. See [types page
 
 - Use the `class` prop to overwrite the `svg` tag class.
 
-### SidebarMenu styling
-
-- Use the `class` prop to overwrite the outer class.
-- Use the `classSideMenu` prop to overwrite the inner class.
-
-<CompoAttributesViewer {components}/>
+<CompoAttributesViewer {dirName}/>
 
 ## References
 
 - [Flowbite Navbar](https://flowbite.com/docs/components/navbar/)
+
+<GitHubCompoLinks />

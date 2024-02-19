@@ -9,9 +9,9 @@ thumnailSize: w-64
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, CompoAttributesViewer } from '../../utils'
+  import { CompoAttributesViewer, GitHubCompoLinks, toKebabCase } from '../../utils'
   import { Breadcrumb, BreadcrumbItem, Heading, P, A } from '$lib'
-  const components = 'Breadcrumb, BreadcrumbItem'
+  const dirName = toKebabCase(component_title)
 </script>
 
 The breadcrumb component is an important part of any website or application that can be used to show the current location of a page in a hierarchical structure of pages.
@@ -65,24 +65,24 @@ Use the `icon` slot to change icons.
 ```svelte example
 <script>
   import { Breadcrumb, BreadcrumbItem } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { HomeOutline, ChevronDoubleRightOutline } from 'flowbite-svelte-icons';
 </script>
 
 <Breadcrumb aria-label="Solid background breadcrumb example" class="bg-gray-50 py-3 px-5 dark:bg-gray-900">
   <BreadcrumbItem href="/" home>
     <svelte:fragment slot="icon">
-      <Icon name="home-outline" class="w-4 h-4 mr-2" />
+      <HomeOutline class="w-4 h-4 me-2" />
     </svelte:fragment>Home
   </BreadcrumbItem>
   <BreadcrumbItem href="/">
     <svelte:fragment slot="icon">
-      <Icon name="chevron-double-right-outline" class="w-3 h-3 mx-2 dark:text-white" />
+      <ChevronDoubleRightOutline class="w-3 h-3 mx-2 dark:text-white" />
     </svelte:fragment>
     Projects
   </BreadcrumbItem>
   <BreadcrumbItem>
     <svelte:fragment slot="icon">
-      <Icon name="chevron-double-right-outline" class="w-3 h-3 mx-2 dark:text-white" />
+      <ChevronDoubleRightOutline class="w-3 h-3 mx-2 dark:text-white" />
     </svelte:fragment>
     Flowbite Svelte
   </BreadcrumbItem>
@@ -105,8 +105,10 @@ The component has the following props, type, and default values. See [types page
 - Use the `classLink` prop to overwrite `linkClass`.
 - Use the `classSpan` prop to overwrite `spanClass`.
 
-<CompoAttributesViewer {components}/>
+<CompoAttributesViewer {dirName}/>
 
 ## References
 
 - [Flowbite Breadcrumb](https://flowbite.com/docs/components/breadcrumb/)
+
+<GitHubCompoLinks />

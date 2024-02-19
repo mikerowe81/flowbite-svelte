@@ -2,16 +2,16 @@
 layout: componentLayout
 title: Svelte Dark Mode - Flowbite
 breadcrumb_title: Svelte Dark mode
-component_title: Dark mode
+component_title: Darkmode
 dir: Components
 description: Learn how to configure and build a dark mode switcher for Flowbite using Tailwind CSS and start developing with the components from the library
 thumnailSize: w-24
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, CompoAttributesViewer } from '../../utils'
+  import { CompoAttributesViewer, GitHubCompoLinks, toKebabCase } from '../../utils'
   import { P, A } from '$lib'
-  const components = 'DarkMode'
+  const dirName = toKebabCase(component_title)
 </script>
 
 In Flowbite-Svelte, the `class` strategy is used to support toggling dark mode manually, so you should explicitly configure it in Talwind CSS:
@@ -73,7 +73,7 @@ Or just use `class` attribute to append classes to the default classes:
   import { DarkMode } from 'flowbite-svelte';
 </script>
 
-<DarkMode class="text-2xl" />
+<DarkMode class="text-primary-500 dark:text-primary-600 border dark:border-gray-800" />
 ```
 
 ## Mode icon
@@ -83,16 +83,12 @@ Use the `lightIcon` and `darkIcon` slots to change icons:
 ```svelte example
 <script>
   import { DarkMode } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { ThumbsUpSolid, ThumbsDownSolid } from 'flowbite-svelte-icons';
 </script>
 
 <DarkMode class="text-lg">
-  <svelte:fragment slot="lightIcon">
-    <Icon name="sun-solid" />
-  </svelte:fragment>
-  <svelte:fragment slot="darkIcon">
-    <Icon name="moon-solid" />
-  </svelte:fragment>
+    <ThumbsUpSolid slot="lightIcon" color="red" />
+    <ThumbsDownSolid slot="darkIcon" color="green" />
 </DarkMode>
 ```
 
@@ -104,8 +100,10 @@ The component has the following props, type, and default values. See [types page
 
 - Use the `class` prop to overwrite `btnClass`.
 
-<CompoAttributesViewer {components}/>
+<CompoAttributesViewer {dirName}/>
 
 ## References
 
 - [Flowbite Dark Mode](https://flowbite.com/docs/customize/dark-mode/)
+
+<GitHubCompoLinks />

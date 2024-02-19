@@ -8,9 +8,9 @@ description: Use the accordion component to show hidden information based on the
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, CompoAttributesViewer } from '../../utils'
+  import { CompoAttributesViewer, GitHubCompoLinks, toKebabCase } from '../../utils'
   import { P, A } from '$lib'; 
-  const components = 'Accordion, AccordionItem'
+  const dirName = toKebabCase(component_title)
 </script>
 
 The accordion component is a collection of vertically collapsing header and body elements that can be used to show and hide information based on the Tailwind CSS utility classes and JavaScript from Flowbite.
@@ -50,7 +50,7 @@ To prevent that behavior set `multiple` property to `true`.
     <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
     <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
     <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-    <ul class="list-disc pl-5 dark:text-gray-400 text-gray-500">
+    <ul class="list-disc ps-5 dark:text-gray-400 text-gray-500">
       <li>
         <a href="/" target="_blank" rel="noreferrer" class="text-blue-600 dark:text-blue-500 hover:underline"> Lorem ipsum </a>
       </li>
@@ -132,27 +132,27 @@ Use the `arrowup` and `arrowdown` slots to set up and down icons.
 ```svelte example
 <script>
   import { AccordionItem, Accordion } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { ChevronDoubleUpOutline, ChevronDoubleDownOutline } from 'flowbite-svelte-icons';
 </script>
 
 <Accordion>
   <AccordionItem>
     <span slot="header">Header 2-1</span>
     <div slot="arrowup">
-      <Icon name="chevron-double-up-outline" class="h-3 w-3 -mr-0.5" />
+      <ChevronDoubleUpOutline class="h-3 w-3 -me-0.5" />
     </div>
     <span slot="arrowdown">
-      <Icon name="chevron-double-down-outline" class="h-3 w-3 -mr-0.5" />
+      <ChevronDoubleDownOutline class="h-3 w-3 -me-0.5" />
     </span>
     <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
   </AccordionItem>
   <AccordionItem>
     <span slot="header">Header 2-2</span>
     <div slot="arrowup">
-      <Icon name="chevron-double-up-outline" class="h-3 w-3 -mr-0.5" />
+      <ChevronDoubleUpOutline class="h-3 w-3 -me-0.5" />
     </div>
     <span slot="arrowdown">
-      <Icon name="chevron-double-down-outline" class="h-3 w-3 -mr-0.5" />
+      <ChevronDoubleDownOutline class="h-3 w-3 -me-0.5" />
     </span>
     <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
   </AccordionItem>
@@ -164,13 +164,13 @@ Use the `arrowup` and `arrowdown` slots to set up and down icons.
 ```svelte example
 <script>
   import { AccordionItem, Accordion } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { ShoppingCartSolid, CogOutline } from 'flowbite-svelte-icons';
 </script>
 
 <Accordion>
   <AccordionItem>
     <span slot="header" class="text-base flex gap-2">
-      <Icon name="shopping-cart-solid" class="mt-0.5" />
+      <ShoppingCartSolid class="mt-0.5" />
       <span>My Header 1</span>
     </span>
     <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo...</p>
@@ -181,7 +181,7 @@ Use the `arrowup` and `arrowdown` slots to set up and down icons.
   </AccordionItem>
   <AccordionItem>
     <span slot="header" class="text-base flex gap-2">
-      <Icon name="cog-outline" class="mt-0.5" />
+      <CogOutline class="mt-0.5" />
       <span>My Header 2</span>
     </span>
     <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sintexplicabo...</p>
@@ -274,7 +274,7 @@ Accordions can be nested. All of the mentioned options are supported.
         <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
         <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
         <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-        <ul class="list-disc pl-5 dark:text-gray-400 text-gray-500">
+        <ul class="list-disc ps-5 dark:text-gray-400 text-gray-500">
           <li><a href="/" target="_blank" rel="noreferrer" class="text-blue-600 dark:text-blue-500 hover:underline">Lorem ipsum</a></li>
           <li><a href="https://tailwindui.com/" rel="noreferrer" target="_blank" class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
         </ul>
@@ -286,7 +286,7 @@ Accordions can be nested. All of the mentioned options are supported.
     <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
     <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint explicabo ...</p>
     <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-    <ul class="list-disc pl-5 dark:text-gray-400 text-gray-500">
+    <ul class="list-disc ps-5 dark:text-gray-400 text-gray-500">
       <li><a href="/" target="_blank" rel="noreferrer" class="text-blue-600 dark:text-blue-500 hover:underline">Lorem ipsum</a></li>
       <li><a href="https://tailwindui.com/" rel="noreferrer" target="_blank" class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
     </ul>
@@ -308,8 +308,10 @@ The component has the following props, type, and default values. See [types page
 
 - Use the `class` prop to overwrite `defaultClass`.
 
-<CompoAttributesViewer {components}/>
+<CompoAttributesViewer {dirName} />
 
 ## References
 
 - [Flowbite Accordion](https://flowbite.com/docs/components/accordion/)
+
+<GitHubCompoLinks />

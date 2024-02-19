@@ -1,8 +1,9 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
 
-  export let btnClass: string = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5';
+  export let btnClass: string = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5';
   export let size: 'sm' | 'md' | 'lg' = 'md';
+  export let ariaLabel: string = 'Dark mode';
 
   const sizes = {
     sm: 'w-4 h-4',
@@ -10,9 +11,12 @@
     lg: 'w-6 h-6'
   };
 
-  const toggleTheme = () => {
-    const isDark = window.document.documentElement.classList.toggle('dark');
-    localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+  const toggleTheme = (ev: MouseEvent) => {
+    const target = ev.target as HTMLElement;
+    const isDark = target.ownerDocument.documentElement.classList.toggle('dark');
+    if (target.ownerDocument === document)
+      // we are NOT in the iFrame
+      localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
   };
 </script>
 
@@ -28,7 +32,7 @@
   </script>
 </svelte:head>
 
-<button on:click={toggleTheme} aria-label="Dark mode" type="button" {...$$restProps} class={twMerge(btnClass, $$props.class)}>
+<button on:click={toggleTheme} aria-label={ariaLabel} type="button" {...$$restProps} class={twMerge(btnClass, $$props.class)}>
   <span class="hidden dark:block">
     <slot name="lightIcon">
       <svg class={sizes[size]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +56,8 @@
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
-## Component data
-@prop export let btnClass: string = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5';
+## Props
+@prop export let btnClass: string = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5';
 @prop export let size: 'sm' | 'md' | 'lg' = 'md';
+@prop export let ariaLabel: string = 'Dark mode';
 -->

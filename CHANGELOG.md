@@ -2,12 +2,172 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.44.4](https://github.com/themesberg/flowbite-svelte/compare/v0.44.3...v0.44.4) (2023-08-21)
+### [0.44.23](https://github.com/themesberg/flowbite-svelte/compare/v0.44.22...v0.44.23) (2024-02-08)
 
 
 ### Bug Fixes
 
-* package.json scripts update ([5ac3acd](https://github.com/themesberg/flowbite-svelte/commit/5ac3acd1c37374a7ed0af6199c820cb652801f5d))
+* add focus:ring-0 to menu btns ([b81c875](https://github.com/themesberg/flowbite-svelte/commit/b81c875a54700d144e9c96c311cd4d63090595db))
+* engines npm to pnpm 8.0.0 in package.json ([6770c92](https://github.com/themesberg/flowbite-svelte/commit/6770c92b03b435c949c1fd13e58cfa2f4e241e81))
+* playwright version in workflows ([046b908](https://github.com/themesberg/flowbite-svelte/commit/046b908346bf1dcae4a9b33142b5460c0590e0b0))
+* remove focus from DarkMode ([22c48db](https://github.com/themesberg/flowbite-svelte/commit/22c48db00250f8f2adbda2c183953ad0c8977205))
+* spinner typings, docs ([#1151](https://github.com/themesberg/flowbite-svelte/issues/1151)) ([ed17997](https://github.com/themesberg/flowbite-svelte/commit/ed17997e61162844aab8131e9040f1125b4a4103))
+* workflow pnpm to latest ([a1358fe](https://github.com/themesberg/flowbite-svelte/commit/a1358fe577597e85edc46e84bff01cdc24785c0a))
+
+### [0.44.22](https://github.com/themesberg/flowbite-svelte/compare/v0.44.21...v0.44.22) (2024-01-12)
+
+### Bug Fixes
+
+- 1125 ([#1195](https://github.com/themesberg/flowbite-svelte/issues/1195)) ([f0b3d9c](https://github.com/themesberg/flowbite-svelte/commit/f0b3d9ce7fbfad3a5db93bffd680c028af1e3409))
+- 1209 ([#1210](https://github.com/themesberg/flowbite-svelte/issues/1210)) ([671a950](https://github.com/themesberg/flowbite-svelte/commit/671a950d96bc2e96fb4d85a999f7317dd5b9fd4f))
+- sidebar md:block ([0bd2f01](https://github.com/themesberg/flowbite-svelte/commit/0bd2f012986fcdd2b925fe05e69f7114478ab440))
+
+### [0.44.21](https://github.com/themesberg/flowbite-svelte/compare/v0.44.20...v0.44.21) (2023-12-22)
+
+### Bug Fixes
+
+- [#1157](https://github.com/themesberg/flowbite-svelte/issues/1157) ([#1176](https://github.com/themesberg/flowbite-svelte/issues/1176)) ([a15a361](https://github.com/themesberg/flowbite-svelte/commit/a15a36173b644b7549c72c57d738df3e5af97bbc))
+- issue1178 ([#1179](https://github.com/themesberg/flowbite-svelte/issues/1179)) ([12281fd](https://github.com/themesberg/flowbite-svelte/commit/12281fdebe6428f2159b28a1ba5379ac4bbb2ce0))
+- modal outside click only on mouse down ([#1160](https://github.com/themesberg/flowbite-svelte/issues/1160)) ([96e4d4b](https://github.com/themesberg/flowbite-svelte/commit/96e4d4b9681db725a0208e1aa786cc330bfa9498))
+
+### [0.44.20](https://github.com/themesberg/flowbite-svelte/compare/v0.44.19...v0.44.20) (2023-11-24)
+
+### Bug Fixes
+
+- add NODE_OPTIONS to playwright-and-lint ([4f255f5](https://github.com/themesberg/flowbite-svelte/commit/4f255f57199f6214856feef12d3206b3216db5f2))
+- textarea inner rounded ([#1141](https://github.com/themesberg/flowbite-svelte/issues/1141)) ([6995e54](https://github.com/themesberg/flowbite-svelte/commit/6995e54cf788a39cb12a7a1d3df8a00f93cdfb28))
+
+### [0.44.19](https://github.com/themesberg/flowbite-svelte/compare/v0.44.18...v0.44.19) (2023-10-31)
+
+### Bug Fixes
+
+- add missing types on modal $$Props ([#1110](https://github.com/themesberg/flowbite-svelte/issues/1110)) ([f929a4a](https://github.com/themesberg/flowbite-svelte/commit/f929a4a46617ced99b0e9faf5f2f86dd99ce81ef))
+- add missing types on modal $$Props ([#1110](https://github.com/themesberg/flowbite-svelte/issues/1110)) ([f387c81](https://github.com/themesberg/flowbite-svelte/commit/f387c81984280fad7d7f5af34d57ea8f95a04a2c))
+- change Carousel.ts to CarouselSlide.ts to fix compo-data for Carousel ([a3c75f3](https://github.com/themesberg/flowbite-svelte/commit/a3c75f3bedd1756f43428e55e6f35021910fe4ef))
+- change Carousel.ts to CarouselSlide.ts to fix compo-data for Carousel ([f97fa4d](https://github.com/themesberg/flowbite-svelte/commit/f97fa4dcafabfd697e3b99bfb7fcdcfda8968b78))
+- modal divide-y instead of border ([#1136](https://github.com/themesberg/flowbite-svelte/issues/1136)) ([c9a2a9b](https://github.com/themesberg/flowbite-svelte/commit/c9a2a9be366f35c40252c1eaa8e89a63e6151364))
+- playwright config timeout: 600000 ([7abe468](https://github.com/themesberg/flowbite-svelte/commit/7abe46866411fc7ca94806a1ec4b4ac7399bb727))
+- playwright config timeout: 600000 ([872502d](https://github.com/themesberg/flowbite-svelte/commit/872502d2d96aa7f6e516fd9a41af40229ffddca5))
+
+### [0.44.18](https://github.com/themesberg/flowbite-svelte/compare/v0.44.17...v0.44.18) (2023-10-01)
+
+### Bug Fixes
+
+- alert ml-auto ([#1090](https://github.com/themesberg/flowbite-svelte/issues/1090)) ([8d3077d](https://github.com/themesberg/flowbite-svelte/commit/8d3077d7c92eb13f8e5d60bc0884eff81baab21d))
+- GitHubCompoLinks ([218d919](https://github.com/themesberg/flowbite-svelte/commit/218d9193a90e4fc0101041586ee469c883dbce33))
+- playwright-and-lint.yaml update version ([d99963c](https://github.com/themesberg/flowbite-svelte/commit/d99963c94e082dcf946091f99b1cc850c0fdbaf3))
+
+### [0.44.17](https://github.com/themesberg/flowbite-svelte/compare/v0.44.16...v0.44.17) (2023-09-22)
+
+### [0.44.16](https://github.com/themesberg/flowbite-svelte/compare/v0.44.15...v0.44.16) (2023-09-22)
+
+### Features
+
+- add <T> to SelectOptionType and update Select and MultiSelect ([#1055](https://github.com/themesberg/flowbite-svelte/issues/1055)) ([bf97642](https://github.com/themesberg/flowbite-svelte/commit/bf97642c81e3913bd4c95e27d313806a747ceb1c))
+- add on:change and on:input to multiselect ([#1081](https://github.com/themesberg/flowbite-svelte/issues/1081)) ([dbc5877](https://github.com/themesberg/flowbite-svelte/commit/dbc5877c53a38603b27b0248d340c1322e32ac9d))
+
+### Bug Fixes
+
+- add -mx-1.5 to alert ([#1063](https://github.com/themesberg/flowbite-svelte/issues/1063)) ([617a35b](https://github.com/themesberg/flowbite-svelte/commit/617a35b1ad62fe6b7f7a39aa86c7feb3ceef1351))
+- avatar placeholder safari ([#1065](https://github.com/themesberg/flowbite-svelte/issues/1065)) ([dbeee9f](https://github.com/themesberg/flowbite-svelte/commit/dbeee9f674af6fe6512abda6311676dce299494a))
+- check activateClickOutside on outside click ([#1082](https://github.com/themesberg/flowbite-svelte/issues/1082)) ([283f1b3](https://github.com/themesberg/flowbite-svelte/commit/283f1b3002172ab52b9894520f4981f045497734))
+- check activateClickOutside on outside click ([#1082](https://github.com/themesberg/flowbite-svelte/issues/1082)) ([ee10e29](https://github.com/themesberg/flowbite-svelte/commit/ee10e29ebf87b1a0eaa4e628c510c87efd42bd27))
+- display on iPads ([#1052](https://github.com/themesberg/flowbite-svelte/issues/1052)) ([a804f71](https://github.com/themesberg/flowbite-svelte/commit/a804f71e4227eb2eed4802ad9667e16652880bd1))
+- removeEventListener in onDestroy ([#1057](https://github.com/themesberg/flowbite-svelte/issues/1057)) ([c86ea20](https://github.com/themesberg/flowbite-svelte/commit/c86ea20a631363e85e259c5f75901e08e5438165))
+- typescript page ([6f266f4](https://github.com/themesberg/flowbite-svelte/commit/6f266f41b6929b4f6d721ed14f01632d3a83a2b2))
+
+### [0.44.15](https://github.com/themesberg/flowbite-svelte/compare/v0.44.14...v0.44.15) (2023-09-08)
+
+### Features
+
+- add double click event on tableBodyRow ([#1037](https://github.com/themesberg/flowbite-svelte/issues/1037)) ([14a5828](https://github.com/themesberg/flowbite-svelte/commit/14a5828c93a89ad4c495f33b1cd77372da5a60b1))
+- add faq-and-tips.md and add how to purge CSS files ([#1048](https://github.com/themesberg/flowbite-svelte/issues/1048)) ([cd9adac](https://github.com/themesberg/flowbite-svelte/commit/cd9adac43e68bef6d66385ac2489ddd5672f97ce))
+- href for carousel ([#1047](https://github.com/themesberg/flowbite-svelte/issues/1047)) ([c5ab778](https://github.com/themesberg/flowbite-svelte/commit/c5ab77824dd9a61c405ed30e50110c613a61cf6e))
+
+### Bug Fixes
+
+- change export ariaLabel ([#1046](https://github.com/themesberg/flowbite-svelte/issues/1046)) ([bc9ef6a](https://github.com/themesberg/flowbite-svelte/commit/bc9ef6abc5c7ff87bebbd579bce3149dcf44f32a))
+
+### [0.44.14](https://github.com/themesberg/flowbite-svelte/compare/v0.44.13...v0.44.14) (2023-09-08)
+
+### Bug Fixes
+
+- [#1044](https://github.com/themesberg/flowbite-svelte/issues/1044) [#1026](https://github.com/themesberg/flowbite-svelte/issues/1026) ([#1045](https://github.com/themesberg/flowbite-svelte/issues/1045)) ([94a3321](https://github.com/themesberg/flowbite-svelte/commit/94a332152dcb874f2c81bc6c92d6fcb3c9195a1e))
+- remove RadioInline and SidebarMenu ([e57b2b4](https://github.com/themesberg/flowbite-svelte/commit/e57b2b4a42d3444a1db75a133cce9b6cda0265ae))
+
+### [0.44.13](https://github.com/themesberg/flowbite-svelte/compare/v0.44.12...v0.44.13) (2023-09-07)
+
+### Features
+
+- add marquess ([4261cb0](https://github.com/themesberg/flowbite-svelte/commit/4261cb05029fe8be4d7f371d474672fe269a779b))
+
+### Bug Fixes
+
+- update Marquee role, page and test ([d6bd868](https://github.com/themesberg/flowbite-svelte/commit/d6bd868361e260c266f531cea24f87d0bcabb0f6))
+
+### [0.44.12](https://github.com/themesberg/flowbite-svelte/compare/v0.44.11...v0.44.12) (2023-09-07)
+
+### Bug Fixes
+
+- add check for empty attributes ([#1041](https://github.com/themesberg/flowbite-svelte/issues/1041)) ([756ff3f](https://github.com/themesberg/flowbite-svelte/commit/756ff3f32b3fbf25255ad0946157186ba9faf416))
+- package.json update ([897d137](https://github.com/themesberg/flowbite-svelte/commit/897d1379ab4453fcb9b7d5410e1664b39e5390a4))
+- vite.config.ts index.ts to index.js ([#1042](https://github.com/themesberg/flowbite-svelte/issues/1042)) ([61080ba](https://github.com/themesberg/flowbite-svelte/commit/61080ba82028d1ecedf49ba870ecc16c25fdbd36))
+
+### [0.44.11](https://github.com/themesberg/flowbite-svelte/compare/v0.44.10...v0.44.11) (2023-09-06)
+
+### Bug Fixes
+
+- component data and types export ([#1040](https://github.com/themesberg/flowbite-svelte/issues/1040)) ([ad55a4d](https://github.com/themesberg/flowbite-svelte/commit/ad55a4dd72722c709de2b80aba13dbb4a143e86d))
+
+### [0.44.10](https://github.com/themesberg/flowbite-svelte/compare/v0.44.9...v0.44.10) (2023-09-06)
+
+### [0.44.9](https://github.com/themesberg/flowbite-svelte/compare/v0.44.8...v0.44.9) (2023-09-06)
+
+### Features
+
+- Adds exact prop to BottomNavItem ([#1036](https://github.com/themesberg/flowbite-svelte/issues/1036)) ([ceeaac2](https://github.com/themesberg/flowbite-svelte/commit/ceeaac2aee25a6f3bc7a8dc87fbfcec40595ded5))
+- export types file ([42eb222](https://github.com/themesberg/flowbite-svelte/commit/42eb2229a3671c2d39e79db3fe8fa1c4f0d9b6c0))
+- new API for Carousel ([#1032](https://github.com/themesberg/flowbite-svelte/issues/1032)) ([59da5ed](https://github.com/themesberg/flowbite-svelte/commit/59da5edbaea85bd1e570349768f2de9d14292166))
+
+### Bug Fixes
+
+- TableSearch pl-10 posision ([a974201](https://github.com/themesberg/flowbite-svelte/commit/a974201e465ca8791ad554798644f87beaaa5a45))
+
+### [0.44.8](https://github.com/themesberg/flowbite-svelte/compare/v0.44.7...v0.44.8) (2023-09-04)
+
+### [0.44.7](https://github.com/themesberg/flowbite-svelte/compare/v0.44.6...v0.44.7) (2023-09-04)
+
+### [0.44.6](https://github.com/themesberg/flowbite-svelte/compare/v0.44.5...v0.44.6) (2023-09-04)
+
+### Features
+
+- add classInput and classDvgDiv to Tablesearch ([98122e0](https://github.com/themesberg/flowbite-svelte/commit/98122e0045fa5309654e45e43723d04b28e7a3b6))
+
+### [0.44.5](https://github.com/themesberg/flowbite-svelte/compare/v0.44.4...v0.44.5) (2023-09-03)
+
+### Features
+
+- add CompoAttributesViewer and replaced it for props, events, and slots ([#1010](https://github.com/themesberg/flowbite-svelte/issues/1010)) ([a2ba343](https://github.com/themesberg/flowbite-svelte/commit/a2ba343681acb91112a5bc53c606f73e70a8773b))
+- add touch/mouse swipe gesture handling to Carousel component. ([35d0ba1](https://github.com/themesberg/flowbite-svelte/commit/35d0ba1956336e9d0a560b7c55fe9d859ec9fe77))
+- update component data rendering ([#1015](https://github.com/themesberg/flowbite-svelte/issues/1015)) ([6b20551](https://github.com/themesberg/flowbite-svelte/commit/6b205510a83e78b3cd23fb04528138d5921d586b))
+
+### Bug Fixes
+
+- add $$resProps to Spinner ([#1000](https://github.com/themesberg/flowbite-svelte/issues/1000)) ([1dd97cd](https://github.com/themesberg/flowbite-svelte/commit/1dd97cd2ffc7ac5b78f43e7ea3d7bc7ee1c74fb3))
+- ads position since it does not show unless you refres the browser ([#1019](https://github.com/themesberg/flowbite-svelte/issues/1019)) ([e140d32](https://github.com/themesberg/flowbite-svelte/commit/e140d324682d636d5d7eba6b1e4075397323a390))
+- ads to markdown files ([#1020](https://github.com/themesberg/flowbite-svelte/issues/1020)) ([062dfaf](https://github.com/themesberg/flowbite-svelte/commit/062dfaf53fe42ab82a6f5f20a12ad28a957dd1ff))
+- Carousel compo ([eeaef97](https://github.com/themesberg/flowbite-svelte/commit/eeaef977402f185c5c4d164ba1f6c51a63206572))
+- move charts to plugins dir ([#1012](https://github.com/themesberg/flowbite-svelte/issues/1012)) ([4609497](https://github.com/themesberg/flowbite-svelte/commit/4609497334f15737151472bd951444c4064343cb))
+- Multiselect interactivity and form bug fixes ([#982](https://github.com/themesberg/flowbite-svelte/issues/982)) ([a919c21](https://github.com/themesberg/flowbite-svelte/commit/a919c21378501b823a86279c798f882128c94ac4))
+- Multiselect interactivity and form bug fixes ([#982](https://github.com/themesberg/flowbite-svelte/issues/982)) ([3872270](https://github.com/themesberg/flowbite-svelte/commit/3872270d2ef77d17b9a1cc85099bddb6094e980c))
+- playwright-and-lint.yaml update test:integration ([#1005](https://github.com/themesberg/flowbite-svelte/issues/1005)) ([6695c24](https://github.com/themesberg/flowbite-svelte/commit/6695c24a4a07bed6f55ac196405fe02e67f4cb9c))
+- Remove mistaken unused import of Timeline. Cleanup debug console.log() message. ([03e6455](https://github.com/themesberg/flowbite-svelte/commit/03e64550eab3451f6bd90a62338a7d553c36b9e0))
+
+### [0.44.4](https://github.com/themesberg/flowbite-svelte/compare/v0.44.3...v0.44.4) (2023-08-21)
+
+### Bug Fixes
+
+- package.json scripts update ([5ac3acd](https://github.com/themesberg/flowbite-svelte/commit/5ac3acd1c37374a7ed0af6199c820cb652801f5d))
 
 ### [0.44.3](https://github.com/themesberg/flowbite-svelte/compare/v0.44.2...v0.44.3) (2023-08-21)
 

@@ -54,7 +54,7 @@
   );
 
   let divClass: string;
-  $: divClass = twMerge($$props.outline && 'p-0.5', gradientClasses[color], shadow && 'shadow-lg', shadow && coloredShadowClasses[color], group ? ($$props.pill && 'first:rounded-l-full last:rounded-r-full') || 'first:rounded-l-lg last:rounded-r-lg' : ($$props.pill && 'rounded-full') || 'rounded-lg', $$props.class);
+  $: divClass = twMerge($$props.outline && 'p-0.5', gradientClasses[color], shadow && 'shadow-lg', shadow && coloredShadowClasses[color], group ? ($$props.pill && 'first:rounded-s-full last:rounded-e-full') || 'first:rounded-s-lg last:rounded-e-lg' : ($$props.pill && 'rounded-full') || 'rounded-lg', $$props.class);
 </script>
 
 {#if $$props.outline}
@@ -62,7 +62,7 @@
     <!-- Trick to prentend outline without using border
 	    This has a limitation of no supporting transparency as
 	    is set to bg-white dark:bg-gray-900 -->
-    <Button {...$$restProps} color="none" class={gradientOutlineClass} on:click on:change on:keydown on:keyup on:touchstart on:touchend on:touchcancel on:mouseenter on:mouseleave><slot /></Button>
+    <Button {...$$restProps} color="none" class={gradientOutlineClass} on:click on:change on:keydown on:keyup on:mouseenter on:mouseleave><slot /></Button>
   </div>
 {:else}
   <Button {...$$restProps} color="none" class={divClass} on:click on:change on:keydown on:keyup on:touchstart on:touchend on:touchcancel on:mouseenter on:mouseleave>
@@ -73,7 +73,7 @@
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
-## Component data
+## Props
 @prop export let color: keyof typeof gradientClasses = 'blue';
 @prop export let shadow: boolean = false;
 -->

@@ -21,7 +21,7 @@
   const headerClass = (header: boolean) => twMerge(header ? 'border-b' : 'border-t', 'py-2 px-3 border-gray-200 dark:border-gray-600');
 
   let innerWrapperClass: string;
-  $: innerWrapperClass = twMerge(innerWrappedClass, $$slots.footer ? 'rounded-b-lg' : '', $$slots.header ? 'rounded-t-lg' : '');
+  $: innerWrapperClass = twMerge(innerWrappedClass, $$slots.footer ? '' : 'rounded-b-lg', $$slots.header ? '' : 'rounded-t-lg');
 </script>
 
 <Wrapper show={wrapped} class={wrapperClass}>
@@ -43,7 +43,7 @@
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
-## Component data
+## Props
 @prop export let value: any = undefined;
 @prop export let wrappedClass: string = 'block w-full text-sm border-0 px-0 bg-inherit dark:bg-inherit focus:outline-none focus:ring-0';
 @prop export let unWrappedClass: string = 'p-2.5 text-sm focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500';

@@ -1,6 +1,6 @@
 <script lang="ts">
   import Button from '$lib/buttons/Button.svelte';
-  import Tooltip from '$lib/tooltips/Tooltip.svelte';
+  import Tooltip from '$lib/tooltip/Tooltip.svelte';
   import type { Placement } from '@floating-ui/dom';
   import { twMerge } from 'tailwind-merge';
   import { getContext } from 'svelte';
@@ -13,7 +13,7 @@
   export let tooltip: Placement | 'none' = context.tooltip;
   export let pill: boolean = context.pill;
   export let textOutside: boolean = context.textOutside;
-  export let textOutsideClass: string = 'block absolute -left-14 top-1/2 mb-px text-sm font-medium -translate-y-1/2';
+  export let textOutsideClass: string = 'block absolute -start-14 top-1/2 mb-px text-sm font-medium -translate-y-1/2';
   export let textDefaultClass: string = 'block mb-px text-xs font-medium';
 
   let btnClass: string;
@@ -38,12 +38,12 @@
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
-## Component data
+## Props
 @prop export let btnDefaultClass: string = 'w-[52px] h-[52px] shadow-sm !p-2';
 @prop export let name: string = '';
 @prop export let tooltip: Placement | 'none' = context.tooltip;
 @prop export let pill: boolean = context.pill;
 @prop export let textOutside: boolean = context.textOutside;
-@prop export let textOutsideClass: string = 'block absolute -left-14 top-1/2 mb-px text-sm font-medium -translate-y-1/2';
+@prop export let textOutsideClass: string = 'block absolute -start-14 top-1/2 mb-px text-sm font-medium -translate-y-1/2';
 @prop export let textDefaultClass: string = 'block mb-px text-xs font-medium';
 -->

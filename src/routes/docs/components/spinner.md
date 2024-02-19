@@ -9,10 +9,9 @@ thumnailSize: w-48
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, CompoAttributesViewer } from '../../utils'
+  import { CompoAttributesViewer, GitHubCompoLinks, toKebabCase } from '../../utils'
   import { P, A } from '$lib'
-  
-  const components = 'Spinner'
+  const dirName = toKebabCase(component_title)
 </script>
 
 The spinner component can be used as a loading indicator which comes in multiple colors, sizes, and styles separately or inside elements such as buttons to improve the user experience whenever data is being fetched from your server.
@@ -65,7 +64,7 @@ Change the size of the spinner component using the `size` prop.
 </script>
 
 <Spinner size={4} />
-<Spinner size={6} />
+<Spinner size="6" />
 <Spinner size={8} />
 ```
 
@@ -92,11 +91,11 @@ The spinner component can also be used inside elements such as buttons when subm
 
 <div class="flex flex-wrap items-center gap-2">
   <Button>
-    <Spinner class="mr-3" size="4" color="white" />
+    <Spinner class="me-3" size="4" color="white" />
     Loading ...
   </Button>
   <Button outline color="dark">
-    <Spinner class="mr-3" size="4" />
+    <Spinner class="me-3" size="4" />
     Loading ...
   </Button>
 </div>
@@ -110,8 +109,10 @@ The component has the following props, type, and default values. See [types page
 
 - Use the `class` prop to overwrite the default class.
 
-<CompoAttributesViewer {components}/>
+<CompoAttributesViewer {dirName}/>
 
 ## References
 
 - [Flowbite Spinner (Loader)](https://flowbite.com/docs/components/spinner/)
+
+<GitHubCompoLinks />

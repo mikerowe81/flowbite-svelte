@@ -8,7 +8,7 @@ description: Get started with the range component to receive a number from the u
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, CompoAttributesViewer, DocBadgeList } from '../../utils'
+  import { CompoAttributesViewer, DocBadgeList, GitHubCompoLinks, toKebabCase } from '../../utils'
   import { Badge, A } from '$lib'
   const components = 'Range'
   let minmaxValue=5
@@ -100,6 +100,7 @@ Since we added `$$restProps` to input field, you can contain the props which are
 The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
 ### Search-input styling
+
 Use the `class` prop to overwrite the default class.
 
 <CompoAttributesViewer {components}/>
@@ -107,3 +108,5 @@ Use the `class` prop to overwrite the default class.
 ## References
 
 - [Flowbite Range Slider](https://flowbite.com/docs/forms/range/)
+
+<GitHubCompoLinks {components}/>

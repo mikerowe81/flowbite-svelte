@@ -9,6 +9,7 @@ description: Learn how to get started with the free and open-source Flowbite Sve
 
 <script>
   import { A, P, List, Li } from '$lib'
+  
 </script>
 
 You can install Flowbite Svelte by using the <A href='/docs/extend/flowbite-svelte-starter'>flowbite-svelte-start</A> or from scratch.
@@ -57,7 +58,7 @@ pnpm dev
 Run the following command to install all Flowbite dependencies and libraries:
 
 ```sh
-pnpm i -D flowbite-svelte
+pnpm i -D flowbite-svelte flowbite
 ```
 
 ### Configuration

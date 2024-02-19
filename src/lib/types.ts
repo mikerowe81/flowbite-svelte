@@ -1,10 +1,11 @@
 import type { SvelteComponent } from 'svelte';
+import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
 export type BlockQuoteType = 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl';
 
 export type ButtonType = 'button' | 'submit' | 'reset';
 
-export type ButtonColorType = 'alternative' | 'blue' | 'cyan' | 'dark' | 'light' | 'lime' | 'green' | 'pink' | 'primary' | 'red' | 'teal' | 'yellow' | 'purple' | 'purpleToBlue' | 'cyanToBlue' | 'greenToBlue' | 'purpleToPink' | 'pinkToOrange' | 'tealToLime' | 'redToYellow';
+export type ButtonColorType = 'alternative' | 'blue' | 'dark' | 'green' | 'light' | 'primary' | 'purple' | 'red' | 'yellow' | 'none';
 
 export type Colors = 'blue' | 'gray' | 'red' | 'yellow' | 'purple' | 'green' | 'indigo' | 'pink' | 'white' | 'custom' | 'primary' | 'secondary';
 
@@ -57,9 +58,9 @@ export type ReviewType = {
   item3: string | undefined;
 };
 
-export type SelectOptionType = {
+export type SelectOptionType<T> = {
   name: string | number;
-  value: string | number;
+  value: T;
 };
 
 export type TransitionTypes = 'fade' | 'fly' | 'slide' | 'blur' | 'in:fly' | 'out:fly' | 'in:slide' | 'out:slide' | 'in:fade' | 'out:fade' | 'in:blur' | 'out:blur';
@@ -99,6 +100,7 @@ export interface ListGroupItemType {
   current?: boolean;
   disabled?: boolean;
   href?: string;
+  attrs?: HTMLAnchorAttributes | HTMLButtonAttributes;
   [propName: string]: any;
 }
 
@@ -120,26 +122,6 @@ export interface SiteType {
   name: string;
   href: string;
   img?: string;
-}
-
-export interface TimelineItemVerticalType {
-  date: Date | string;
-  title: string;
-  icon?: typeof SvelteComponent<any>;
-  iconSize?: number;
-  iconClass?: string;
-  href?: string;
-  linkname?: string;
-  text?: HTMLElement | string;
-}
-
-export interface TimelineItemHorizontalType {
-  date: Date | string;
-  title: string;
-  icon?: typeof SvelteComponent<any>;
-  iconSize?: number;
-  iconClass?: string;
-  text?: HTMLElement | string;
 }
 
 export interface TransitionParamTypes {

@@ -9,10 +9,9 @@ thumnailSize: w-64
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, CompoAttributesViewer } from '../../utils'
+  import { CompoAttributesViewer, GitHubCompoLinks, toKebabCase } from '../../utils'
   import { P, A } from '$lib'
-
-  const components = 'Rating, AdvancedRating, ScoreRating, RatingComment, Review, Star, Thumbup, Heart'
+  const dirName = toKebabCase(component_title)
 </script>
 
 Get started with the rating component to show an aggregate of reviews and scores in the forms of stars or numbers.
@@ -74,7 +73,7 @@ If you also want to show a text near the stars you can use the `text` slot to ad
 </script>
 
 <Rating id="example-3" total={5} rating={3.4}>
-  <p slot="text" class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">3.4 out of 5</p>
+  <p slot="text" class="ms-2 text-sm font-medium text-gray-500 dark:text-gray-400">3.4 out of 5</p>
 </Rating>
 ```
 
@@ -136,7 +135,7 @@ Set the `total`,` rating`, and `ratings` prop for AdvancedRation component. Use 
   ]}>
   <span slot="rating">
     <Rating total={5} rating={3.72} id="example-8">
-      <p slot="text" class="text-sm font-medium text-gray-500 dark:text-gray-400 ml-2">3.72 out of 5</p>
+      <p slot="text" class="text-sm font-medium text-gray-500 dark:text-gray-400 ms-2">3.72 out of 5</p>
     </Rating>
   </span>
   <p slot="globalText" class="mt-2 text-sm font-medium text-gray-500 dark:text-gray-400">1,745 global ratings</p>
@@ -162,7 +161,7 @@ As we describe in the Rating component, you can change an icon in the Rating com
   ]}>
   <span slot="rating">
     <Rating total={5} rating={3.8} icon={Thumbup} id="example-9">
-      <p slot="text" class="text-sm font-medium text-gray-500 dark:text-gray-400 ml-2">3.8 out of 5</p>
+      <p slot="text" class="text-sm font-medium text-gray-500 dark:text-gray-400 ms-2">3.8 out of 5</p>
     </Rating>
   </span>
   <p slot="globalText" class="mt-2 text-sm font-medium text-gray-500 dark:text-gray-400">1,745 global ratings</p>
@@ -240,7 +239,7 @@ Use this component to show the review content from a user alongside the avatar, 
 ```svelte example
 <script>
   import { Review } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { LandmarkSolid, CalendarMonthSolid, UsersGroupOutline, ThumbsUpSolid, ThumbsDownSolid } from 'flowbite-svelte-icons';
   let review = {
     name: 'Jese Leos',
     imgSrc: '/images/profile-picture-2.webp',
@@ -259,24 +258,24 @@ Use this component to show the review content from a user alongside the avatar, 
   <p class="mb-2 font-light text-gray-500 dark:text-gray-400">The flat was spotless, very comfortable, and the host was amazing. I highly recommend this accommodation for anyone visiting Brasov city centre. It's quite a while since we are no longer using hotel facilities but self contained places. And the main reason is poor cleanliness and staff not being trained properly. This place exceeded our expectation and will return for sure.</p>
   <p class="mb-5 font-light text-gray-500 dark:text-gray-400">It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.</p>
   <svelte:fragment slot="item1">
-    <Icon name="landmark-solid" class="w-3 h-3 mr-2" />
+    <LandmarkSolid class="w-3 h-3 me-2" />
     {review.item1}
   </svelte:fragment>
   <svelte:fragment slot="item2">
-    <Icon name="calendar-month-solid" class="w-3 h-3 mr-2" />
+    <CalendarMonthSolid class="w-3 h-3 me-2" />
     {review.item2}
   </svelte:fragment>
   <svelte:fragment slot="item3">
-    <Icon name="users-group-outline" class="w-3 h-3 mr-2" />
+    <UsersGroupOutline class="w-3 h-3 me-2" />
     {review.item3}
   </svelte:fragment>
-  <aside class="flex items-center mt-3 space-x-5">
+  <aside class="flex items-center mt-3 space-x-5 rtl:space-x-reverse">
     <a href="/" class="inline-flex items-center text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">
-      <Icon name="thumbs-up-solid" class="w-3.5 h-3.5 mr-2.5 text-primary-600 dark:text-primary-500" />
+      <ThumbsUpSolid class="w-3.5 h-3.5 me-2.5 text-primary-600 dark:text-primary-500" />
       Helpful
     </a>
     <a href="/" class="inline-flex items-center text-sm font-medium text-primary-600 hover:underline dark:text-primary-500 group">
-      <Icon name="thumbs-down-solid" class="w-3.5 h-3.5 mr-2.5 text-primary-600 dark:text-primary-500" />
+      <ThumbsDownSolid class="w-3.5 h-3.5 me-2.5 text-primary-600 dark:text-primary-500" />
       Not helpful
     </a>
   </aside>
@@ -319,8 +318,10 @@ The component has the following props, type, and default values. See [types page
 
 - Use the `class` prop to overwrite the `svg` tag class.
 
-<CompoAttributesViewer {components}/>
+<CompoAttributesViewer {dirName}/>
 
 ## References
 
 - [Flowbite Rating](https://flowbite.com/docs/components/rating/)
+
+<GitHubCompoLinks />

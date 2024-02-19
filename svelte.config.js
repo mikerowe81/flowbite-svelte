@@ -10,10 +10,10 @@ const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: [
+    mdsvex(mdsvexConfig),
     preprocess({
       postcss: true
-    }),
-    mdsvex(mdsvexConfig)
+    })
   ],
   vitePlugin: {
     inspector: {
@@ -21,7 +21,7 @@ const config = {
     }
   },
   kit: {
-    adapter: adapter({ runtime: 'edge' })
+    adapter: adapter()
   }
 };
 

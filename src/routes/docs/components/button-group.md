@@ -8,9 +8,9 @@ description: Button groups are a Tailwind CSS powered set of buttons sticked tog
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, CompoAttributesViewer, DocBadgeList } from '../../utils'
+  import { CompoAttributesViewer, DocBadgeList, GitHubCompoLinks, toKebabCase } from '../../utils'
   import { Badge, P, A } from '$lib'
-  const components = 'ButtonGroup'
+  const dirName = toKebabCase(component_title)
 </script>
 
 The button group component from Flowbite-Svelte can be used to stack together multiple buttons and links inside a single element.
@@ -27,7 +27,7 @@ The button group component from Flowbite-Svelte can be used to stack together mu
 
 Use the following code to stack together buttons into a single group.
 
-```svelte example class="flex justify-center" hideScript
+```svelte example class="flex justify-center" hideScript hideResponsiveButtons
 <script>
   import { ButtonGroup, Button } from 'flowbite-svelte';
 </script>
@@ -41,7 +41,7 @@ Use the following code to stack together buttons into a single group.
 
 ## More examples
 
-```svelte example class="flex flex-col flex-wrap gap-4"
+```svelte example class="flex flex-col flex-wrap gap-4" hideResponsiveButtons
 <script>
   import { ButtonGroup, Button, GradientButton } from 'flowbite-svelte';
 </script>
@@ -84,7 +84,7 @@ Use the following code to stack together buttons into a single group.
 
 You can also use the button group component as links.
 
-```svelte example class="flex justify-center" hideScript
+```svelte example class="flex justify-center" hideScript hideResponsiveButtons
 <script>
   import { ButtonGroup, Button } from 'flowbite-svelte';
 </script>
@@ -103,20 +103,20 @@ You can also use SVG icons inside the grouped buttons.
 ```svelte example class="flex justify-center"
 <script>
   import { ButtonGroup, Button } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { UserCircleSolid, AdjustmentsVerticalOutline, DownloadSolid } from 'flowbite-svelte-icons';
 </script>
 
 <ButtonGroup>
   <Button>
-    <Icon name="user-circle-solid" class="w-3 h-3 mr-2" />
+    <UserCircleSolid class="w-3 h-3 me-2" />
     Profile
   </Button>
   <Button>
-    <Icon name="adjustments-vertical-outline" class="w-3 h-3 mr-2" />
+    <AdjustmentsVerticalOutline class="w-3 h-3 me-2" />
     Settings
   </Button>
   <Button>
-    <Icon name="download-solid" class="w-3 h-3 mr-2" />
+    <DownloadSolid class="w-3 h-3 me-2" />
     Download
   </Button>
 </ButtonGroup>
@@ -126,7 +126,7 @@ You can also use SVG icons inside the grouped buttons.
 
 Group a series of buttons together on a single line or stack them in a vertical column.
 
-```svelte example class="flex justify-center" hideScript
+```svelte example class="flex justify-center" hideScript hideResponsiveButtons
 <script>
   import { ButtonGroup, Button } from 'flowbite-svelte';
 </script>
@@ -145,20 +145,20 @@ Group a series of buttons together on a single line or stack them in a vertical 
 ```svelte example class="flex justify-center"
 <script>
   import { ButtonGroup, Button } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { UserCircleSolid, AdjustmentsVerticalOutline, DownloadSolid } from 'flowbite-svelte-icons';
 </script>
 
 <ButtonGroup>
   <Button outline color="dark">
-    <Icon name="user-circle-solid" class="w-3 h-3 mr-2" />
+    <UserCircleSolid class="w-3 h-3 me-2" />
     Profile
   </Button>
   <Button outline color="dark">
-    <Icon name="adjustments-vertical-outline" class="w-3 h-3 mr-2" />
+    <AdjustmentsVerticalOutline class="w-3 h-3 me-2" />
     Settings
   </Button>
   <Button outline color="dark">
-    <Icon name="download-solid" class="w-3 h-3 mr-2" />
+    <DownloadSolid class="w-3 h-3 me-2" />
     Download
   </Button>
 </ButtonGroup>
@@ -168,7 +168,7 @@ Group a series of buttons together on a single line or stack them in a vertical 
 
 You can add the `on:click` event to the `Button` component.
 
-```svelte example class="flex justify-center"
+```svelte example class="flex justify-center" hideResponsiveButtons
 <script>
   import { ButtonGroup, Button } from 'flowbite-svelte';
   const handleClick = () => {
@@ -191,8 +191,10 @@ The component has the following props, type, and default values. See [types page
 
 - Use the `class` prop to overwrite `divClass`.
 
-<CompoAttributesViewer {components}/>
+<CompoAttributesViewer {dirName}/>
 
 ## References
 
 - [Flowbite Button Group](https://flowbite.com/docs/components/button-group/)
+
+<GitHubCompoLinks />

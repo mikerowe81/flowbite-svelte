@@ -17,7 +17,7 @@
 
   $: active = navUrl ? href === navUrl : false;
 
-  $: liClass = twMerge('block py-2 pr-4 pl-3 md:p-0 rounded md:border-0', active ? activeClass ?? context.activeClass : nonActiveClass ?? context.nonActiveClass, $$props.class);
+  $: liClass = twMerge('block py-2 pe-4 ps-3 md:p-0 rounded md:border-0', active ? activeClass ?? context.activeClass : nonActiveClass ?? context.nonActiveClass, $$props.class);
   // $: console.log()
 </script>
 
@@ -30,7 +30,7 @@
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
-## Component data
+## Props
 @prop export let href: string = '';
 @prop export let activeClass: string | undefined = undefined;
 @prop export let nonActiveClass: string | undefined = undefined;

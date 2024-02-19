@@ -28,7 +28,7 @@
     Due to that we need the below slot and Wrapper around
   -->
   {#if $$slots.default}
-    <div class="flex absolute inset-y-0 right-0 items-center text-gray-500 dark:text-gray-400">
+    <div class="flex absolute inset-y-0 end-0 items-center text-gray-500 dark:text-gray-400">
       <slot />
     </div>
   {/if}
@@ -37,7 +37,7 @@
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
-## Component data
+## Props
 @prop export let size: FormSizeType = 'lg';
 @prop export let placeholder: string = 'Search';
 @prop export let value: any = undefined;

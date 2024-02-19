@@ -9,10 +9,9 @@ thumnailSize: w-40
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, CompoAttributesViewer } from '../../utils'
+  import { CompoAttributesViewer, GitHubCompoLinks, toKebabCase } from '../../utils'
   import { P, A, Heading } from '$lib'
-  
-  const components = 'Input, Label, Helper, Fileupload, Textarea, Select, Checkbox, Radio, Toggle, MultiSelect'
+  const dirName = toKebabCase(component_title)
 </script>
 
 The Input component allows you to change the input size, add disabled, helper text, and floating label.
@@ -76,14 +75,14 @@ With the Input component, you can add <a href="https://flowbite-svelte.vercel.ap
 
 ```svelte example
 <script>
-  import { Label, Input, InputAddon, ButtonGroup } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { Label, Input, ButtonGroup } from 'flowbite-svelte';
+  import { EnvelopeSolid } from 'flowbite-svelte-icons';
 </script>
 
 <div class="mb-6">
   <Label for="input-group-1" class="block mb-2">Your Email</Label>
   <Input id="email" type="email" placeholder="name@flowbite.com">
-    <Icon name="envelope-solid" slot="left" class="w-5 h-5 text-gray-500 dark:text-gray-400" />
+    <EnvelopeSolid slot="left" class="w-5 h-5 text-gray-500 dark:text-gray-400" />
   </Input>
 </div>
 ```
@@ -93,14 +92,14 @@ With the Input component, you can add <a href="https://flowbite-svelte.vercel.ap
 ```svelte example
 <script>
   import { Label, Input, InputAddon, ButtonGroup } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { UserCircleSolid } from 'flowbite-svelte-icons';
 </script>
 
 <div class="mb-6">
   <Label for="website-admin" class="block mb-2">Username</Label>
   <ButtonGroup class="w-full">
     <InputAddon>
-      <Icon name="user-circle-solid" class="w-4 h-4 text-gray-500 dark:text-gray-400" />
+      <UserCircleSolid class="w-4 h-4 text-gray-500 dark:text-gray-400" />
     </InputAddon>
     <Input id="website-admin" placeholder="elonmusk" />
   </ButtonGroup>
@@ -247,8 +246,10 @@ Get started with the default example of a select input component to get a single
 
 The component has the following props, type, and default values. See [types page](/docs/pages/typescript) for type information.
 
-<CompoAttributesViewer {components}/>
+<CompoAttributesViewer {dirName}/>
 
 ## References
 
 - [Flowbite Forms](https://flowbite.com/docs/components/forms/)
+
+<GitHubCompoLinks />

@@ -8,9 +8,9 @@ description: Get started with the select component to allow the user to choose f
 ---
 
 <script>
-import { TableProp, TableDefaultRow, CompoAttributesViewer, DocBadgeList } from '../../utils'
+import { CompoAttributesViewer, DocBadgeList, GitHubCompoLinks, toKebabCase } from '../../utils'
 import { Badge, A } from '$lib'
-const components = 'Select'
+const components = 'Select, MultiSelect'
 </script>
 
 The select input component can be used to gather information from users based on multiple options in the form of a dropdown list and by browsing this page you will find multiple options, styles, sizes, and variants built with the utility classes from Tailwind CSS also available in dark mode.
@@ -87,7 +87,7 @@ Use this example if you want to create a multi-level dropdown and select compone
 ```svelte example class="h-64"
 <script>
   import { Select, Dropdown, DropdownItem } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { ChevronDownSolid } from 'flowbite-svelte-icons';
   import Usa from '../../utils/icons/Usa.svelte';
   import Germany from '../../utils/icons/Germany.svelte';
   import Italy from '../../utils/icons/Italy.svelte';
@@ -109,10 +109,10 @@ Use this example if you want to create a multi-level dropdown and select compone
 </script>
 
 <div class="flex">
-  <button id="states-button" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">
+  <button id="states-button" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">
     <Usa />
     USA
-    <Icon name="chevron-down-solid" class="w-3 h-3 ml-2" />
+    <ChevronDownSolid class="w-3 h-3 ms-2" />
   </button>
   <Dropdown triggeredBy="#states-button">
     <DropdownItem class="flex items-center">
@@ -132,7 +132,7 @@ Use this example if you want to create a multi-level dropdown and select compone
       China
     </DropdownItem>
   </Dropdown>
-  <Select items={states} placeholder="Choose the state" class="!rounded-l-none" />
+  <Select items={states} placeholder="Choose the state" class="!rounded-s-none" />
 </div>
 ```
 
@@ -278,3 +278,5 @@ The component has the following props, type, and default values. See [types page
 ## References
 
 - [Flowbite Select](https://flowbite.com/docs/forms/select/)
+
+<GitHubCompoLinks {components}/>

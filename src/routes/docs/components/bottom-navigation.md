@@ -9,10 +9,10 @@ thumnailSize: w-64
 ---
 
 <script>
-  import { TableProp, TableDefaultRow, CompoAttributesViewer } from '../../utils'
+  import { CompoAttributesViewer, GitHubCompoLinks, toKebabCase } from '../../utils'
   import { P, A } from '$lib'
 
-  const components = 'BottomNav, BottomNavHeader, BottomNavHeaderItem, BottomNavItem'
+  const dirName = toKebabCase(component_title)
 </script>
 
 The bottom bar component can be used to allow menu items and certain control actions to be performed by the user through the usage of a fixed bar positioning to the bottom side of your page.
@@ -34,7 +34,7 @@ Use the default bottom navigation bar example to show a list of menu items as bu
 ```svelte example class="flex flex-col relative"
 <script>
   import { BottomNav, BottomNavItem, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { HomeSolid, WalletSolid, AdjustmentsVerticalOutline, UserCircleSolid } from 'flowbite-svelte-icons';
 </script>
 
 <Skeleton class="py-4" />
@@ -42,28 +42,30 @@ Use the default bottom navigation bar example to show a list of menu items as bu
 
 <BottomNav position="absolute" classInner="grid-cols-4">
   <BottomNavItem btnName="Home">
-    <Icon name="home-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <HomeSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
   </BottomNavItem>
   <BottomNavItem btnName="Wallet">
-    <Icon name="wallet-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <WalletSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
   </BottomNavItem>
   <BottomNavItem btnName="Settings">
-    <Icon name="adjustments-vertical-outline" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <AdjustmentsVerticalOutline class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
   </BottomNavItem>
   <BottomNavItem btnName="Profile">
-    <Icon name="user-circle-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <UserCircleSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
   </BottomNavItem>
 </BottomNav>
 ```
 
 ## Adding links and active class
 
-Utilize the `href` prop within the `BottomNavItem` component to incorporate a hyperlink. To initiate the application of the active class, include the `activeUrl` prop within the `BottomNav` component:
+Utilize the `href` prop within the `BottomNavItem` component to incorporate a hyperlink. To initiate the application of the active class, include the `activeUrl` prop within the `BottomNav` component.
+
+By default, the `BottomNavItem` will only be set to active if the `href` and the `activeUrl` are exactly the same. If you want the current item to match nested pages you can set the `exact` prop on `BottomNavItem` to false. In the following example, the `Quickstart` button will match `/docs/pages/quickstart` or `/docs/pages/quickstart/step-1`. All other buttons will only match the exact defined `href`.
 
 ```svelte example class="flex flex-col relative"
 <script>
   import { BottomNav, BottomNavItem, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { HomeSolid, WalletSolid, AdjustmentsVerticalOutline, UserCircleSolid } from 'flowbite-svelte-icons';
   import { page } from '$app/stores';
   $: activeUrl = $page.url.pathname;
 </script>
@@ -73,16 +75,16 @@ Utilize the `href` prop within the `BottomNavItem` component to incorporate a hy
 
 <BottomNav {activeUrl} position="absolute" classInner="grid-cols-4">
   <BottomNavItem btnName="Home" href="/">
-    <Icon name="home-solid" />
+    <HomeSolid />
   </BottomNavItem>
-  <BottomNavItem btnName="Quickstart" href="/docs/pages/quickstart">
-    <Icon name="wallet-solid" />
+  <BottomNavItem btnName="Quickstart" href="/docs/pages/quickstart" exact={false}>
+    <WalletSolid />
   </BottomNavItem>
   <BottomNavItem btnName="BottomNav" href="/docs/components/bottom-navigation">
-    <Icon name="adjustments-vertical-outline" />
+    <AdjustmentsVerticalOutline />
   </BottomNavItem>
   <BottomNavItem btnName="Accordion" href="/docs/components/accordion">
-    <Icon name="user-circle-solid" />
+    <UserCircleSolid />
   </BottomNavItem>
 </BottomNav>
 ```
@@ -92,7 +94,7 @@ The following example shows how to change active class, by overwriting `activeCl
 ```svelte example class="flex flex-col relative"
 <script>
   import { BottomNav, BottomNavItem, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { HomeSolid, WalletSolid, AdjustmentsVerticalOutline, UserCircleSolid } from 'flowbite-svelte-icons';
   import { page } from '$app/stores';
   $: activeUrl = $page.url.pathname;
 </script>
@@ -102,16 +104,16 @@ The following example shows how to change active class, by overwriting `activeCl
 
 <BottomNav {activeUrl} position="absolute" classInner="grid-cols-4" classActive="font-bold text-green-500 hover:text-green-900 dark:hover:text-green-700 dark:text-green-300">
   <BottomNavItem btnName="Home" href="/">
-    <Icon name="home-solid" />
+    <HomeSolid />
   </BottomNavItem>
   <BottomNavItem btnName="Quickstart" href="/docs/pages/quickstart">
-    <Icon name="wallet-solid" />
+    <WalletSolid />
   </BottomNavItem>
   <BottomNavItem btnName="BottomNav" href="/docs/components/bottom-navigation">
-    <Icon name="adjustments-vertical-outline" />
+    <AdjustmentsVerticalOutline />
   </BottomNavItem>
   <BottomNavItem btnName="Accordion" href="/docs/components/accordion">
-    <Icon name="user-circle-solid" />
+    <UserCircleSolid />
   </BottomNavItem>
 </BottomNav>
 ```
@@ -122,7 +124,7 @@ Use the following example to change the icon colors:
 <script>
   import { page } from '$app/stores';
   import { BottomNav, BottomNavItem, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { HomeSolid, WalletSolid, AdjustmentsVerticalOutline, UserCircleSolid } from 'flowbite-svelte-icons';
   $: activeUrl = $page.url.pathname;
   let svgClass = 'mb-1 text-pink-500 dark:text-pink-400 group-hover:text-pink-600 dark:group-hover:text-pink-500';
   let svgActiveClass = 'mb-1 text-green-500 dark:text-green-500 group-hover:text-green-700 dark:group-hover:text-green-700';
@@ -133,16 +135,16 @@ Use the following example to change the icon colors:
 
 <BottomNav {activeUrl} position="absolute" classInner="grid-cols-4">
   <BottomNavItem btnName="Home" href="/">
-    <Icon name="home-solid" class={activeUrl === '/' ? svgActiveClass : svgClass} />
+    <HomeSolid class={activeUrl === '/' ? svgActiveClass : svgClass} />
   </BottomNavItem>
   <BottomNavItem btnName="Quickstart" href="/docs/pages/quickstart">
-    <Icon name="wallet-solid" class={activeUrl === '/docs/pages/quickstart' ? svgActiveClass : svgClass} />
+    <WalletSolid class={activeUrl === '/docs/pages/quickstart' ? svgActiveClass : svgClass} />
   </BottomNavItem>
   <BottomNavItem btnName="BottomNav" href="/docs/components/bottom-navigation">
-    <Icon name="adjustments-vertical-outline" class={activeUrl === '/docs/components/bottom-navigation' ? svgActiveClass : svgClass} />
+    <AdjustmentsVerticalOutline class={activeUrl === '/docs/components/bottom-navigation' ? svgActiveClass : svgClass} />
   </BottomNavItem>
   <BottomNavItem btnName="Accordion" href="/docs/components/accordion">
-    <Icon name="user-circle-solid" class={activeUrl === '/docs/components/accordion' ? svgActiveClass : svgClass} />
+    <UserCircleSolid class={activeUrl === '/docs/components/accordion' ? svgActiveClass : svgClass} />
   </BottomNavItem>
 </BottomNav>
 ```
@@ -154,7 +156,7 @@ This example can be used to show a border between the menu items inside the bott
 ```svelte example class="flex flex-col relative"
 <script>
   import { BottomNav, BottomNavItem, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { HomeSolid, WalletSolid, AdjustmentsVerticalOutline, UserCircleSolid } from 'flowbite-svelte-icons';
 </script>
 
 <Skeleton class="py-4" />
@@ -162,16 +164,16 @@ This example can be used to show a border between the menu items inside the bott
 
 <BottomNav position="absolute" navType="border" classInner="grid-cols-4">
   <BottomNavItem btnName="Home">
-    <Icon name="home-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <HomeSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
   </BottomNavItem>
   <BottomNavItem btnName="Wallet">
-    <Icon name="wallet-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <WalletSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
   </BottomNavItem>
   <BottomNavItem btnName="Settings">
-    <Icon name="adjustments-vertical-outline" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <AdjustmentsVerticalOutline class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
   </BottomNavItem>
   <BottomNavItem btnName="Profile">
-    <Icon name="user-circle-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <UserCircleSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
   </BottomNavItem>
 </BottomNav>
 ```
@@ -183,7 +185,7 @@ Use this example to show a CTA button in the center of the navigation component 
 ```svelte example class="flex flex-col relative"
 <script>
   import { BottomNav, BottomNavItem, Tooltip, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { HomeSolid, WalletSolid, AdjustmentsVerticalOutline, UserCircleSolid, PlusSolid } from 'flowbite-svelte-icons';
 </script>
 
 <Skeleton class="py-4" />
@@ -191,25 +193,25 @@ Use this example to show a CTA button in the center of the navigation component 
 
 <BottomNav position="absolute" navType="application" classInner="grid-cols-5">
   <BottomNavItem btnName="Home" appBtnPosition="left">
-    <Icon name="home-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <HomeSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Home</Tooltip>
   </BottomNavItem>
   <BottomNavItem btnName="Wallet" appBtnPosition="middle">
-    <Icon name="wallet-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <WalletSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Wallet</Tooltip>
   </BottomNavItem>
   <div class="flex items-center justify-center">
     <BottomNavItem btnName="Create new item" appBtnPosition="middle" btnClass="inline-flex items-center justify-center w-10 h-10 font-medium bg-primary-600 rounded-full hover:bg-primary-700 group focus:ring-4 focus:ring-primary-300 focus:outline-none dark:focus:ring-primary-800">
-      <Icon name="plus-solid" class="text-white" />
+      <PlusSolid class="text-white" />
       <Tooltip arrow={false}>Create new item</Tooltip>
     </BottomNavItem>
   </div>
   <BottomNavItem btnName="Settings" appBtnPosition="middle">
-    <Icon name="adjustments-vertical-outline" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <AdjustmentsVerticalOutline class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Settings</Tooltip>
   </BottomNavItem>
   <BottomNavItem btnName="Profile" appBtnPosition="right">
-    <Icon name="user-circle-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <UserCircleSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Profile</Tooltip>
   </BottomNavItem>
 </BottomNav>
@@ -222,7 +224,7 @@ This example be used to paginate multiple pages on a single view alongside other
 ```svelte example class="flex flex-col relative"
 <script>
   import { BottomNav, BottomNavItem, Tooltip, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { FilePlusSolid, BookmarkSolid, AngleLeftSolid, AngleRightSolid, AdjustmentsVerticalOutline, UserCircleSolid } from 'flowbite-svelte-icons';
 </script>
 
 <Skeleton class="py-4" />
@@ -230,32 +232,32 @@ This example be used to paginate multiple pages on a single view alongside other
 
 <BottomNav position="absolute" navType="pagination" classInner="grid-cols-6">
   <BottomNavItem btnName="New document">
-    <Icon name="file-plus-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <FilePlusSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>New document</Tooltip>
   </BottomNavItem>
   <BottomNavItem btnName="Bookmark">
-    <Icon name="bookmark-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <BookmarkSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Bookmark</Tooltip>
   </BottomNavItem>
   <div class="flex items-center justify-center col-span-2">
     <div class="flex items-center justify-between w-full text-gray-600 dark:text-gray-400 bg-gray-100 rounded-lg dark:bg-gray-600 max-w-[128px] mx-2">
-      <button type="button" class="inline-flex items-center justify-center h-8 px-1 bg-gray-100 rounded-l-lg dark:bg-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-800">
-        <Icon name="angle-left-solid" class="w-2 h-2 ml-1" />
+      <button type="button" class="inline-flex items-center justify-center h-8 px-1 bg-gray-100 rounded-s-lg dark:bg-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-800">
+        <AngleLeftSolid class="w-2 h-2 ms-1" />
         <span class="sr-only">Previous page</span>
       </button>
       <span class="flex-shrink-0 mx-1 text-sm font-medium">1 of 345</span>
-      <button type="button" class="inline-flex items-center justify-center h-8 px-1 bg-gray-100 rounded-r-lg dark:bg-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-800">
-        <Icon name="angle-right-solid" class="w-2 h-2 mr-1" />
+      <button type="button" class="inline-flex items-center justify-center h-8 px-1 bg-gray-100 rounded-e-lg dark:bg-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-800">
+        <AngleRightSolid class="w-2 h-2 me-1" />
         <span class="sr-only">Next page</span>
       </button>
     </div>
   </div>
   <BottomNavItem btnName="Settings">
-    <Icon name="adjustments-vertical-outline" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <AdjustmentsVerticalOutline class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Settings</Tooltip>
   </BottomNavItem>
   <BottomNavItem btnName="Profile">
-    <Icon name="user-circle-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <UserCircleSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Profile</Tooltip>
   </BottomNavItem>
 </BottomNav>
@@ -266,7 +268,7 @@ This example be used to paginate multiple pages on a single view alongside other
 ```svelte example class="flex flex-col relative"
 <script>
   import { BottomNav, BottomNavItem, BottomNavHeader, BottomNavHeaderItem, Tooltip, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { HomeSolid, BookmarkSolid, PlusSolid, SearchOutline,  AdjustmentsVerticalOutline } from 'flowbite-svelte-icons';
 </script>
 
 <Skeleton class="py-4" />
@@ -279,23 +281,23 @@ This example be used to paginate multiple pages on a single view alongside other
     <BottomNavHeaderItem itemName="Following" />
   </BottomNavHeader>
   <BottomNavItem btnName="Home" id="group-home">
-    <Icon name="home-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <HomeSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Home</Tooltip>
   </BottomNavItem>
   <BottomNavItem btnName="Bookmark" id="group-bookmark">
-    <Icon name="bookmark-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <BookmarkSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Bookmark</Tooltip>
   </BottomNavItem>
   <BottomNavItem btnName="New post" id="group-new">
-    <Icon name="plus-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <PlusSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>New Post</Tooltip>
   </BottomNavItem>
   <BottomNavItem btnName="Search" id="group-search">
-    <Icon name="search-outline" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <SearchOutline class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Search</Tooltip>
   </BottomNavItem>
   <BottomNavItem btnName="Settings" id="group-settings">
-    <Icon name="adjustments-vertical-outline" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+    <AdjustmentsVerticalOutline class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     <Tooltip arrow={false}>Settings</Tooltip>
   </BottomNavItem>
 </BottomNav>
@@ -310,7 +312,7 @@ You can even use the other bottom navbar examples to exchange the default one pr
 ```svelte example class="flex justify-center"
 <script>
   import { BottomNav, BottomNavItem, Card, Listgroup, Avatar } from 'flowbite-svelte';
-  import { Icon } from 'flowbite-svelte-icons';
+  import { ClockSolid, UserGroupSolid, StarSolid } from 'flowbite-svelte-icons';
   let list = [
     {
       img: { src: '/images/profile-picture-1.webp', alt: 'Neil Sims' },
@@ -343,7 +345,7 @@ You can even use the other bottom navbar examples to exchange the default one pr
 <Card padding="none" class="relative overflow-y-scroll bg-white border border-gray-100 rounded-lg dark:bg-gray-700 dark:border-gray-600 h-96">
   <Listgroup items={list} let:item class="border-0 dark:!bg-transparent">
     <a href="/" class="flex items-center justify-center w-full px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-800">
-      <Avatar src={item.img.src} alt={item.img.alt} class="flex-shrink-0 mr-3" />
+      <Avatar src={item.img.src} alt={item.img.alt} class="flex-shrink-0 me-3" />
       <div>
         <p class="text-sm text-gray-500 dark:text-gray-400">{@html item.comment}</p>
         <span class="text-xs text-primary-600 dark:text-primary-500">{@html item.message}</span>
@@ -352,13 +354,13 @@ You can even use the other bottom navbar examples to exchange the default one pr
   </Listgroup>
   <BottomNav position="sticky" navType="card" classInner="grid-cols-3 pt-2 pb-4">
     <BottomNavItem btnName="Latest" id="card-latest">
-      <Icon name="clock-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+      <ClockSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     </BottomNavItem>
     <BottomNavItem btnName="Following" id="card-following">
-      <Icon name="user-group-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+      <UserGroupSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     </BottomNavItem>
     <BottomNavItem btnName="Favorites" id="card-favorites">
-      <Icon name="star-solid" class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+      <StarSolid class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
     </BottomNavItem>
   </BottomNav>
 </Card>
@@ -388,8 +390,10 @@ The component has the following props, type, and default values. See [types page
 - Use the `btnClass` prop to overwrite the `button` tag class.
 - Use the `spanClass` prop to overwrite the `span` tag class.
 
-<CompoAttributesViewer {components}/>
+<CompoAttributesViewer {dirName}/>
 
 ## References
 
 - [Flowbite Bottom Navigation](https://flowbite.com/docs/components/bottom-navigation/)
+
+<GitHubCompoLinks />

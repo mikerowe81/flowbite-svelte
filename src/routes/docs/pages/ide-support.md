@@ -13,6 +13,7 @@ If you are using an LSP-compatible editor, such as VSCode, Atom, Sublime Text, o
 
 <script>
   import { Img } from 'flowbite-svelte';
+  
 </script>
 
 <Img src='/videos/compo-doc.gif' alt="component document demo" />

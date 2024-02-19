@@ -7,6 +7,10 @@ dir: Pages
 description: Learn more about the open-source licensing rights of the Flowbite Svelte UI component library
 ---
 
+<script>
+  
+</script>
+
 ## MIT License
 
 #### Copyright (c) 2022 Flowbite Svelte

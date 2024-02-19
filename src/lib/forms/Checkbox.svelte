@@ -12,7 +12,7 @@
   export let group: (string | number)[] = [];
   export let value: string | number = 'on';
   export let checked: boolean | undefined = undefined;
-  export let spacing: string = 'mr-2';
+  export let spacing: string = 'me-2';
 
   // tinted if put in component having its own background
   let background: boolean = getContext('background');
@@ -59,12 +59,12 @@
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
-## Component data
+## Props
 @prop export let color: FormColorType = 'primary';
 @prop export let custom: boolean = false;
 @prop export let inline: boolean = false;
 @prop export let group: (string | number)[] = [];
 @prop export let value: string | number = 'on';
 @prop export let checked: boolean | undefined = undefined;
-@prop export let spacing: string = 'mr-2';
+@prop export let spacing: string = 'me-2';
 -->

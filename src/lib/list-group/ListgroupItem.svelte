@@ -7,10 +7,10 @@
   export let disabled: boolean = false;
   export let href: string = '';
   export let currentClass: string = 'text-white bg-primary-700 dark:text-white dark:bg-gray-800';
-  export let normalClass: string = '';
+  export let normalClass: string = 'bg-gray-50 dark:bg-gray-800';
   export let disabledClass: string = 'text-gray-900 bg-gray-100 dark:bg-gray-600 dark:text-gray-400';
   export let focusClass: string = 'focus:z-40 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:focus:ring-gray-500 dark:focus:text-white';
-  export let hoverClass: string = 'hover:bg-gray-100 hover:text-primary-700 dark:hover:bg-gray-600 dark:hover:text-white';
+  export let hoverClass: string = 'hover:bg-gray-100 hover:text-primary-700 dark:hover:bg-gray-700 dark:hover:text-white';
   export let itemDefaultClass: string = 'py-2 px-4 w-full text-sm font-medium list-none first:rounded-t-lg last:rounded-b-lg';
   export let attrs: any = undefined;
 

@@ -1,11 +1,10 @@
 <script lang="ts">
   import type { ApexOptions } from 'apexcharts';
 
-  export let options: ApexOptions;
+  export let options: ApexOptions;  
+  export let chart: ApexCharts;
 
   function initChart(node: HTMLElement, options: ApexOptions) {
-    let chart: ApexCharts;
-
     async function asyncInitChart() {
       const ApexCharts = (await import('apexcharts')).default;
       chart = new ApexCharts(node, options);
@@ -25,11 +24,12 @@
   }
 </script>
 
-<div use:initChart={options} class={$$props.class} />
+<div use:initChart={options} class={$$props.class}></div>
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
 @prop export let options: ApexOptions;
+@prop export let chart: ApexCharts;
 -->

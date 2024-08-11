@@ -1,18 +1,198 @@
 # Changelog
 
+## 0.46.15
+
+### Patch Changes
+
+- feat: add 5.0.0 to peerDependencies ([`69108a0080373c686cead96d80cdfa1d44ab5ef8`](https://github.com/themesberg/flowbite-svelte/commit/69108a0080373c686cead96d80cdfa1d44ab5ef8))
+
+## 0.46.14
+
+### Patch Changes
+
+- fix: Banner transition ([`5f0e807469d079e790fbeb188b777a4bb5b7a009`](https://github.com/themesberg/flowbite-svelte/commit/5f0e807469d079e790fbeb188b777a4bb5b7a009))
+
+## 0.46.13
+
+### Patch Changes
+
+- fix: add headerClass and footerClass to Textarea, #1380 ([`6ff73c2865522fed10ebc893340b4bee45b6e235`](https://github.com/themesberg/flowbite-svelte/commit/6ff73c2865522fed10ebc893340b4bee45b6e235))
+
+## 0.46.12
+
+### Patch Changes
+
+- fix: : Dropdown change to component prop since $restProps does not work with Svelte 5
+
+## 0.46.11
+
+### Patch Changes
+
+- fix: Badge and Toast component transition ([`ab24e307598ef53ab2b714ebce3f6541c9eb37e4`](https://github.com/themesberg/flowbite-svelte/commit/ab24e307598ef53ab2b714ebce3f6541c9eb37e4))
+
+## 0.46.10
+
+### Patch Changes
+
+- fix: Checkbox for group ([`59108274dd1acdbad37a5fdb26d7ff93c9bf8de5`](https://github.com/themesberg/flowbite-svelte/commit/59108274dd1acdbad37a5fdb26d7ff93c9bf8de5))
+
+## 0.46.9
+
+### Patch Changes
+
+- fix: remove the default values for Checkbox group and choices ([`20686def610fca25f1a49013216dbbbdd7ca657d`](https://github.com/themesberg/flowbite-svelte/commit/20686def610fca25f1a49013216dbbbdd7ca657d))
+
+## 0.46.8
+
+### Patch Changes
+
+- fix: Checkbox group ([`540e8c32933ccafc19c338f8aa3676fdb5575dc4`](https://github.com/themesberg/flowbite-svelte/commit/540e8c32933ccafc19c338f8aa3676fdb5575dc4))
+
+## 0.46.7
+
+### Patch Changes
+
+- fix: TableBodyCell separate td and button ([`ba1705a6bbebf05ab3274e3bcb4ab811931440f5`](https://github.com/themesberg/flowbite-svelte/commit/ba1705a6bbebf05ab3274e3bcb4ab811931440f5))
+
+## 0.46.6
+
+### Patch Changes
+
+- fix: add default values to Badge component props ([`2bb23fd9717f028f387c26ff8ab1239a07bec21f`](https://github.com/themesberg/flowbite-svelte/commit/2bb23fd9717f028f387c26ff8ab1239a07bec21f))
+
+- fix: Badge component update ([`2bb23fd9717f028f387c26ff8ab1239a07bec21f`](https://github.com/themesberg/flowbite-svelte/commit/2bb23fd9717f028f387c26ff8ab1239a07bec21f))
+
+## 0.46.5
+
+### Patch Changes
+
+- fix: Select component update value
+
+## 0.46.4
+
+### Patch Changes
+
+- fix: Self-closing HTML tags for Textarea component' ([`5fc9f589630c7cf6ffe3f5b5ea59b0a5a3e4116a`](https://github.com/themesberg/flowbite-svelte/commit/5fc9f589630c7cf6ffe3f5b5ea59b0a5a3e4116a))
+
+## 0.46.3
+
+### Patch Changes
+
+- fix: Self-closing HTML tags ([`0c3fd7dfc4d9644f137008abb9037da7d8c07fa1`](https://github.com/themesberg/flowbite-svelte/commit/0c3fd7dfc4d9644f137008abb9037da7d8c07fa1))
+
+## 0.46.2
+
+### Patch Changes
+
+- 1790b498 fix: add test-results to gitignore
+- 0833cf6d fix: correct border and background colors for textarea compon ent (#1363)
+- 6d75ffe5 docs: README update
+- 0ecae1f3 chore: cleanup
+- f6ed5e8f fix: blocks version and icon link update
+- 587682ac fix: remove bg color from icon pages
+- dec9ab7a (new-blocks) feat: add blocks
+- 95343155 (origin/new-blocks) > Gitignore updated at 2024-06-16 07:17:57
+- 04309ad8 fix: add admin dashboard to sidebar menu
+- deea452c feat: add admin-dashboard and icons
+- c4efa031 fix: create FlowbiteSvelteLayout and ComponentsLayout
+- bf2df482 Pass $$restProps to button (#1339)
+- 137f5570 fix:MultiSelect on:change triggered twice (#1341)
+- 21f03a61 feat: Add disableSwipe prop to Carousel (#1353)
+- 1b458271 docs: Properly setting Flowbite component link for Gallery (#1359)
+- e4e50278 [forms/Select] correctly initialize "selected" attribute for SSR (#1352)
+- 41f2fc92 fix: playwright version in workflows
+- 7a83eb1e fix: link to vercel for admin-dashboard
+- c6962464 fix: bg-color update
+- ce0e03f0 feat: add admin-dashboard
+- 4b1e19f7 feat: add prerender true
+- 2d808845 chore: add google file
+- 70b65c34 fix: add textarea on select handler (#1346)
+- 6d077922 fix: #1350 remove else from AccordionItem
+- 6ff61d2d fix: #1332 add imgClass prop
+- d51c7d86 remove console.log from InputAddon.svelte (#1333)
+- a15568b9 fix: link update
+- 7c2b90ac fix: url updates
+
+## 0.46.1
+
+### Patch Changes
+
+- - 262c2d0f fix(Dropdown): default padding should be `py-2` (#1088) ([`e219ce93bf6d10cba77f63d2c8aa37866723f9f4`](https://github.com/themesberg/flowbite-svelte/commit/e219ce93bf6d10cba77f63d2c8aa37866723f9f4))
+  - 31b7fb71 fix: proper condition for hover event listeners in Popper (#1255)
+  - aa2f50bf fix:incorrect text color of MultiSelect CloseButton (#1318) (#1319)
+  - 45113be8 fix:Badge close event not work (#1320) (#1322)
+  - 44457c2d Fix dropdown with Search (#1324)
+  - eb255d01 fix: #1329 update InputAddon
+  - 11d53087 fix: #1328 Button update
+  - c10360e9 feat: add `imgOnly` property for `<ImagePlaceholder />` component (#1317)
+  - 3d30222c 1259 multi select fixes (#1260)
+  - c906a92d fix: #1327 update style for CopyClickboardInput
+  - 5ee3e240 fix: #1326 add DocSearch css
+  - add8d334 feat: Placeholder for MultiSelect (#1315) (#1316)
+  - 9eeb2bf7 docs: fix table.md (#1258)
+  - 29956561 fix: add disabled text color classes to Select component (#1303)
+  - f54fc519 fix: #1314 by update the docs
+  - f0b28912 fix: #1304 add svelte v3
+
+## 0.46.0
+
+### Minor Changes
+
+- - 998d0176 BREAKING: #1277 change style prop to tabStyle to avoid conflict with CSS attr ([`40a1d6581d555c28ff00e5b373d5742a314b6b02`](https://github.com/themesberg/flowbite-svelte/commit/40a1d6581d555c28ff00e5b373d5742a314b6b02))
+  - 572888c4 docs: #1282 add warnings in the docs where components are using @html
+  - bb479286 fix: docsearch style using @docsearch/css@3
+  - 656f2223 fix: #1287 #1304
+  - 113de668 fix: add disabled prop to Button component
+  - 4fbd9bd0 docs: change tailwind.config.cjs darkMode class to selector
+
+## 0.45.1
+
+### Patch Changes
+
+- - 3eb228d3 fix: node from 20.0.0 to 18.0.0 in package.json engines ([`987f564b0e7cc62c68898fd5e0b73af96610c406`](https://github.com/themesberg/flowbite-svelte/commit/987f564b0e7cc62c68898fd5e0b73af96610c406))
+  - 0d9a9332 fix: adjust eslint configuration to eslint-plugin-svelte (previously used eslint-plugin-svelte3) (#1310)
+  - 191ca2e0 fix: add define to vite.config.ts for **VERSION**
+  - ad3d1c7f fix: move FATHOM_ID to .env and use FathomAnalytics.svelte
+  - 6011780a > Gitignore updated at 2024-04-18 06:10:47
+  - ba81e3bb fix: update gitignore
+
+## 0.45.0
+
+### Minor Changes
+
+- BREAKING: flowbie-svelte-icons updated 1.5.0 ([#1308](https://github.com/themesberg/flowbite-svelte/pull/1308))
+
+  fix: update icon sizes
+
+  chore: lib-helpers
+
+  fix: update engines node >=20.0.0
+
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.44.23](https://github.com/themesberg/flowbite-svelte/compare/v0.44.22...v0.44.23) (2024-02-08)
+### [0.44.24](https://github.com/themesberg/flowbite-svelte/compare/v0.44.23...v0.44.24) (2024-02-23)
 
+### Features
+
+- add focus only trigger mode for Popper ([#1241](https://github.com/themesberg/flowbite-svelte/issues/1241)) ([f7ca868](https://github.com/themesberg/flowbite-svelte/commit/f7ca86872d0899cab2ee67da63a2f35bc5c33a10))
 
 ### Bug Fixes
 
-* add focus:ring-0 to menu btns ([b81c875](https://github.com/themesberg/flowbite-svelte/commit/b81c875a54700d144e9c96c311cd4d63090595db))
-* engines npm to pnpm 8.0.0 in package.json ([6770c92](https://github.com/themesberg/flowbite-svelte/commit/6770c92b03b435c949c1fd13e58cfa2f4e241e81))
-* playwright version in workflows ([046b908](https://github.com/themesberg/flowbite-svelte/commit/046b908346bf1dcae4a9b33142b5460c0590e0b0))
-* remove focus from DarkMode ([22c48db](https://github.com/themesberg/flowbite-svelte/commit/22c48db00250f8f2adbda2c183953ad0c8977205))
-* spinner typings, docs ([#1151](https://github.com/themesberg/flowbite-svelte/issues/1151)) ([ed17997](https://github.com/themesberg/flowbite-svelte/commit/ed17997e61162844aab8131e9040f1125b4a4103))
-* workflow pnpm to latest ([a1358fe](https://github.com/themesberg/flowbite-svelte/commit/a1358fe577597e85edc46e84bff01cdc24785c0a))
+- add if statement to TransitionFrame component ([#1250](https://github.com/themesberg/flowbite-svelte/issues/1250)) ([394413e](https://github.com/themesberg/flowbite-svelte/commit/394413ef928620d75bd7a4b730d90bf203a2484f))
+- correct padding in Modal ([#1249](https://github.com/themesberg/flowbite-svelte/issues/1249)) ([913ad38](https://github.com/themesberg/flowbite-svelte/commit/913ad38dbb7371d43a9c263d622555dea8c61810))
+- properly handle class props in dropdown ([#1239](https://github.com/themesberg/flowbite-svelte/issues/1239)) ([0e5ff6c](https://github.com/themesberg/flowbite-svelte/commit/0e5ff6cda13e97cee8606d7ba018ba0e45fb5864))
+- properly handle spacing prop in Radio ([#1108](https://github.com/themesberg/flowbite-svelte/issues/1108)) ([7f34738](https://github.com/themesberg/flowbite-svelte/commit/7f34738df99c886a59afca5d56951fa36dcdf927))
+
+### [0.44.23](https://github.com/themesberg/flowbite-svelte/compare/v0.44.22...v0.44.23) (2024-02-08)
+
+### Bug Fixes
+
+- add focus:ring-0 to menu btns ([b81c875](https://github.com/themesberg/flowbite-svelte/commit/b81c875a54700d144e9c96c311cd4d63090595db))
+- engines npm to pnpm 8.0.0 in package.json ([6770c92](https://github.com/themesberg/flowbite-svelte/commit/6770c92b03b435c949c1fd13e58cfa2f4e241e81))
+- playwright version in workflows ([046b908](https://github.com/themesberg/flowbite-svelte/commit/046b908346bf1dcae4a9b33142b5460c0590e0b0))
+- remove focus from DarkMode ([22c48db](https://github.com/themesberg/flowbite-svelte/commit/22c48db00250f8f2adbda2c183953ad0c8977205))
+- spinner typings, docs ([#1151](https://github.com/themesberg/flowbite-svelte/issues/1151)) ([ed17997](https://github.com/themesberg/flowbite-svelte/commit/ed17997e61162844aab8131e9040f1125b4a4103))
+- workflow pnpm to latest ([a1358fe](https://github.com/themesberg/flowbite-svelte/commit/a1358fe577597e85edc46e84bff01cdc24785c0a))
 
 ### [0.44.22](https://github.com/themesberg/flowbite-svelte/compare/v0.44.21...v0.44.22) (2024-01-12)
 

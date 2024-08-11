@@ -27,7 +27,7 @@ The checkbox component can be used to receive one or more selected options from 
 
 ## Checkbox examples
 
-Use this default example of a checbkox element in a checked and unchecked state.
+Use this default example of a checbkox element in a checked, unchecked and indeterminate state.
 
 ```svelte example class="flex flex-col gap-4" hideScript
 <script>
@@ -36,6 +36,7 @@ Use this default example of a checbkox element in a checked and unchecked state.
 
 <Checkbox>Default checkbox</Checkbox>
 <Checkbox checked>Checked state</Checkbox>
+<Checkbox indeterminate>Indeterminate state</Checkbox>
 ```
 
 ## Disabled state
@@ -49,6 +50,7 @@ This example can be used for the disabled state of the checkbox component by app
 
 <Checkbox disabled>Disabled checkbox</Checkbox>
 <Checkbox disabled checked>Disabled checked</Checkbox>
+<Checkbox disabled indeterminate>Disabled indeterminate</Checkbox>
 ```
 
 ## Alternative syntax
@@ -65,7 +67,7 @@ If you need separate control over the label and the checkbox you can use the ver
     <TableHeadCell>Left column</TableHeadCell>
     <TableHeadCell>Right column</TableHeadCell>
   </TableHead>
-  <TableBody class="divide-y dark:divide-gray-700">
+  <TableBody tableBodyClass="divide-y dark:divide-gray-700">
     <TableBodyRow class="divide-x rtl:divide-x-reverse dark:divide-gray-700">
       <TableBodyCell><Label for="checkbox1">Default checkbox</Label></TableBodyCell>
       <TableBodyCell><Label for="checkbox2">Disabled checkbox</Label></TableBodyCell>
@@ -171,10 +173,10 @@ Use this example to show a list of checkbox items inside a dropdown menu.
 ```svelte example class="flex justify-center items-start h-96"
 <script>
   import { Dropdown, DropdownItem, Checkbox, Button, Search } from 'flowbite-svelte';
-  import { ChevronDownSolid, UserRemoveSolid } from 'flowbite-svelte-icons';
+  import { ChevronDownOutline, UserRemoveSolid } from 'flowbite-svelte-icons';
 </script>
 
-<Button>Project users<ChevronDownSolid class="w-3 h-3 ms-2 text-white dark:text-white" /></Button>
+<Button>Project users<ChevronDownOutline class="w-6 h-6 ms-2 text-white dark:text-white" /></Button>
 <Dropdown class="overflow-y-auto px-3 pb-3 text-sm h-44">
   <div slot="header" class="p-3">
     <Search size="md" />
@@ -267,17 +269,17 @@ This component accepts all props from the [Button](/docs/components/buttons) for
 </script>
 
   <div>
-    <CheckboxButton><AppleSolid class="me-2"/>Apple</CheckboxButton>
-    <CheckboxButton><FacebookSolid class="me-2"/>Facebook</CheckboxButton>
-    <CheckboxButton><DiscordSolid class="me-2"/>Discord</CheckboxButton>
-    <CheckboxButton><DropboxSolid class="me-2"/>Dropbox</CheckboxButton>
+    <CheckboxButton><AppleSolid class="w-6 h-6 me-2"/>Apple</CheckboxButton>
+    <CheckboxButton><FacebookSolid class="w-6 h-6 me-2"/>Facebook</CheckboxButton>
+    <CheckboxButton><DiscordSolid class="w-6 h-6 me-2"/>Discord</CheckboxButton>
+    <CheckboxButton><DropboxSolid class="w-6 h-6 me-2"/>Dropbox</CheckboxButton>
   </div>
 
   <ButtonGroup>
-    <CheckboxButton><AppleSolid class="me-2"/>Apple</CheckboxButton>
-    <CheckboxButton><FacebookSolid class="me-2"/>Facebook</CheckboxButton>
-    <CheckboxButton><DiscordSolid class="me-2"/>Discord</CheckboxButton>
-    <CheckboxButton><DropboxSolid class="me-2"/>Dropbox</CheckboxButton>
+    <CheckboxButton><AppleSolid class="w-6 h-6 me-2"/>Apple</CheckboxButton>
+    <CheckboxButton><FacebookSolid class="w-6 h-6 me-2"/>Facebook</CheckboxButton>
+    <CheckboxButton><DiscordSolid class="w-6 h-6 me-2"/>Discord</CheckboxButton>
+    <CheckboxButton><DropboxSolid class="w-6 h-6 me-2"/>Dropbox</CheckboxButton>
   </ButtonGroup>
 ```
 
@@ -324,16 +326,18 @@ Use this example of an advanced layout of checkbox elements where the label pare
 ```svelte example
 <script>
   import { Button, Checkbox } from 'flowbite-svelte';
-
-  let group = [2, 3];
+  let choices = [
+    { value: '1', label: 'One'},
+    { value: '2', label: 'Two'},
+    { value: '3', label: 'Three' }
+  ]
+  let group = ['2', '3'];
 </script>
 
 <div class="flex gap-2">
-  <Checkbox bind:group value={1}>One</Checkbox>
-  <Checkbox bind:group value={2}>Two</Checkbox>
-  <Checkbox bind:group value={3}>Three</Checkbox>
+  <Checkbox name="flavours" {choices} bind:group groupInputClass='ms-2'/>
 </div>
-<div class="my-2 border border-gray-200 dark:border-gray-700 rounded-lg p-2 w-44">Group: {group}</div>
+<div class="my-2 border border-gray-200 dark:border-gray-700 rounded-lg p-2 w-44 dark:text-gray-400">Group: {group}</div>
 <Button on:click={() => (group.length = 0)}>Clear</Button>
 ```
 

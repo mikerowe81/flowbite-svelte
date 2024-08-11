@@ -33,6 +33,7 @@ The footer is one of the most underestimated sections of a website being located
 </script>
 
 <Footer>
+  <div class="sm:flex sm:items-center sm:justify-between">
   <FooterCopyright href="/" by="Flowbite™" year={2022} />
   <FooterLinkGroup ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
     <FooterLink href="/">About</FooterLink>
@@ -40,6 +41,7 @@ The footer is one of the most underestimated sections of a website being located
     <FooterLink href="/">Licensing</FooterLink>
     <FooterLink href="/">Contact</FooterLink>
   </FooterLinkGroup>
+  </div>
 </Footer>
 ```
 
@@ -112,16 +114,16 @@ The footer is one of the most underestimated sections of a website being located
     <FooterCopyright href="/" by="Flowbite™" />
     <div class="flex mt-4 space-x-6 rtl:space-x-reverse sm:justify-center sm:mt-0">
       <FooterIcon href="/">
-        <FacebookSolid class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
+        <FacebookSolid class="w-5 h-5 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
       </FooterIcon>
       <FooterIcon href="/">
-        <DiscordSolid class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
+        <DiscordSolid class="w-5 h-5 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
       </FooterIcon>
       <FooterIcon href="/">
-        <TwitterSolid class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
+        <TwitterSolid class="w-5 h-5 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
       </FooterIcon>
       <FooterIcon href="/">
-        <GithubSolid class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
+        <GithubSolid class="w-5 h-5 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
       </FooterIcon>
       <FooterIcon href="/">
         <Dribble />
@@ -184,16 +186,16 @@ The footer is one of the most underestimated sections of a website being located
     <FooterCopyright spanClass="text-sm text-gray-300 sm:text-center" href="/" by="Flowbite™" />
     <div class="flex mt-4 space-x-6 rtl:space-x-reverse sm:justify-center md:mt-0">
       <FooterIcon href="/">
-        <FacebookSolid class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
+        <FacebookSolid class="w-5 h-5 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
       </FooterIcon>
       <FooterIcon href="/">
-        <DiscordSolid class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
+        <DiscordSolid class="w-5 h-5 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
       </FooterIcon>
       <FooterIcon href="/">
-        <TwitterSolid class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
+        <TwitterSolid class="w-5 h-5 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
       </FooterIcon>
       <FooterIcon href="/">
-        <GithubSolid class="w-4 h-4 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
+        <GithubSolid class="w-5 h-5 text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white" />
       </FooterIcon>
       <FooterIcon href="/">
         <Dribble />
@@ -217,7 +219,7 @@ Use this example to set create a sticky footer by using a fixed position to the 
   <ImagePlaceholder class="my-8" />
   <TextPlaceholder class="my-8" />
 </div>
-<Footer class="absolute bottom-0 start-0 z-20 w-full">
+<Footer class="absolute bottom-0 start-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
   <FooterCopyright href="/" by="Flowbite™" year={2022} />
   <FooterLinkGroup ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
     <FooterLink href="/">About</FooterLink>

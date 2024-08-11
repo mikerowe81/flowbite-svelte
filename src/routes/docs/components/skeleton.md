@@ -40,13 +40,16 @@ Use the skeleton component to indicate a loading status with placeholder element
 
 ## Image placeholder
 
+To display image placeholder without text, use `imgOnly` prop as seen in the following examples.
+
 ```svelte example
 <script>
   import { ImagePlaceholder } from 'flowbite-svelte';
 </script>
 
 <ImagePlaceholder />
-<ImagePlaceholder imgHeight={60} class="mt-8" />
+<ImagePlaceholder imgHeight="60" class="mt-8" />
+<ImagePlaceholder imgOnly class="mt-8" />
 ```
 
 ## Video placeholder

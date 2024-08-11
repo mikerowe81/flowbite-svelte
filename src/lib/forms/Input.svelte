@@ -30,10 +30,10 @@
   })
 
   const borderClasses = {
-    base: 'border-gray-300 dark:border-gray-600',
-    tinted: 'border-gray-300 dark:border-gray-500',
-    green: 'border-green-500 dark:border-green-400',
-    red: 'border-red-500 dark:border-red-400'
+    base: 'border border-gray-300 dark:border-gray-600',
+    tinted: 'border border-gray-300 dark:border-gray-500',
+    green: 'border border-green-500 dark:border-green-400',
+    red: 'border border-red-500 dark:border-red-400'
   };
 
   const ringClasses = {
@@ -63,7 +63,7 @@
   let inputClass: string;
   $: {
     const _color = color === 'base' && background ? 'tinted' : color;
-    inputClass = twMerge([defaultClass, inputPadding[_size], ($$slots.left && leftPadding[_size]) || ($$slots.right && rightPadding[_size]), ringClasses[color], colorClasses[_color], borderClasses[_color], textSizes[_size], group || 'rounded-lg', group && 'first:rounded-s-lg last:rounded-e-lg', group && 'border-s-0 first:border-s last:border-e', $$props.class]);
+    inputClass = twMerge([defaultClass, inputPadding[_size], ($$slots.left && leftPadding[_size]) || ($$slots.right && rightPadding[_size]), ringClasses[color], colorClasses[_color], borderClasses[_color], textSizes[_size], group || 'rounded-lg', group && 'first:rounded-s-lg last:rounded-e-lg', group && '[&:not(:first-child)]:-ms-px', $$props.class]);
   }
   let inputRef: HTMLInputElement
 </script>

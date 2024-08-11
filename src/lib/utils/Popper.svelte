@@ -151,6 +151,8 @@
       referenceEl = triggerEls[0];
     }
 
+    document.addEventListener('click', closeOnClickOutside);
+
     return () => {
       // This is onDestroy function
       triggerEls.forEach((element: HTMLElement) => {
@@ -162,8 +164,21 @@
         referenceEl.removeEventListener('focusout', hideHandler);
         referenceEl.removeEventListener('mouseleave', hideHandler);
       }
+      document.removeEventListener('click', closeOnClickOutside);
     };
   });
+
+  /**
+   * Close the popper when clicking outside of it.
+   * This is necessary to get around a bug in Safari where clicking outside of the open popper does not close it.
+   */
+  function closeOnClickOutside(event: MouseEvent) {
+    if (open) {
+      if (!event.composedPath().includes(floatingEl) && !triggerEls.some((el) => event.composedPath().includes(el))) {
+        hideHandler(event);
+      }
+    }
+  }
 
   function optional(pred: boolean, func: (ev: Event) => void) {
     return pred ? func : () => undefined;
@@ -183,13 +198,13 @@
 </script>
 
 {#if !referenceEl}
-  <div bind:this={contentEl} />
+  <div bind:this={contentEl}></div>
 {/if}
 
-{#if open && referenceEl}
-  <Frame use={init} options={referenceEl} role="tooltip" tabindex={activeContent ? -1 : undefined} on:focusin={optional(activeContent, showHandler)} on:focusout={optional(activeContent, hideHandler)} on:mouseenter={optional(activeContent && !clickable, showHandler)} on:mouseleave={optional(activeContent && !clickable, hideHandler)} {...$$restProps}>
-    <slot />
-    {#if arrow}<div use:initArrow class={arrowClass} />{/if}
+{#if referenceEl}
+  <Frame use={init} options={referenceEl} bind:open role="tooltip" tabindex={activeContent ? -1 : undefined} on:focusin={optional(activeContent, showHandler)} on:focusout={optional(activeContent, hideHandler)} on:mouseenter={optional(activeContent && hoverable, showHandler)} on:mouseleave={optional(activeContent && hoverable, hideHandler)} {...$$restProps}>
+    <slot></slot>
+    {#if arrow}<div use:initArrow class={arrowClass}></div>{/if}
   </Frame>
 {/if}
 

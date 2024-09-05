@@ -55,7 +55,7 @@
       <slot name="header" />
     </div>
   {/if}
-  <ul class={ulCls}>
+  <ul class={ulCls} on:scroll>
     <slot />
   </ul>
   {#if $$slots.footer}

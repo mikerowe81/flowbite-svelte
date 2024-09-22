@@ -14,14 +14,14 @@
 </script>
 
 {#if $$slots.default}
-  <div {...$$restProps} class={divCls}>
+  <div {...$$restProps} class={twMerge(divCls, $$props.class)}>
     <hr class={horizontalCls} />
     <div class={innerDivCls}>
       <slot />
     </div>
   </div>
 {:else}
-  <hr class={horizontalCls} />
+  <hr class={twMerge(horizontalCls, $$props.class)} />
 {/if}
 
 <!--

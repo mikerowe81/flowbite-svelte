@@ -20,7 +20,7 @@ const focusTrap: Action<HTMLElement> = (node) => {
       return;
     }
 
-    const tabbable = Array.from(node.querySelectorAll(selectorTabbable)).filter((el): el is HTMLElement => el instanceof HTMLElement && el.hidden !== true && el.offsetParent !== null);
+    const tabbable = Array.from(node.querySelectorAll(selectorTabbable)).filter((el): el is HTMLElement => el instanceof HTMLElement && !el.hidden && el.offsetParent !== null);
 
     let index = tabbable.indexOf(document.activeElement as HTMLElement);
     if (index === -1 && e.shiftKey) index = 0;

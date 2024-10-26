@@ -1,12 +1,18 @@
 <script lang="ts">
+  import type { ComponentProps } from 'svelte';
   import { getContext } from 'svelte';
   import { writable, type Writable } from 'svelte/store';
   import { twMerge } from 'tailwind-merge';
   import ToolbarButton from '../toolbar/ToolbarButton.svelte';
   import Menu from './Menu.svelte';
 
-  export let menuClass: string = 'h-6 w-6 shrink-0';
-  export let onClick: (() => void) | undefined = undefined;
+  type $$Props = ComponentProps<ToolbarButton> & {
+    menuClass?: string;
+    onClick?: (() => void) | undefined;
+  };
+
+  export let menuClass: $$Props['menuClass'] = 'h-6 w-6 shrink-0';
+  export let onClick: $$Props['onClick'] = undefined;
 
   let btnClass: string = 'ms-3 md:hidden';
 
@@ -22,6 +28,6 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let menuClass: string = 'h-6 w-6 shrink-0';
-@prop export let onClick: (() => void) | undefined = undefined;
+@prop export let menuClass: $$Props['menuClass'] = 'h-6 w-6 shrink-0';
+@prop export let onClick: $$Props['onClick'] = undefined;
 -->

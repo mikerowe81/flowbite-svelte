@@ -1,16 +1,27 @@
 <script lang="ts">
-  import { twMerge, twJoin } from 'tailwind-merge';
+  import type { HTMLAttributes } from 'svelte/elements';
+  import { twMerge } from 'tailwind-merge';
   import { createEventDispatcher, setContext } from 'svelte';
   import type { LinkType } from '../types';
   import PaginationItem from './PaginationItem.svelte';
 
-  export let pages: LinkType[] = [];
-  export let activeClass: string = 'text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white';
-  export let normalClass: string = 'text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white';
-  export let ulClass: string = 'inline-flex -space-x-px rtl:space-x-reverse items-center';
-  export let table: boolean = false;
-  export let large: boolean = false;
-  export let ariaLabel: string = 'Page navigation';
+  interface $$Props extends HTMLAttributes<HTMLUListElement> {
+    pages: LinkType[];
+    activeClass?: string;
+    normalClass?: string;
+    ulClass?: string;
+    table?: boolean;
+    large?: boolean;
+    ariaLabel?: string;
+  }
+
+  export let pages: $$Props['pages'] = [];
+  export let activeClass: $$Props['activeClass'] = 'text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white';
+  export let normalClass: $$Props['normalClass'] = 'text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white';
+  export let ulClass: $$Props['ulClass'] = 'inline-flex -space-x-px rtl:space-x-reverse items-center';
+  export let table: NonNullable<$$Props['table']> = false;
+  export let large: $$Props['large'] = false;
+  export let ariaLabel: $$Props['ariaLabel'] = 'Page navigation';
 
   const dispatch = createEventDispatcher();
 
@@ -51,11 +62,11 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let pages: LinkType[] = [];
-@prop export let activeClass: string = 'text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white';
-@prop export let normalClass: string = 'text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white';
-@prop export let ulClass: string = 'inline-flex -space-x-px rtl:space-x-reverse items-center';
-@prop export let table: boolean = false;
-@prop export let large: boolean = false;
-@prop export let ariaLabel: string = 'Page navigation';
+@prop export let pages: $$Props['pages'] = [];
+@prop export let activeClass: $$Props['activeClass'] = 'text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white';
+@prop export let normalClass: $$Props['normalClass'] = 'text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white';
+@prop export let ulClass: $$Props['ulClass'] = 'inline-flex -space-x-px rtl:space-x-reverse items-center';
+@prop export let table: NonNullable<$$Props['table']> = false;
+@prop export let large: $$Props['large'] = false;
+@prop export let ariaLabel: $$Props['ariaLabel'] = 'Page navigation';
 -->

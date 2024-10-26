@@ -1,20 +1,30 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import PaginationItem from '$lib/pagination/PaginationItem.svelte';
-  import { identity } from 'svelte/internal';
   import ArrowLeft from './icons/ArrowLeft.svelte';
   import ArrowRight from './icons/ArrowRight.svelte';
 
+  // const identity = x => x;
+  
   const {
     data,
     url,
     params: { slug }
   } = $page;
 
-  const components = Object.values(data.posts)
-    .flatMap(identity)
-    // .filter((x) => x.meta.dir === data.dir)
-    .filter((x) => x.meta && x.meta.dir === data.dir)
+  interface PostMeta {
+    dir: string;
+    component_title: string;
+  }
+
+  interface Post {
+    path: string;
+    meta: PostMeta;
+  }
+
+  const components = (Object.values(data.posts) as Post[][])
+    .flat()
+    .filter((x): x is Post => x.meta && x.meta.dir === data.dir)
     .map(({ path, meta }) => ({ path, name: meta.component_title }));
 
   const index = components.findIndex((x) => x.path === '/' + slug);

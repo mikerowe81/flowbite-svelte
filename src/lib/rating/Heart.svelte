@@ -1,11 +1,23 @@
 <script lang="ts">
-  export let fillPercent: number = 100;
-  export let fillColor: string = '#ff0000';
-  export let strokeColor: string = '#ff0000';
-  export let size: number = 24;
-  export let ariaLabel: string = 'heart';
-  export let id: string = 'heart';
-  export let role = 'img';
+  import type { SVGAttributes } from 'svelte/elements';
+
+  interface $$Props extends SVGAttributes<SVGSVGElement> {
+    fillPercent?: number;
+    fillColor?: string;
+    strokeColor?: string;
+    size?: number;
+    ariaLabel?: string;
+    id?: string;
+    role?: string;
+  }
+
+  export let fillPercent: $$Props['fillPercent'] = 100;
+  export let fillColor: $$Props['fillColor'] = '#ff0000';
+  export let strokeColor: $$Props['strokeColor'] = '#ff0000';
+  export let size: $$Props['size'] = 24;
+  export let ariaLabel: $$Props['ariaLabel'] = 'heart';
+  export let id: $$Props['id'] = 'heart';
+  export let role: $$Props['role'] = 'img';
 </script>
 
 <svg width={size} height={size} class={$$props.class} {...$$restProps} aria-label={ariaLabel} viewBox="0 0 24 24" {role} stroke-width="1.5" stroke="currentColor" fill="none" on:click>
@@ -29,11 +41,11 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let fillPercent: number = 100;
-@prop export let fillColor: string = '#ff0000';
-@prop export let strokeColor: string = '#ff0000';
-@prop export let size: number = 24;
-@prop export let ariaLabel: string = 'heart';
-@prop export let id: string = 'heart';
-@prop export let role = 'img';
+@prop export let fillPercent: $$Props['fillPercent'] = 100;
+@prop export let fillColor: $$Props['fillColor'] = '#ff0000';
+@prop export let strokeColor: $$Props['strokeColor'] = '#ff0000';
+@prop export let size: $$Props['size'] = 24;
+@prop export let ariaLabel: $$Props['ariaLabel'] = 'heart';
+@prop export let id: $$Props['id'] = 'heart';
+@prop export let role: $$Props['role'] = 'img';
 -->

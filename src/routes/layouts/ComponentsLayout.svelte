@@ -5,12 +5,10 @@
   import SidebarDropdownWrapper from '$lib/sidebar/SidebarDropdownWrapper.svelte';
   import { getContext } from 'svelte';
   import type { Writable } from 'svelte/store';
-  import type { PageData } from '../$types';
   import { ChevronDownOutline, ChevronUpOutline } from 'flowbite-svelte-icons';
 
   export let data;
-  // console.log('posts: ', data);
-
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   const posts: Record<string, any[]> = data.posts || {};
   const drawerHidden: Writable<boolean> = getContext('drawer');
 
@@ -46,7 +44,7 @@
   let dropdowns = Object.fromEntries(Object.keys(posts).map((x) => [x, false]));
 </script>
 
-<Sidebar class={$drawerHidden && 'hidden'} {nonActiveClass} activeUrl={mainSidebarUrl} asideClass="fixed inset-0 z-30 flex-none h-full w-64 lg:static lg:h-auto border-e border-gray-200 dark:border-gray-600 lg:overflow-y-visible lg:pt-0 lg:block bg-white dark:bg-gray-900">
+<Sidebar class={$drawerHidden ? 'hidden' : null} {nonActiveClass} activeUrl={mainSidebarUrl} asideClass="fixed inset-0 z-30 flex-none h-full w-64 lg:static lg:h-auto border-e border-gray-200 dark:border-gray-600 lg:overflow-y-visible lg:pt-0 lg:block bg-white dark:bg-gray-900">
   <h4 id="sidebar-label" class="sr-only">Browse docs</h4>
   <SidebarWrapper divClass="overflow-y-auto px-4 pt-20 lg:pt-0 h-full scrolling-touch max-w-2xs lg:h-[calc(100vh-8rem)] lg:block dark:bg-gray-900 lg:me-0 lg:sticky top-20">
     <nav class="font-normal text-base lg:text-sm">
@@ -58,12 +56,13 @@
             {#each values as { meta, path }}
               {@const href = key === 'icons' ? `/${key}${path}` : `/docs/${key}${path}`}
               {#if meta}
-                <SidebarItem label={meta.component_title} {href} {spanClass} {activeClass} active={activeMainSidebar === href} />
+                <SidebarItem label={meta.component_title} {href} {spanClass} {activeClass} />
               {/if}
             {/each}
           </SidebarDropdownWrapper>
         {/each}
-        <SidebarItem label='Admin Dashboard' href='/admin-dashboard' spanClass='w-full text-sm font-semibold tracking-wide uppercase hover:text-primary-700 dark:hover:text-primary-600 text-gray-900 dark:text-white' {activeClass} active={activeMainSidebar === '/admin-dashboard'} />
+        <SidebarItem label='Blocks' href='https://flowbite-svelte-blocks.vercel.app/' spanClass='w-full text-sm font-semibold tracking-wide uppercase hover:text-primary-700 dark:hover:text-primary-600 text-gray-900 dark:text-white my-4' {activeClass} />
+        <SidebarItem label='Admin Dashboard' href='https://flowbite-svelte-admin-dashboard.vercel.app/' spanClass='w-full text-sm font-semibold tracking-wide uppercase hover:text-primary-700 dark:hover:text-primary-600 text-gray-900 dark:text-white' {activeClass} />
       </SidebarGroup>
     </nav>
   </SidebarWrapper>

@@ -1,15 +1,29 @@
 <script lang="ts">
   import Indicator from '$lib/indicators/Indicator.svelte';
   import { twMerge } from 'tailwind-merge';
+  import type { HTMLAttributes, HTMLAnchorAttributes } from 'svelte/elements';
 
-  export let src: string = '';
-  export let href: string | undefined = undefined;
-  export let rounded: boolean = false;
-  export let border: boolean = false;
-  export let stacked: boolean = false;
-  export let dot: object | undefined = undefined;
-  export let alt: string = '';
-  export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none' = 'md';
+  interface AvatarProps {
+    href?: string;
+    src?: string;
+    rounded?: boolean;
+    border?: boolean;
+    stacked?: boolean;
+    dot?: object | undefined;
+    alt?: string;
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none';
+  }
+
+  type $$Props = AvatarProps & (HTMLAnchorAttributes | HTMLAttributes<HTMLDivElement>);
+
+  export let src: $$Props['src'] = '';
+  export let href: $$Props['href'] = undefined;
+  export let rounded: $$Props['rounded'] = false;
+  export let border: $$Props['border'] = false;
+  export let stacked: $$Props['stacked'] = false;
+  export let dot: $$Props['dot'] = undefined;
+  export let alt: $$Props['alt'] = '';
+  export let size: NonNullable<$$Props['size']> = 'md';
 
   $: dot = dot && { placement: 'top-right', color: 'gray', size: 'lg', ...dot };
 
@@ -23,7 +37,7 @@
   };
 
   let avatarClass: string;
-  $: avatarClass = twMerge(rounded ? 'rounded' : 'rounded-full', border && 'p-1 ring-2 ring-gray-300 dark:ring-gray-500', sizes[size], stacked && 'border-2 -ms-4 border-white dark:border-gray-800', 'bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300', $$props.class);
+  $: avatarClass = twMerge(rounded ? 'rounded' : 'rounded-full', border && 'p-1 ring-2 ring-gray-300 dark:ring-gray-500', sizes[size], stacked && 'border-2 -ms-4 border-white dark:border-gray-800', 'bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 object-cover', $$props.class);
 </script>
 
 {#if !src || !!href || $$slots.default || dot}
@@ -50,12 +64,12 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let src: string = '';
-@prop export let href: string | undefined = undefined;
-@prop export let rounded: boolean = false;
-@prop export let border: boolean = false;
-@prop export let stacked: boolean = false;
-@prop export let dot: object | undefined = undefined;
-@prop export let alt: string = '';
-@prop export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none' = 'md';
+@prop export let src: $$Props['src'] = '';
+@prop export let href: $$Props['href'] = undefined;
+@prop export let rounded: $$Props['rounded'] = false;
+@prop export let border: $$Props['border'] = false;
+@prop export let stacked: $$Props['stacked'] = false;
+@prop export let dot: $$Props['dot'] = undefined;
+@prop export let alt: $$Props['alt'] = '';
+@prop export let size: NonNullable<$$Props['size']> = 'md';
 -->

@@ -3,13 +3,32 @@
   import type { ButtonClassesTypes } from '../types';
   import type { BottomNavType } from './BottomNav.svelte';
   import { twMerge } from 'tailwind-merge';
+  import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
 
-  export let btnName: string = '';
-  export let appBtnPosition: 'left' | 'middle' | 'right' = 'middle';
-  export let activeClass: string | undefined = undefined;
+  type CommonProps = {
+    btnName?: string;
+    appBtnPosition?: 'left' | 'middle' | 'right';
+    activeClass?: string;
+    exact?: boolean;
+    spanClass?: string;
+  }
+
+  type AnchorProps = CommonProps & Omit<HTMLAnchorAttributes, 'type'> & {
+    href?: string | undefined;
+  };
+
+  type ButtonProps = CommonProps & HTMLButtonAttributes & {
+    disabled?: HTMLButtonAttributes['disabled'];
+  };
+
+  type $$Props = AnchorProps | ButtonProps;
+
+  export let btnName: $$Props['btnName'] = '';
+  export let appBtnPosition: NonNullable<$$Props['appBtnPosition']> = 'middle';
+  export let activeClass: $$Props['activeClass'] = undefined;
   export let href: string = '';
-  export let exact: boolean = true;
-  export let spanClass: string = '';
+  export let exact: $$Props['exact'] = true;
+  export let spanClass: $$Props['spanClass'] = '';
 
   const navType: 'default' | 'border' | 'application' | 'pagination' | 'group' | 'card' | 'meeting' | 'video' = getContext('navType');
 
@@ -23,12 +42,12 @@
 
   $: active = navUrl && exact ? href === navUrl : navUrl ? navUrl.startsWith(href) : false;
   const btnClasses: ButtonClassesTypes = {
-    default: 'inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group',
-    border: 'inline-flex flex-col items-center justify-center px-5 border-gray-200 border-x hover:bg-gray-50 dark:hover:bg-gray-800 group dark:border-gray-600',
+    default: 'inline-flex flex-col items-center justify-center px-5 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 group',
+    border: 'inline-flex flex-col items-center justify-center px-5 border-gray-200 border-x text-gray-500 dark:text-gray-400  hover:bg-gray-50 dark:hover:bg-gray-800 group dark:border-gray-600',
     application: '',
-    pagination: 'inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group',
-    group: 'inline-flex flex-col items-center justify-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 group',
-    card: 'inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group',
+    pagination: 'inline-flex flex-col items-center justify-center px-5 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 group',
+    group: 'inline-flex flex-col items-center justify-center p-4 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 group',
+    card: 'inline-flex flex-col items-center justify-center px-5 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 group',
     meeting: '',
     video: ''
   };
@@ -69,10 +88,10 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let btnName: string = '';
-@prop export let appBtnPosition: 'left' | 'middle' | 'right' = 'middle';
-@prop export let activeClass: string | undefined = undefined;
+@prop export let btnName: $$Props['btnName'] = '';
+@prop export let appBtnPosition: NonNullable<$$Props['appBtnPosition']> = 'middle';
+@prop export let activeClass: $$Props['activeClass'] = undefined;
 @prop export let href: string = '';
-@prop export let exact: boolean = true;
-@prop export let spanClass: string = '';
+@prop export let exact: $$Props['exact'] = true;
+@prop export let spanClass: $$Props['spanClass'] = '';
 -->

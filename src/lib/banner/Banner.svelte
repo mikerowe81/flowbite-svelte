@@ -1,23 +1,30 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
   import CloseButton from '../utils/CloseButton.svelte';
-  // import { createEventDispatcher } from 'svelte';
+  import type { HTMLAttributes } from 'svelte/elements';
   import { fade, type TransitionConfig } from 'svelte/transition';
 
   type TransitionFunc = (node: HTMLElement, params: any) => TransitionConfig;
 
-  export let position: 'static' | 'fixed' | 'absolute' | 'relative' | 'sticky' = 'sticky';
-  export let dismissable: boolean = true;
-  export let bannerType: 'default' | 'bottom' | 'cta' | 'signup' | 'info' = 'default';
-  export let divClass: string = 'z-10 flex justify-between p-4 dark:bg-gray-700 dark:border-gray-600';
-  export let innerClass: string = 'flex';
-  export let bannerStatus: boolean = true;
-  export let transition: TransitionFunc = fade;
-  export let params = {};
+  interface $$Props extends HTMLAttributes<HTMLDivElement> {
+    position?: 'static' | 'fixed' | 'absolute' | 'relative' | 'sticky';
+    dismissable?: boolean;
+    bannerType?: 'default' | 'bottom' | 'cta' | 'signup' | 'info';
+    divClass?: string;
+    innerClass?: string;
+    bannerStatus?: boolean;
+    transition?: TransitionFunc;
+    params?: object;
+  }
 
-  // let open = true;
-  // const dispatch = createEventDispatcher();
-  // $: dispatch(open ? 'open' : 'close');
+  export let position: $$Props['position'] = 'sticky';
+  export let dismissable: $$Props['dismissable'] = true;
+  export let bannerType: NonNullable<$$Props['bannerType']> = 'default';
+  export let divClass: $$Props['divClass'] = 'z-10 flex justify-between p-4 dark:bg-gray-700 dark:border-gray-600';
+  export let innerClass: $$Props['innerClass'] = 'flex';
+  export let bannerStatus: $$Props['bannerStatus'] = true;
+  export let transition: NonNullable<$$Props['transition']> = fade;
+  export let params: $$Props['params'] = {};
 
   const divClasses = {
     default: 'top-0 start-0 w-full border-b border-gray-200 bg-gray-50',
@@ -63,12 +70,12 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let position: 'static' | 'fixed' | 'absolute' | 'relative' | 'sticky' = 'sticky';
-@prop export let dismissable: boolean = true;
-@prop export let bannerType: 'default' | 'bottom' | 'cta' | 'signup' | 'info' = 'default';
-@prop export let divClass: string = 'z-10 flex justify-between p-4 dark:bg-gray-700 dark:border-gray-600';
-@prop export let innerClass: string = 'flex';
-@prop export let bannerStatus: boolean = true;
-@prop export let transition: TransitionFunc = fade;
-@prop export let params = {};
+@prop export let position: $$Props['position'] = 'sticky';
+@prop export let dismissable: $$Props['dismissable'] = true;
+@prop export let bannerType: NonNullable<$$Props['bannerType']> = 'default';
+@prop export let divClass: $$Props['divClass'] = 'z-10 flex justify-between p-4 dark:bg-gray-700 dark:border-gray-600';
+@prop export let innerClass: $$Props['innerClass'] = 'flex';
+@prop export let bannerStatus: $$Props['bannerStatus'] = true;
+@prop export let transition: NonNullable<$$Props['transition']> = fade;
+@prop export let params: $$Props['params'] = {};
 -->

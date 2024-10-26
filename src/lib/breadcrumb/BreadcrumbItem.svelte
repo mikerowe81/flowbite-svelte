@@ -1,13 +1,23 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
-  export let home: boolean = false;
-  export let href: string | undefined = undefined;
-  export let linkClass: string = 'ms-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ms-2 dark:text-gray-400 dark:hover:text-white';
-  export let spanClass: string = 'ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400';
-  export let homeClass: string = 'inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white';
+  import type { HTMLLiAttributes } from 'svelte/elements';
+
+  interface $$Props extends HTMLLiAttributes {
+    home?: boolean;
+    href?: string;
+    linkClass?: string;
+    spanClass?: string;
+    homeClass?: string;
+  }
+  
+  export let home: $$Props['home'] = false;
+  export let href: $$Props['href'] = undefined;
+  export let linkClass: $$Props['linkClass'] = 'ms-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ms-2 dark:text-gray-400 dark:hover:text-white';
+  export let spanClass: $$Props['spanClass'] = 'ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400';
+  export let homeClass: $$Props['homeClass'] = 'inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white';
 </script>
 
-<li class={twMerge('inline-flex items-center', $$props.class)} {...$$restProps}>
+<li {...$$restProps} class={twMerge('inline-flex items-center', $$props.class)}>
   {#if home}
     <a class={twMerge(homeClass, $$props.classHome)} {href}>
       {#if $$slots.icon}
@@ -43,9 +53,9 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let home: boolean = false;
-@prop export let href: string | undefined = undefined;
-@prop export let linkClass: string = 'ms-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ms-2 dark:text-gray-400 dark:hover:text-white';
-@prop export let spanClass: string = 'ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400';
-@prop export let homeClass: string = 'inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white';
+@prop export let home: $$Props['home'] = false;
+@prop export let href: $$Props['href'] = undefined;
+@prop export let linkClass: $$Props['linkClass'] = 'ms-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ms-2 dark:text-gray-400 dark:hover:text-white';
+@prop export let spanClass: $$Props['spanClass'] = 'ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400';
+@prop export let homeClass: $$Props['homeClass'] = 'inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white';
 -->

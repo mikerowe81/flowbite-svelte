@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" generics="T extends ListGroupItemType | string">
   import { createEventDispatcher, setContext, type ComponentProps } from 'svelte';
   import { twMerge } from 'tailwind-merge';
   import type { ListGroupItemType } from '../types';
@@ -7,15 +7,19 @@
 
   const dispatch = createEventDispatcher();
 
-  // propagate props type from underlying Frame
   interface $$Props extends ComponentProps<Frame> {
-    items?: ListGroupItemType[] | string[];
+    items?: T[];
     active?: boolean;
+    defaultClass?: string;
   }
 
-  export let items: ListGroupItemType[] | string[] = [];
-  export let active: boolean = false;
-  export let defaultClass: string = 'divide-y divide-gray-200 dark:divide-gray-600';
+  interface $$Slots {
+    default: { item: T; index: number };
+  }
+
+  export let items: NonNullable<$$Props['items']> = [];
+  export let active: $$Props['active'] = false;
+  export let defaultClass: $$Props['defaultClass'] = 'divide-y divide-gray-200 dark:divide-gray-600';
 
   $: setContext('active', active);
 
@@ -40,7 +44,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let items: ListGroupItemType[] | string[] = [];
-@prop export let active: boolean = false;
-@prop export let defaultClass: string = 'divide-y divide-gray-200 dark:divide-gray-600';
+@prop export let items: NonNullable<$$Props['items']> = [];
+@prop export let active: $$Props['active'] = false;
+@prop export let defaultClass: $$Props['defaultClass'] = 'divide-y divide-gray-200 dark:divide-gray-600';
 -->

@@ -1,27 +1,46 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import type { ApexOptions } from 'apexcharts';
+  import type ApexCharts from 'apexcharts';
+  
+  interface $$Props {
+    options: ApexOptions;
+    class?: string;
+  }
 
-  export let options: ApexOptions;  
-  export let chart: ApexCharts;
+  export let options: ApexOptions;
+  let chart: ApexCharts | undefined;
 
-  function initChart(node: HTMLElement, options: ApexOptions) {
-    async function asyncInitChart() {
-      const ApexCharts = (await import('apexcharts')).default;
+  interface ChartAction {
+    update: (options: ApexOptions) => void;
+    destroy: () => void;
+  }
+  
+  function initChart(node: HTMLElement, options: ApexOptions): ChartAction {
+    async function asyncInitChart(): Promise<void> {
+      const ApexChartsModule = await import('apexcharts');
+      const ApexCharts = ApexChartsModule.default;
       chart = new ApexCharts(node, options);
-      chart.render();
+      await chart.render();
     }
 
     asyncInitChart();
 
     return {
-      update(options: ApexOptions) {
-        chart && chart.updateOptions(options);
+      update(options: ApexOptions): void {
+        chart?.updateOptions(options);
       },
-      destroy() {
-        chart && chart.destroy();
+      destroy(): void {
+        chart?.destroy();
       }
     };
   }
+
+  onMount(() => {
+    return () => {
+      chart?.destroy();
+    };
+  });
 </script>
 
 <div use:initChart={options} class={$$props.class}></div>
@@ -31,5 +50,4 @@
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
 @prop export let options: ApexOptions;
-@prop export let chart: ApexCharts;
 -->

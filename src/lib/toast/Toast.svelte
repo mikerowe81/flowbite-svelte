@@ -1,33 +1,39 @@
 <script lang="ts">
-  // import type { Snippet } from 'svelte';
+  import type { HTMLAttributes } from 'svelte/elements';
   import {createEventDispatcher} from 'svelte';
   import { fade, type TransitionConfig } from 'svelte/transition';
   import { twMerge } from 'tailwind-merge';
   import { CloseButton } from '$lib';
   import type { ColorVariant, ToastPositionType } from '$lib/types';
-
+  
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   type TransitionFunc = (node: HTMLElement, params: any) => TransitionConfig;
 
-  export let dismissable: boolean = true;
-  export let color: ColorVariant = 'primary';
-  export let position: ToastPositionType = 'none';
-  export let divClass: string = 'w-full max-w-xs p-4 text-gray-500 bg-white shadow dark:text-gray-400 dark:bg-gray-800 gap-3';
-  export let defaultIconClass: string = 'w-8 h-8';
-  export let contentClass: string = 'w-full text-sm font-normal';
-  // export let div2class: string = '';
-  // export let div3class: string = '';
-  export let align: boolean = true;
-  export let transition: TransitionFunc = fade;
-  export let params = {};
+  interface $$Props extends HTMLAttributes<HTMLDivElement> {
+    dismissable?: boolean;
+    color?: ColorVariant;
+    position?: ToastPositionType;
+    divClass?: string;
+    defaultIconClass?: string;
+    contentClass?: string;
+    align?: boolean;
+    transition?: TransitionFunc;
+    params?: any;
+    toastStatus?: boolean;
+  }
 
-  export let toastStatus: boolean = true;
+  export let dismissable: $$Props['dismissable'] = true;
+  export let color: NonNullable<$$Props['color']> = 'primary';
+  export let position: NonNullable<$$Props['position']> = 'none';
+  export let divClass: $$Props['divClass'] = 'w-full max-w-xs p-4 text-gray-500 bg-white shadow dark:text-gray-400 dark:bg-gray-800 gap-3';
+  export let defaultIconClass: $$Props['defaultIconClass'] = 'w-8 h-8';
+  export let contentClass: $$Props['contentClass'] = 'w-full text-sm font-normal';
+  export let align: $$Props['align'] = true;
+  export let transition: NonNullable<$$Props['transition']> = fade;
+  export let params: $$Props['params'] = {};
+  export let toastStatus: $$Props['toastStatus'] = true;
+
   const dispatch = createEventDispatcher();
-
-  // const divCls: string =
-  //   'w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 gap-3';
-  // const defaultIconCls: string = 'w-8 h-8';
-  // const contentCls: string = 'w-full text-sm font-normal';
-
   const positions = {
     'top-left': 'absolute top-5 start-5',
     'top-right': 'absolute top-5 end-5',
@@ -60,9 +66,9 @@
     pink: 'text-pink-500 bg-pink-100 dark:bg-pink-700 dark:text-pink-200',
     none: ''
   };
-  // | 'gray'| 'red'| 'yellow'| 'green'| 'indigo'| 'purple'| 'pink'| 'blue'| 'primary'| 'none';
 
-  let iconClass: string = twMerge(
+  let iconClass: string;
+  $: iconClass = twMerge(
     'inline-flex items-center justify-center shrink-0 rounded-lg',
     colors[color],
     defaultIconClass
@@ -115,16 +121,14 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let dismissable: boolean = true;
-@prop export let color: ColorVariant = 'primary';
-@prop export let position: ToastPositionType = 'none';
-@prop export let divClass: string = 'w-full max-w-xs p-4 text-gray-500 bg-white shadow dark:text-gray-400 dark:bg-gray-800 gap-3';
-@prop export let defaultIconClass: string = 'w-8 h-8';
-@prop export let contentClass: string = 'w-full text-sm font-normal';
-@prop export let div2class: string = '';
-@prop export let div3class: string = '';
-@prop export let align: boolean = true;
-@prop export let transition: TransitionFunc = fade;
-@prop export let params = {};
-@prop export let toastStatus: boolean = true;
+@prop export let dismissable: $$Props['dismissable'] = true;
+@prop export let color: NonNullable<$$Props['color']> = 'primary';
+@prop export let position: NonNullable<$$Props['position']> = 'none';
+@prop export let divClass: $$Props['divClass'] = 'w-full max-w-xs p-4 text-gray-500 bg-white shadow dark:text-gray-400 dark:bg-gray-800 gap-3';
+@prop export let defaultIconClass: $$Props['defaultIconClass'] = 'w-8 h-8';
+@prop export let contentClass: $$Props['contentClass'] = 'w-full text-sm font-normal';
+@prop export let align: $$Props['align'] = true;
+@prop export let transition: NonNullable<$$Props['transition']> = fade;
+@prop export let params: $$Props['params'] = {};
+@prop export let toastStatus: $$Props['toastStatus'] = true;
 -->

@@ -28,25 +28,25 @@
     classFooter?: string;
   }
 
-  export let open: boolean = false;
-  export let title: string = '';
-  export let size: SizeType = 'md';
-  export let color: ComponentProps<Frame>['color'] = 'default';
-  export let placement: ModalPlacementType = 'center';
-  export let autoclose: boolean = false;
-  export let outsideclose: boolean = false;
-  export let dismissable: boolean = true;
-  export let backdropClass: string = 'fixed inset-0 z-40 bg-gray-900 bg-opacity-50 dark:bg-opacity-80 backdrop-blur';
-  export let classBackdrop: string | undefined = undefined;
-  export let dialogClass: string = 'fixed top-0 start-0 end-0 h-modal md:inset-0 md:h-full z-50 w-full p-4 flex';
-  export let classDialog: string | undefined = undefined;
-  export let defaultClass: string = 'relative flex flex-col mx-auto';
-  export let headerClass: string = 'flex justify-between items-center p-4 md:p-5 rounded-t-lg';
-  export let classHeader: string | undefined = undefined;
-  export let bodyClass: string = 'p-4 md:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain';
-  export let classBody: string | undefined = undefined;
-  export let footerClass: string = 'flex items-center p-4 md:p-5 space-x-3 rtl:space-x-reverse rounded-b-lg';
-  export let classFooter: string | undefined = undefined;
+  export let open: $$Props['open'] = false;
+  export let title: $$Props['title'] = '';
+  export let size: NonNullable<$$Props['size']> = 'md';
+  export let color: $$Props['color'] = 'default';
+  export let placement: NonNullable<$$Props['placement']> = 'center';
+  export let autoclose: $$Props['autoclose'] = false;
+  export let outsideclose: $$Props['outsideclose'] = false;
+  export let dismissable: $$Props['dismissable'] = true;
+  export let backdropClass: $$Props['backdropClass'] = 'fixed inset-0 z-40 bg-gray-900 bg-opacity-50 dark:bg-opacity-80 backdrop-blur';
+  export let classBackdrop: $$Props['classBackdrop'] = undefined;
+  export let dialogClass: $$Props['dialogClass'] = 'fixed top-0 start-0 end-0 h-modal md:inset-0 md:h-full z-50 w-full p-4 flex';
+  export let classDialog: $$Props['classDialog'] = undefined;
+  export let defaultClass: $$Props['defaultClass'] = 'relative flex flex-col mx-auto';
+  export let headerClass: $$Props['headerClass'] = 'flex justify-between items-center p-4 md:p-5 rounded-t-lg';
+  export let classHeader: $$Props['classHeader'] = undefined;
+  export let bodyClass: $$Props['bodyClass'] = 'p-4 md:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain';
+  export let classBody: $$Props['classBody'] = undefined;
+  export let footerClass: $$Props['footerClass'] = 'flex items-center p-4 md:p-5 space-x-3 rtl:space-x-reverse rounded-b-lg';
+  export let classFooter: $$Props['classFooter'] = undefined;
 
   const dispatch = createEventDispatcher();
   $: dispatch(open ? 'open' : 'close');
@@ -174,23 +174,23 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let open: boolean = false;
-@prop export let title: string = '';
-@prop export let size: SizeType = 'md';
-@prop export let color: ComponentProps<Frame>['color'] = 'default';
-@prop export let placement: ModalPlacementType = 'center';
-@prop export let autoclose: boolean = false;
-@prop export let outsideclose: boolean = false;
-@prop export let dismissable: boolean = true;
-@prop export let backdropClass: string = 'fixed inset-0 z-40 bg-gray-900 bg-opacity-50 dark:bg-opacity-80';
-@prop export let classBackdrop: string | undefined = undefined;
-@prop export let dialogClass: string = 'fixed top-0 start-0 end-0 h-modal md:inset-0 md:h-full z-50 w-full p-4 flex';
-@prop export let classDialog: string | undefined = undefined;
-@prop export let defaultClass: string = 'relative flex flex-col mx-auto';
-@prop export let headerClass: string = 'flex justify-between items-center p-4 md:p-5 rounded-t-lg';
-@prop export let classHeader: string | undefined = undefined;
-@prop export let bodyClass: string = 'p-4 md:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain';
-@prop export let classBody: string | undefined = undefined;
-@prop export let footerClass: string = 'flex items-center p-4 md:p-5 space-x-3 rtl:space-x-reverse rounded-b-lg';
-@prop export let classFooter: string | undefined = undefined;
+@prop export let open: $$Props['open'] = false;
+@prop export let title: $$Props['title'] = '';
+@prop export let size: NonNullable<$$Props['size']> = 'md';
+@prop export let color: $$Props['color'] = 'default';
+@prop export let placement: NonNullable<$$Props['placement']> = 'center';
+@prop export let autoclose: $$Props['autoclose'] = false;
+@prop export let outsideclose: $$Props['outsideclose'] = false;
+@prop export let dismissable: $$Props['dismissable'] = true;
+@prop export let backdropClass: $$Props['backdropClass'] = 'fixed inset-0 z-40 bg-gray-900 bg-opacity-50 dark:bg-opacity-80';
+@prop export let classBackdrop: $$Props['classBackdrop'] = undefined;
+@prop export let dialogClass: $$Props['dialogClass'] = 'fixed top-0 start-0 end-0 h-modal md:inset-0 md:h-full z-50 w-full p-4 flex';
+@prop export let classDialog: $$Props['classDialog'] = undefined;
+@prop export let defaultClass: $$Props['defaultClass'] = 'relative flex flex-col mx-auto';
+@prop export let headerClass: $$Props['headerClass'] = 'flex justify-between items-center p-4 md:p-5 rounded-t-lg';
+@prop export let classHeader: $$Props['classHeader'] = undefined;
+@prop export let bodyClass: $$Props['bodyClass'] = 'p-4 md:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain';
+@prop export let classBody: $$Props['classBody'] = undefined;
+@prop export let footerClass: $$Props['footerClass'] = 'flex items-center p-4 md:p-5 space-x-3 rtl:space-x-reverse rounded-b-lg';
+@prop export let classFooter: $$Props['classFooter'] = undefined;
 -->

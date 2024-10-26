@@ -1,12 +1,23 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
   import { getContext } from 'svelte';
+  import type { HTMLButtonAttributes, HTMLAnchorAttributes  } from 'svelte/elements';
 
-  export let href: string | undefined = undefined;
-  export let active: boolean = false;
-  export let activeClass: string = 'text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white';
-  export let normalClass: string = 'text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white';
-  export let large: boolean = false;
+  interface PaginationItemProps {
+    href?: string;
+    active?: boolean;
+    activeClass?: string;
+    normalClass?: string;
+    large?: boolean;
+  }
+
+  type $$Props = PaginationItemProps & (HTMLAnchorAttributes | HTMLButtonAttributes);
+
+  export let href: $$Props['href'] = undefined;
+  export let active: $$Props['active'] = false;
+  export let activeClass: $$Props['activeClass'] = 'text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white';
+  export let normalClass: $$Props['normalClass'] = 'text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white';
+  export let large: $$Props['large'] = false;
 
   const group = getContext<boolean>('group');
   const table = getContext<boolean>('table');
@@ -32,9 +43,9 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let href: string | undefined = undefined;
-@prop export let active: boolean = false;
-@prop export let activeClass: string = 'text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white';
-@prop export let normalClass: string = 'text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white';
-@prop export let large: boolean = false;
+@prop export let href: $$Props['href'] = undefined;
+@prop export let active: $$Props['active'] = false;
+@prop export let activeClass: $$Props['activeClass'] = 'text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white';
+@prop export let normalClass: $$Props['normalClass'] = 'text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white';
+@prop export let large: $$Props['large'] = false;
 -->

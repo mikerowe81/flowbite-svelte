@@ -34,7 +34,8 @@ Get started with the default example of a select input component to get a single
   let countries = [
     { value: 'us', name: 'United States' },
     { value: 'ca', name: 'Canada' },
-    { value: 'fr', name: 'France' }
+    { value: 'de', name: 'Germany' },
+    { value: 'fr', name: 'France', disabled: true },
   ];
 </script>
 
@@ -237,6 +238,44 @@ Get started with the default toggle component example as a checkbox element to r
 </script>
 
 <MultiSelect items={countries} bind:value={selected} size="lg" placeholder={placeholder} />
+```
+
+### Disabled select
+
+```svelte example class="h-80"
+<script>
+  import { MultiSelect } from 'flowbite-svelte';
+
+  let selected = [];
+  let countries = [
+    { value: 'us', name: 'United States' },
+    { value: 'ca', name: 'Canada' },
+    { value: 'fr', name: 'France' },
+    { value: 'jp', name: 'Japan' },
+    { value: 'en', name: 'England' }
+  ];
+</script>
+
+<MultiSelect disabled items={countries} bind:value={selected} size="lg" />
+```
+
+### Disabled option
+
+```svelte example class="h-80"
+<script>
+  import { MultiSelect } from 'flowbite-svelte';
+
+  let selected = [];
+  let countries = [
+    { value: 'us', name: 'United States' },
+    { value: 'ca', name: 'Canada' },
+    { value: 'fr', name: 'France' },
+    { value: 'jp', name: 'Japan', disabled: true },
+    { value: 'en', name: 'England', disabled: true }
+  ];
+</script>
+
+<MultiSelect items={countries} bind:value={selected} size="lg" />
 ```
 
 ### Pre-select values

@@ -12,8 +12,13 @@
     xxl: 'max-w-2xl'
   };
 
-  export let divClass: string = 'flex justify-center items-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700';
-  export let size: keyof Sizes = 'sm';
+  interface $$Props {
+    divClass?: string;
+    size?: keyof Sizes;
+  }
+
+  export let divClass: $$Props['divClass'] = 'flex justify-center items-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700';
+  export let size: NonNullable<$$Props['size']> = 'sm';
   $: outDivclass = twMerge(sizes[size], divClass, $$props.class);
 </script>
 
@@ -28,6 +33,6 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let divClass: string = 'flex justify-center items-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700';
-@prop export let size: keyof Sizes = 'sm';
+@prop export let divClass: $$Props['divClass'] = 'flex justify-center items-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700';
+@prop export let size: NonNullable<$$Props['size']> = 'sm';
 -->

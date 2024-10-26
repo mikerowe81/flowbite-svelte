@@ -174,7 +174,7 @@ For full documentation, visit [flowbite-svelte.com](https://flowbite-svelte.com/
         </a>
     </td>
     <td width="33.3333%">
-        <a href="https://flowbite-svelte.com/docs/experimental/datepicker">
+        <a href="https://flowbite-svelte.com/docs/components/datepicker">
             <img alt="Svelte Datepicker" src="https://flowbite.s3.amazonaws.com/github/svelte/datepicker.jpg">
         </a>
     </td>
@@ -467,7 +467,6 @@ Please read [how to contribute](https://github.com/themesberg/flowbite-svelte/bl
 ## Changelog
 
 View the full [changelog](https://github.com/themesberg/flowbite-svelte/blob/main/CHANGELOG.md) on this page.
-
 
 ## License
 

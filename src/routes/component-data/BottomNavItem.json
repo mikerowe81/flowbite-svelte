@@ -1,1 +1,6 @@
-{"name":"BottomNavItem","slots":[],"events":["on:click","on:change","on:keydown","on:keyup","on:focus","on:blur","on:mouseenter","on:mouseleave"],"props":[["btnName","string","''"],["appBtnPosition","'left' | 'middle' | 'right'","'middle'"],["activeClass","string | undefined","undefined"],["href","string","''"],["exact","boolean","true"],["spanClass","string","''"]]}
+{
+  "name": "BottomNavItem",
+  "slots": [],
+  "events": ["click", "change", "keydown", "keyup", "focus", "blur", "mouseenter", "mouseleave"],
+  "props": []
+}

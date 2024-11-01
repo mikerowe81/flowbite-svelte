@@ -12,6 +12,7 @@
   import { createEventDispatcher, getContext } from 'svelte';
   import type { InputType } from '../types';
   import CloseButton from '$lib/utils/CloseButton.svelte';
+  import { onMount } from 'svelte';
 
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   interface $$Props extends Omit<HTMLInputAttributes,'size'> {
@@ -33,7 +34,7 @@
   export let floatClass: $$Props['floatClass'] = 'flex absolute inset-y-0 items-center text-gray-500 dark:text-gray-400';
 
   /* MGR: Adds an autofocus option to input fields */
-  let inputRef: HTMLInputElement
+  export let inputRef: HTMLInputElement
   onMount(() => {
       if (inputRef && inputRef.focus && $$props.autofocus) {
           setTimeout(() => {

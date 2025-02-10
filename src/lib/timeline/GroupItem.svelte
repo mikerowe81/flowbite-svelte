@@ -2,12 +2,24 @@
   import { twMerge } from 'tailwind-merge';
   import type { GroupTimelineType } from '../types';
 
-  export let timelines: GroupTimelineType[];
-  export let aClass: string = 'block items-center p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700';
-  export let imgClass: string = 'me-3 mb-3 w-12 h-12 rounded-full sm:mb-0';
-  export let divClass: string = 'text-gray-600 dark:text-gray-400';
-  export let titleClass: string = 'text-base font-normal';
-  export let spanClass: string = 'inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400';
+  interface $$Props {
+    timelines: GroupTimelineType[];
+    aClass?: string;
+    imgClass?: string;
+    divClass?: string;
+    titleClass?: string;
+    spanClass?: string;
+    isPrivacy?: boolean;
+  }
+
+
+  export let timelines: $$Props['timelines'];
+  export let aClass: $$Props['aClass'] = 'block items-center p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700';
+  export let imgClass: $$Props['imgClass'] = 'me-3 mb-3 w-12 h-12 rounded-full sm:mb-0';
+  export let divClass: $$Props['divClass'] = 'text-gray-600 dark:text-gray-400';
+  export let titleClass: $$Props['titleClass'] = 'text-base font-normal';
+  export let spanClass: $$Props['spanClass'] = 'inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400';
+  export let isPrivacy: $$Props['isPrivacy'] = true;
 
   let aCls: string = twMerge(aClass, $$props.classA);
   let imgCls: string = twMerge(imgClass, $$props.classImg);
@@ -27,6 +39,7 @@
         {#if comment}
           <div class="text-sm font-normal">{comment}</div>
         {/if}
+        {#if isPrivacy}
         <span class={spanCls}>
           {#if isPrivate}
             <svg class="me-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -41,6 +54,7 @@
             Public
           {/if}
         </span>
+        {/if}
       </div>
     </a>
   </li>
@@ -50,10 +64,11 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let timelines: GroupTimelineType[];
-@prop export let aClass: string = 'block items-center p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700';
-@prop export let imgClass: string = 'me-3 mb-3 w-12 h-12 rounded-full sm:mb-0';
-@prop export let divClass: string = 'text-gray-600 dark:text-gray-400';
-@prop export let titleClass: string = 'text-base font-normal';
-@prop export let spanClass: string = 'inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400';
+@prop export let timelines: $$Props['timelines'];
+@prop export let aClass: $$Props['aClass'] = 'block items-center p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700';
+@prop export let imgClass: $$Props['imgClass'] = 'me-3 mb-3 w-12 h-12 rounded-full sm:mb-0';
+@prop export let divClass: $$Props['divClass'] = 'text-gray-600 dark:text-gray-400';
+@prop export let titleClass: $$Props['titleClass'] = 'text-base font-normal';
+@prop export let spanClass: $$Props['spanClass'] = 'inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400';
+@prop export let isPrivacy: $$Props['isPrivacy'] = true;
 -->

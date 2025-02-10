@@ -1,13 +1,23 @@
 <script lang="ts">
+  import type { SVGAttributes } from 'svelte/elements';
   import { twMerge } from 'tailwind-merge';
 
-  export let color: 'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined = 'primary';
-  export let bg: string = 'text-gray-300';
-  export let customColor: string = '';
-  export let size: string | number = '8';
+  interface $$Props extends SVGAttributes<SVGSVGElement> {
+    color?: 'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom';
+    bg?: string;
+    size?: string | number;
+    currentFill?: string;
+    currentColor?: string;
+    customColor?: string;
+  }
+
+  export let color: $$Props['color'] = 'primary';
+  export let bg: $$Props['bg'] = 'text-gray-300';
+  export let customColor: $$Props['customColor'] = '';
+  export let size: $$Props['size'] = '8';
   // these two props add fine control over the spinner colors
-  export let currentFill: string = 'currentFill';
-  export let currentColor: string = 'currentColor';
+  export let currentFill: $$Props['currentFill'] = 'currentFill';
+  export let currentColor: $$Props['currentColor'] = 'currentColor';
 
   let iconsize = `w-${size} h-${size}`;
 
@@ -40,10 +50,10 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let color: 'primary' | 'blue' | 'gray' | 'green' | 'red' | 'yellow' | 'pink' | 'purple' | 'white' | 'custom' | undefined = 'primary';
-@prop export let bg: string = 'text-gray-300';
-@prop export let customColor: string = '';
-@prop export let size: string | number = '8';
-@prop export let currentFill: string = 'currentFill';
-@prop export let currentColor: string = 'currentColor';
+@prop export let color: $$Props['color'] = 'primary';
+@prop export let bg: $$Props['bg'] = 'text-gray-300';
+@prop export let customColor: $$Props['customColor'] = '';
+@prop export let size: $$Props['size'] = '8';
+@prop export let currentFill: $$Props['currentFill'] = 'currentFill';
+@prop export let currentColor: $$Props['currentColor'] = 'currentColor';
 -->

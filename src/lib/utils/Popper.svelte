@@ -34,6 +34,9 @@
 
   const dispatch = createEventDispatcher();
 
+  let focusable: boolean;
+  $: focusable = trigger === 'focus';
+
   let clickable: boolean;
   $: clickable = trigger === 'click';
 
@@ -49,32 +52,34 @@
   let contentEl: HTMLElement;
   let triggerEls: HTMLElement[] = [];
 
-  let _blocked: boolean = false; // management of the race condition between focusin and click events
-  const block = () => ((_blocked = true), setTimeout(() => (_blocked = false), 250));
-
   const showHandler = (ev: Event) => {
     if (referenceEl === undefined) console.error('trigger undefined');
     if (!reference && triggerEls.includes(ev.target as HTMLElement) && referenceEl !== ev.target) {
       referenceEl = ev.target as HTMLElement;
-      block();
+      if (open) return; // If the popper is already open after the reference element has changed
     }
-    if (clickable && ev.type === 'focusin' && !open) block();
-    open = clickable && ev.type === 'click' && !_blocked ? !open : true;
+
+    open = ev.type === 'click' ? !open : true;
   };
 
   const hasHover = (el: Element) => el.matches(':hover');
   const hasFocus = (el: Element) => el.contains(document.activeElement);
-  const px = (n: number | undefined) => (n != null ? `${n}px` : '');
+  const px = (n: number | undefined) => (n ? `${n}px` : '');
 
   const hideHandler = (ev: Event) => {
-    if (activeContent) {
+    if (activeContent && hoverable) {
+      const elements = [referenceEl, floatingEl, ...triggerEls].filter(Boolean);
+      // Add a delay before hiding the floating element to account for hoverable elements. 
+      // This ensures that the floating element does not hide immediately when the mouse 
+      // moves from the reference element to the floating element.
       setTimeout(() => {
-        const elements = [referenceEl, floatingEl, ...triggerEls].filter(Boolean);
-        if (ev.type === 'mouseleave' && elements.some(hasHover)) return;
-        if (ev.type === 'focusout' && elements.some(hasFocus)) return;
-        open = false;
+        if (ev.type === 'mouseleave' && !elements.some(hasHover)) {
+          open = false;
+        }
       }, 100);
-    } else open = false;
+    } else {
+      open = false;
+    }
   };
 
   let arrowSide: Side;
@@ -119,9 +124,10 @@
   }
 
   onMount(() => {
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
     const events: [string, any, boolean][] = [
-      ['focusin', showHandler, true],
-      ['focusout', hideHandler, true],
+      ['focusin', showHandler, focusable],
+      ['focusout', hideHandler, focusable],
       ['click', showHandler, clickable],
       ['mouseenter', showHandler, hoverable],
       ['mouseleave', hideHandler, hoverable]
@@ -144,12 +150,14 @@
       if (referenceEl === document.body) {
         console.error(`Popup reference not found: '${reference}'`);
       } else {
-        referenceEl.addEventListener('focusout', hideHandler);
+        if (focusable) referenceEl.addEventListener('focusout', hideHandler);
         if (hoverable) referenceEl.addEventListener('mouseleave', hideHandler);
       }
     } else {
       referenceEl = triggerEls[0];
     }
+
+    if (clickable) document.addEventListener('click', closeOnClickOutside);
 
     return () => {
       // This is onDestroy function
@@ -158,12 +166,27 @@
           for (const [name, handler] of events) element.removeEventListener(name, handler);
         }
       });
+
       if (referenceEl) {
         referenceEl.removeEventListener('focusout', hideHandler);
         referenceEl.removeEventListener('mouseleave', hideHandler);
       }
+
+      document.removeEventListener('click', closeOnClickOutside);
     };
   });
+
+  /**
+   * Close the popper when clicking outside of it.
+   * This is necessary to get around a bug in Safari where clicking outside of the open popper does not close it.
+   */
+  function closeOnClickOutside(event: MouseEvent) {
+    if (open) {
+      if (!event.composedPath().includes(floatingEl) && !triggerEls.some((el) => event.composedPath().includes(el))) {
+        hideHandler(event);
+      }
+    }
+  }
 
   function optional(pred: boolean, func: (ev: Event) => void) {
     return pred ? func : () => undefined;
@@ -183,13 +206,13 @@
 </script>
 
 {#if !referenceEl}
-  <div bind:this={contentEl} />
+  <div bind:this={contentEl}></div>
 {/if}
 
-{#if open && referenceEl}
-  <Frame use={init} options={referenceEl} role="tooltip" tabindex={activeContent ? -1 : undefined} on:focusin={optional(activeContent, showHandler)} on:focusout={optional(activeContent, hideHandler)} on:mouseenter={optional(activeContent && !clickable, showHandler)} on:mouseleave={optional(activeContent && !clickable, hideHandler)} {...$$restProps}>
-    <slot />
-    {#if arrow}<div use:initArrow class={arrowClass} />{/if}
+{#if referenceEl}
+  <Frame use={init} options={referenceEl} bind:open role="tooltip" tabindex={activeContent ? -1 : undefined} on:focusin={optional(activeContent && focusable, showHandler)} on:focusout={optional(activeContent && focusable, hideHandler)} on:mouseenter={optional(activeContent && hoverable, showHandler)} on:mouseleave={optional(activeContent && hoverable, hideHandler)} {...$$restProps}>
+    <slot></slot>
+    {#if arrow}<div use:initArrow class={arrowClass}></div>{/if}
   </Frame>
 {/if}
 

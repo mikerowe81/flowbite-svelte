@@ -6,34 +6,51 @@
 </script>
 
 <script lang="ts">
+  import type { HTMLInputAttributes } from 'svelte/elements';
   import Wrapper from '$lib/utils/Wrapper.svelte';
   import { twMerge } from 'tailwind-merge';
-  import { getContext, onMount} from 'svelte';
+  import { createEventDispatcher, getContext } from 'svelte';
   import type { InputType } from '../types';
+  import CloseButton from '$lib/utils/CloseButton.svelte';
+  import { onMount } from 'svelte';
 
-  export let type: InputType = 'text';
-  export let value: any = undefined;
-  export let size: FormSizeType | undefined = undefined;
-  export let defaultClass: string = 'block w-full disabled:cursor-not-allowed disabled:opacity-50 rtl:text-right';
-  export let color: 'base' | 'green' | 'red' = 'base';
-  export let floatClass: string = 'flex absolute inset-y-0 items-center text-gray-500 dark:text-gray-400';
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  interface $$Props extends Omit<HTMLInputAttributes,'size'> {
+    type?: InputType;
+    value?: any;
+    size?: FormSizeType;
+    clearable?: boolean;
+    defaultClass?: string;
+    color?: 'base' | 'green' | 'red';
+    floatClass?: string;
+  }
+
+  export let type: $$Props['type'] = 'text';
+  export let value: $$Props['value'] = undefined;
+  export let size: $$Props['size'] = undefined;
+  export let clearable: $$Props['clearable'] = false;
+  export let defaultClass: $$Props['defaultClass'] = 'block w-full disabled:cursor-not-allowed disabled:opacity-50 rtl:text-right';
+  export let color: NonNullable<$$Props['color']> = 'base';
+  export let floatClass: $$Props['floatClass'] = 'flex absolute inset-y-0 items-center text-gray-500 dark:text-gray-400';
 
   /* MGR: Adds an autofocus option to input fields */
+  export let inputRef: HTMLInputElement
   onMount(() => {
-    if(inputRef && inputRef.focus && $$props.autofocus) {
-      setTimeout(() => {
-        if(inputRef && inputRef.focus) {
-          inputRef.focus()
-        }
-      }, 50)
-    }
+      if (inputRef && inputRef.focus && $$props.autofocus) {
+          setTimeout(() => {
+              if (inputRef && inputRef.focus) {
+                  inputRef.focus()
+              }
+          }, 50)
+      }
   })
 
+  const dispatcher = createEventDispatcher();
   const borderClasses = {
-    base: 'border-gray-300 dark:border-gray-600',
-    tinted: 'border-gray-300 dark:border-gray-500',
-    green: 'border-green-500 dark:border-green-400',
-    red: 'border-red-500 dark:border-red-400'
+    base: 'border border-gray-300 dark:border-gray-600',
+    tinted: 'border border-gray-300 dark:border-gray-500',
+    green: 'border border-green-500 dark:border-green-400',
+    red: 'border border-red-500 dark:border-red-400'
   };
 
   const ringClasses = {
@@ -63,9 +80,14 @@
   let inputClass: string;
   $: {
     const _color = color === 'base' && background ? 'tinted' : color;
-    inputClass = twMerge([defaultClass, inputPadding[_size], ($$slots.left && leftPadding[_size]) || ($$slots.right && rightPadding[_size]), ringClasses[color], colorClasses[_color], borderClasses[_color], textSizes[_size], group || 'rounded-lg', group && 'first:rounded-s-lg last:rounded-e-lg', group && 'border-s-0 first:border-s last:border-e', $$props.class]);
+    inputClass = twMerge([defaultClass, inputPadding[_size], ($$slots.left && leftPadding[_size]) || ((clearable || $$slots.right) && rightPadding[_size]), ringClasses[color], colorClasses[_color], borderClasses[_color], textSizes[_size], group || 'rounded-lg', group && 'first:rounded-s-lg last:rounded-e-lg', group && '[&:not(:first-child)]:-ms-px', $$props.class]);
   }
-  let inputRef: HTMLInputElement
+
+  const clearAll = (e: MouseEvent) => {
+    e.stopPropagation();
+    value = undefined;
+    dispatcher('change');
+  };
 </script>
 
 <Wrapper class="relative w-full" show={$$slots.left || $$slots.right}>
@@ -78,7 +100,12 @@
     <input {...$$restProps} bind:value bind:this={inputRef} on:blur on:change on:click on:contextmenu on:focus on:keydown on:keypress on:keyup on:mouseover on:mouseenter on:mouseleave on:paste on:input {...{ type }} class={inputClass} />
   </slot>
   {#if $$slots.right}
-    <div class="{twMerge(floatClass, $$props.classRight)} end-0 pe-2.5"><slot name="right" /></div>
+  <div class="{twMerge(floatClass, $$props.classRight)} end-0 pe-2.5">
+    <slot name="right"></slot>
+  </div>
+  {/if}
+  {#if clearable && value && `${value}`.length > 0}
+    <CloseButton {size} on:click={clearAll} color="none" class=" {twMerge(floatClass, $$props.classRight)} focus:ring-0 end-6 focus:ring-gray-400 dark:text-white" />
   {/if}
 </Wrapper>
 
@@ -86,10 +113,11 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let type: InputType = 'text';
-@prop export let value: any = undefined;
-@prop export let size: FormSizeType | undefined = undefined;
-@prop export let defaultClass: string = 'block w-full disabled:cursor-not-allowed disabled:opacity-50 rtl:text-right';
-@prop export let color: 'base' | 'green' | 'red' = 'base';
-@prop export let floatClass: string = 'flex absolute inset-y-0 items-center text-gray-500 dark:text-gray-400';
+@prop export let type: $$Props['type'] = 'text';
+@prop export let value: $$Props['value'] = undefined;
+@prop export let size: $$Props['size'] = undefined;
+@prop export let clearable: $$Props['clearable'] = false;
+@prop export let defaultClass: $$Props['defaultClass'] = 'block w-full disabled:cursor-not-allowed disabled:opacity-50 rtl:text-right';
+@prop export let color: NonNullable<$$Props['color']> = 'base';
+@prop export let floatClass: $$Props['floatClass'] = 'flex absolute inset-y-0 items-center text-gray-500 dark:text-gray-400';
 -->

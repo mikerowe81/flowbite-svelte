@@ -6,6 +6,10 @@ node_modules
 /package
 /dist
 
+.env
+.env.*
+!.env.example
+
 .vercel
 .vscode/
 
@@ -17,3 +21,5 @@ yarn.lock
 
 src/routes/testdir/*
 
+.idea/
+/test-results

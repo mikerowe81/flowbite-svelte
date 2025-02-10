@@ -32,7 +32,7 @@ Use the following code to stack together buttons into a single group.
   import { ButtonGroup, Button } from 'flowbite-svelte';
 </script>
 
-<ButtonGroup>
+<ButtonGroup class="*:!ring-primary-700">
   <Button>Profile</Button>
   <Button>Settings</Button>
   <Button>Messages</Button>
@@ -67,9 +67,9 @@ Use the following code to stack together buttons into a single group.
   </ButtonGroup>
   <div class="py-4">Gradient with shadows</div>
   <ButtonGroup>
-    <GradientButton shadow="green" color="green">Profile</GradientButton>
-    <GradientButton shadow="pink" color="pink">Settings</GradientButton>
-    <GradientButton shadow="teal" color="teal">Messages</GradientButton>
+    <GradientButton shadow color="green">Profile</GradientButton>
+    <GradientButton shadow color="pink">Settings</GradientButton>
+    <GradientButton shadow color="teal">Messages</GradientButton>
   </ButtonGroup>
   <div class="py-4">Dualtone gradient</div>
   <ButtonGroup class="space-x-px">
@@ -89,7 +89,7 @@ You can also use the button group component as links.
   import { ButtonGroup, Button } from 'flowbite-svelte';
 </script>
 
-<ButtonGroup>
+<ButtonGroup class="*:!ring-primary-700">
   <Button href="/">Profile</Button>
   <Button href="/">Settings</Button>
   <Button href="/">Messages</Button>
@@ -106,17 +106,17 @@ You can also use SVG icons inside the grouped buttons.
   import { UserCircleSolid, AdjustmentsVerticalOutline, DownloadSolid } from 'flowbite-svelte-icons';
 </script>
 
-<ButtonGroup>
+<ButtonGroup class="*:!ring-primary-700">
   <Button>
-    <UserCircleSolid class="w-3 h-3 me-2" />
+    <UserCircleSolid class="w-4 h-4 me-2" />
     Profile
   </Button>
   <Button>
-    <AdjustmentsVerticalOutline class="w-3 h-3 me-2" />
+    <AdjustmentsVerticalOutline class="w-4 h-4 me-2" />
     Settings
   </Button>
   <Button>
-    <DownloadSolid class="w-3 h-3 me-2" />
+    <DownloadSolid class="w-4 h-4 me-2" />
     Download
   </Button>
 </ButtonGroup>
@@ -150,15 +150,15 @@ Group a series of buttons together on a single line or stack them in a vertical 
 
 <ButtonGroup>
   <Button outline color="dark">
-    <UserCircleSolid class="w-3 h-3 me-2" />
+    <UserCircleSolid class="w-4 h-4 me-2" />
     Profile
   </Button>
   <Button outline color="dark">
-    <AdjustmentsVerticalOutline class="w-3 h-3 me-2" />
+    <AdjustmentsVerticalOutline class="w-4 h-4 me-2" />
     Settings
   </Button>
   <Button outline color="dark">
-    <DownloadSolid class="w-3 h-3 me-2" />
+    <DownloadSolid class="w-4 h-4 me-2" />
     Download
   </Button>
 </ButtonGroup>
@@ -176,7 +176,7 @@ You can add the `on:click` event to the `Button` component.
   };
 </script>
 
-<ButtonGroup>
+<ButtonGroup class="*:!ring-primary-700">
   <Button on:click={handleClick}>Click me</Button>
   <Button>Settings</Button>
   <Button>Messages</Button>

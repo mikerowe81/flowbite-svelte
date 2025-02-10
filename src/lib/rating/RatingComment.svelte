@@ -1,29 +1,32 @@
 <script lang="ts">
   import Button from '../buttons/Button.svelte';
   import Rating from './Rating.svelte';
-  // default is floor
-  export let ceil: boolean = false;
-  export let helpfullink: string = '';
-  export let abuselink: string = '';
-  export let comment: {
-    id: string;
-    user: {
-      name: string;
-      img: {
-        src: string;
-        alt: string;
+  
+  interface $$Props {
+    helpfullink?: string;
+    abuselink?: string;
+    comment: {
+      id: string;
+      user: {
+        name: string;
+        img: {
+          src: string;
+          alt: string;
+        };
+        joined: string;
       };
-      joined: string;
+      total: number;
+      rating: number;
+      heading: string;
+      address: string;
+      datetime: string;
     };
-    total: number;
-    rating: number;
-    heading: string;
-    address: string;
-    datetime: string;
-  };
+  }
 
-  let roundedRating: number = ceil ? Math.ceil(comment.rating) : Math.floor(comment.rating);
-  let grayStars: number = comment.total - roundedRating;
+  // export let ceil: $$Props['ceil'] = false;
+  export let helpfullink: $$Props['helpfullink'] = '';
+  export let abuselink: $$Props['abuselink'] = '';
+  export let comment: $$Props['comment'];
 </script>
 
 <article>
@@ -63,7 +66,7 @@
     {#if helpfullink || abuselink}
       <div class="flex items-center mt-3 space-x-3 rtl:space-x-reverse divide-x rtl:divide-x-reverse divide-gray-200 dark:divide-gray-600">
         {#if helpfullink}
-          <Button size="xs" href="/" color="dark">Helpful</Button>
+          <Button size="xs" href={helpfullink} color="dark">Helpful</Button>
         {/if}
         {#if abuselink}
           <a href={abuselink} class="ps-4 text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"> Report abuse </a>
@@ -77,9 +80,8 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let ceil: boolean = false;
-@prop export let helpfullink: string = '';
-@prop export let abuselink: string = '';
-@prop export let comment: {
-    id: string;
+@prop export let ceil: $$Props['ceil'] = false;
+@prop export let helpfullink: $$Props['helpfullink'] = '';
+@prop export let abuselink: $$Props['abuselink'] = '';
+@prop export let comment: $$Props['comment'];
 -->

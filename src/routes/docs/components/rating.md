@@ -39,13 +39,14 @@ The default rating icon is a star. Set the total and rating props. The `id` prop
 
 <Rating id="example-1" total={5} size={50} rating={1.4} />
 <Rating id="example-1b" total={5} size={50} rating={4.66} />
+<Rating id="example-1b" iconFillColor='#008800' iconStrokeColor='#008800' total={5} size={50} rating={4.66} />
 ```
 
 ## Stars
 
 You can use the Star component with the `id` and `fillPercent` props.
 
-```svelte example
+```svelte example class="flex"
 <script>
   import { Star } from 'flowbite-svelte';
 </script>
@@ -74,6 +75,9 @@ If you also want to show a text near the stars you can use the `text` slot to ad
 
 <Rating id="example-3" total={5} rating={3.4}>
   <p slot="text" class="ms-2 text-sm font-medium text-gray-500 dark:text-gray-400">3.4 out of 5</p>
+</Rating>
+<Rating id="example-3" total={5} rating={2.8} iconFillColor='#008800' iconStrokeColor='#008800'>
+  <p slot="text" class="ms-2 text-sm font-medium text-gray-500 dark:text-gray-400">2.8 out of 5</p>
 </Rating>
 ```
 
@@ -105,6 +109,7 @@ The default icon size is `24`. Import your icon and set it in a icon props.
 
 <Rating total={5} rating={3.3} id="example-5" icon={Heart} />
 <Rating total={10} rating={7.6} id="example-5b" icon={Heart} />
+<Rating total={10} rating={7.6} id="example-5b" icon={Heart} iconFillColor='#3752d6' iconStrokeColor='#3752d6'/>
 ```
 
 ```svelte example
@@ -114,6 +119,7 @@ The default icon size is `24`. Import your icon and set it in a icon props.
 
 <Rating total={5} rating={4.7} id="example-5c" icon={Thumbup} />
 <Rating total={10} rating={8.2} id="example-5d" icon={Thumbup} />
+<Rating total={10} rating={8.2} id="example-5d" icon={Thumbup} iconFillColor='#ff3f00' iconStrokeColor='#ff3f00'/>
 ```
 
 ## AdvancedRating component
@@ -224,7 +230,7 @@ Use this component to show a single rating comment and its score alongside other
   };
 </script>
 
-<RatingComment {comment} helpfullink="/" abuselink="/">
+<RatingComment {comment} helpfullink="/docs/pages/quickstart" abuselink="/">
   <p class="mb-2 font-light text-gray-500 dark:text-gray-400">This is my third Invicta Pro Diver. They are just fantastic value for money. This one arrived yesterday and the first thing I did was set the time, popped on an identical strap from another Invicta and went in the shower with it to test the waterproofing.... No problems.</p>
   <p class="mb-3 font-light text-gray-500 dark:text-gray-400">It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.</p>
   <a href="/" class="block mb-5 text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"> Read more </a>
@@ -258,15 +264,15 @@ Use this component to show the review content from a user alongside the avatar, 
   <p class="mb-2 font-light text-gray-500 dark:text-gray-400">The flat was spotless, very comfortable, and the host was amazing. I highly recommend this accommodation for anyone visiting Brasov city centre. It's quite a while since we are no longer using hotel facilities but self contained places. And the main reason is poor cleanliness and staff not being trained properly. This place exceeded our expectation and will return for sure.</p>
   <p class="mb-5 font-light text-gray-500 dark:text-gray-400">It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.</p>
   <svelte:fragment slot="item1">
-    <LandmarkSolid class="w-3 h-3 me-2" />
+    <LandmarkSolid class="w-4 h-4 me-2" />
     {review.item1}
   </svelte:fragment>
   <svelte:fragment slot="item2">
-    <CalendarMonthSolid class="w-3 h-3 me-2" />
+    <CalendarMonthSolid class="w-4 h-4 me-2" />
     {review.item2}
   </svelte:fragment>
   <svelte:fragment slot="item3">
-    <UsersGroupOutline class="w-3 h-3 me-2" />
+    <UsersGroupOutline class="w-4 h-4 me-2" />
     {review.item3}
   </svelte:fragment>
   <aside class="flex items-center mt-3 space-x-5 rtl:space-x-reverse">

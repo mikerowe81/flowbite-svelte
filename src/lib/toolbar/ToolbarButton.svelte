@@ -1,16 +1,33 @@
 <script lang="ts">
-  import type { ToolbarButtonType } from '../types';
   import { getContext } from 'svelte';
   import { twMerge } from 'tailwind-merge';
+  import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
-  const background = getContext('background');
+  type ColorType = 'dark' | 'gray' | 'red' | 'yellow' | 'green' | 'indigo' | 'purple' | 'pink' | 'blue' | 'primary' | 'default';
+  type SizeType = 'xs' | 'sm' | 'md' | 'lg';
 
-  export let color: ToolbarButtonType = 'default';
-  export let name: string | undefined = undefined;
-  export let ariaLabel: string | undefined = undefined;
-  export let size: 'xs' | 'sm' | 'md' | 'lg' = 'md';
+  type CommonProps = {
+    color?: ColorType;
+    name?: string;
+    ariaLabel?: string;
+    size?: SizeType;
+  };
+
+  type AnchorProps = CommonProps & HTMLAnchorAttributes & {
+    href: string;
+  };
+
+  type ButtonProps = CommonProps & HTMLButtonAttributes;
+
+  type $$Props = AnchorProps | ButtonProps;
+
+  export let color: NonNullable<$$Props['color']> = 'default';
+  export let name: $$Props['name'] = undefined;
+  export let ariaLabel: $$Props['ariaLabel'] = undefined;
+  export let size: SizeType = 'md';
   export let href: string | undefined = undefined;
 
+  const background = getContext('background');
   const colors = {
     dark: 'text-gray-500 hover:text-gray-900 hover:bg-gray-200 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600',
     gray: 'text-gray-500 focus:ring-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-300',
@@ -22,7 +39,7 @@
     pink: 'text-pink-500 focus:ring-pink-400 hover:bg-pink-200 dark:hover:bg-pink-800 dark:hover:text-pink-300',
     blue: 'text-blue-500 focus:ring-blue-400 hover:bg-blue-200 dark:hover:bg-blue-800 dark:hover:text-blue-300',
     primary: 'text-primary-500 focus:ring-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800 dark:hover:text-primary-300',
-    default: 'focus:ring-gray-400'
+    default: 'focus:ring-gray-400 hover:bg-gray-100'
   };
 
   const sizing = {
@@ -33,7 +50,7 @@
   };
 
   let buttonClass: string;
-  $: buttonClass = twMerge('focus:outline-none whitespace-normal', sizing[size], colors[color], color === 'default' && (background ? 'hover:bg-gray-100 dark:hover:bg-gray-600' : 'hover:bg-gray-100 dark:hover:bg-gray-700'), $$props.class);
+  $: buttonClass = twMerge('focus:outline-none whitespace-normal', sizing[size], colors[color], color === 'default' && (background ? 'dark:hover:bg-gray-600' : 'dark:hover:bg-gray-700'), $$props.class);
 
   const svgSizes = {
     xs: 'w-3 h-3',
@@ -59,9 +76,9 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let color: ToolbarButtonType = 'default';
-@prop export let name: string | undefined = undefined;
-@prop export let ariaLabel: string | undefined = undefined;
-@prop export let size: 'xs' | 'sm' | 'md' | 'lg' = 'md';
+@prop export let color: NonNullable<$$Props['color']> = 'default';
+@prop export let name: $$Props['name'] = undefined;
+@prop export let ariaLabel: $$Props['ariaLabel'] = undefined;
+@prop export let size: SizeType = 'md';
 @prop export let href: string | undefined = undefined;
 -->

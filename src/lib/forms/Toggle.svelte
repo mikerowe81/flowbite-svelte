@@ -1,14 +1,23 @@
 <script lang="ts">
   import { getContext } from 'svelte';
+  import type { ComponentProps } from 'svelte';
   import { twMerge } from 'tailwind-merge';
   import Checkbox from './Checkbox.svelte';
   import type { FormColorType } from '../types';
 
-  export let size: 'small' | 'default' | 'large' | 'custom' = 'default';
-  export let group: (string | number)[] = [];
-  export let value: string | number = '';
-  export let checked: boolean | undefined = undefined;
-  export let customSize: string = '';
+  interface $$Props extends Omit<ComponentProps<Checkbox>, 'size'> {
+    size?: 'small' | 'default' | 'large' | 'custom';
+    group?:  string[];
+    value?: string | number;
+    checked?: boolean;
+    customSize?: string;
+  }
+
+  export let size: NonNullable<$$Props['size']> = 'default';
+  export let group: $$Props['group'] = [];
+  export let value: $$Props['value'] = '';
+  export let checked: $$Props['checked'] = undefined;
+  export let customSize: $$Props['customSize'] = '';
 
   // tinted if put in component having its own background
   let background: boolean = getContext('background');
@@ -36,21 +45,22 @@
 
   let divClass: string;
 
-  $: divClass = twMerge(common, background ? 'dark:bg-gray-600 dark:border-gray-500' : 'dark:bg-gray-700 dark:border-gray-600', colors[($$restProps.color as FormColorType) ?? 'primary'], sizes[size], 'relative', $$props.classDiv);
+  $: divClass = twMerge(common, $$slots.offLabel ? "ms-3" : "", background ? 'dark:bg-gray-600 dark:border-gray-500' : 'dark:bg-gray-700 dark:border-gray-600', colors[($$restProps.color as FormColorType) ?? 'primary'], sizes[size], 'relative', $$props.classDiv);
 </script>
 
 <Checkbox custom {...$$restProps} class={$$props.class} {value} bind:checked bind:group on:click on:change>
-  <span class={divClass} />
-  <slot />
+  <slot name="offLabel"></slot>
+  <span class={divClass}></span>
+  <slot></slot>
 </Checkbox>
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let size: 'small' | 'default' | 'large' | 'custom' = 'default';
-@prop export let group: (string | number)[] = [];
-@prop export let value: string | number = '';
-@prop export let checked: boolean | undefined = undefined;
-@prop export let customSize: string = '';
+@prop export let size: NonNullable<$$Props['size']> = 'default';
+@prop export let group: $$Props['group'] = [];
+@prop export let value: $$Props['value'] = '';
+@prop export let checked: $$Props['checked'] = undefined;
+@prop export let customSize: $$Props['customSize'] = '';
 -->

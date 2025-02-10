@@ -3,8 +3,14 @@
   "slots": ["evaluation"],
   "events": [],
   "props": [
-    ["ceil", "boolean", "false"],
-    ["helpfullink", "string", "''"],
-    ["abuselink", "string", "''"]
+    ["helpfullink?", "string", "''"],
+    ["abuselink?", "string", "''"],
+    ["comment", "{", ""],
+    ["id", "string", ""],
+    ["user", "{", ""],
+    ["name", "string", ""],
+    ["img", "{", ""],
+    ["src", "string", ""],
+    ["alt", "string", ""]
   ]
 }

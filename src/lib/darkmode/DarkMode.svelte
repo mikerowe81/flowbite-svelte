@@ -1,9 +1,16 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
+  import type { HTMLButtonAttributes } from 'svelte/elements';
 
-  export let btnClass: string = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5';
-  export let size: 'sm' | 'md' | 'lg' = 'md';
-  export let ariaLabel: string = 'Dark mode';
+  interface $$Props extends HTMLButtonAttributes {
+    btnClass?: string;
+    size?: 'sm' | 'md' | 'lg';
+    ariaLabel?: string;
+  }
+
+  export let btnClass: $$Props['btnClass'] = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5';
+  export let size: NonNullable<$$Props['size']> = 'md';
+  export let ariaLabel: $$Props['ariaLabel'] = 'Dark mode';
 
   const sizes = {
     sm: 'w-4 h-4',
@@ -57,7 +64,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let btnClass: string = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5';
-@prop export let size: 'sm' | 'md' | 'lg' = 'md';
-@prop export let ariaLabel: string = 'Dark mode';
+@prop export let btnClass: $$Props['btnClass'] = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5';
+@prop export let size: NonNullable<$$Props['size']> = 'md';
+@prop export let ariaLabel: $$Props['ariaLabel'] = 'Dark mode';
 -->

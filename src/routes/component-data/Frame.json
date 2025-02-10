@@ -1,16 +1,20 @@
 {
   "name": "Frame",
   "slots": [],
-  "events": ["on:click", "on:mouseenter", "on:mouseleave", "on:focusin", "on:focusout"],
+  "events": ["click", "mouseenter", "mouseleave", "focusin", "focusout", "click", "mouseenter", "mouseleave", "focusin", "focusout"],
   "props": [
-    ["tag", "string", "$$restProps.href ? 'a' : 'div'"],
-    ["color", "FrameColor", "'default'"],
-    ["rounded", "boolean", "false"],
-    ["border", "boolean", "false"],
-    ["shadow", "boolean", "false"],
-    ["node", "HTMLElement | undefined", "undefined"],
-    ["use", "Action<HTMLElement, any>", "noop"],
-    ["options", "string", "{}"],
-    ["role", "string | undefined", "undefined"]
+    ["tag?", "string", ""],
+    ["color?", "FrameColor", ""],
+    ["rounded?", "boolean", ""],
+    ["border?", "boolean", ""],
+    ["shadow?", "boolean", ""],
+    ["node?", "HTMLElement | undefined", ""],
+    ["use?", "Action<HTMLElement, any>", ""],
+    ["options?", "object", ""],
+    ["class?", "string", ""],
+    ["role?", "string", ""],
+    ["open?", "boolean", ""],
+    ["transition?", "TransitionFunc", ""],
+    ["params?", "any", ""]
   ]
 }

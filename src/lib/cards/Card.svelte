@@ -4,12 +4,23 @@
   import type { ComponentProps } from 'svelte';
   import Frame from '../utils/Frame.svelte';
 
-  export let href: string | null | undefined = undefined;
-  export let horizontal: boolean = false;
-  export let reverse: boolean = false;
-  export let img: string | undefined = undefined;
-  export let padding: SizeType | 'none' = 'lg';
-  export let size: SizeType | 'none' = 'sm';
+  interface $$Props extends ComponentProps<Frame> {
+    href?: string;
+    horizontal?: boolean;
+    reverse?: boolean;
+    img?: string;
+    padding?: SizeType | 'none';
+    size?: SizeType | 'none';
+    imgClass?: string;
+  }
+
+  export let href: $$Props['href'] = undefined;
+  export let horizontal: $$Props['horizontal'] = false;
+  export let reverse: $$Props['reverse'] = false;
+  export let img: $$Props['img'] = undefined;
+  export let padding: NonNullable<$$Props['padding']> = 'lg';
+  export let size: NonNullable<$$Props['size']> = 'sm';
+  export let imgClass: $$Props['imgClass'] = '';
 
   // propagate props type from underlying Frame
   interface $$Props extends ComponentProps<Frame> {
@@ -18,6 +29,7 @@
     img?: string;
     padding?: SizeType | 'none';
     size?: SizeType | 'none';
+    imgClass?: string;
   }
 
   const paddings: Record<SizeType | 'none', string> = {
@@ -44,13 +56,13 @@
   let cardClass: string;
   $: cardClass = twMerge('flex w-full', sizes[size], reverse ? 'flex-col-reverse' : 'flex-col', horizontal && (reverse ? 'md:flex-row-reverse' : 'md:flex-row'), href && 'hover:bg-gray-100 dark:hover:bg-gray-700', !img && innerPadding, $$props.class);
 
-  let imgClass: string;
-  $: imgClass = twMerge(reverse ? 'rounded-b-lg' : 'rounded-t-lg', horizontal && 'object-cover w-full h-96 md:h-auto md:w-48 md:rounded-none', horizontal && (reverse ? 'md:rounded-e-lg' : 'md:rounded-s-lg'));
+  let imgCls: string;
+  $: imgCls = twMerge(reverse ? 'rounded-b-lg' : 'rounded-t-lg', horizontal && 'object-cover w-full h-96 md:h-auto md:w-48 md:rounded-none', horizontal && (reverse ? 'md:rounded-e-lg' : 'md:rounded-s-lg'), imgClass);
 </script>
 
 <Frame tag={href ? 'a' : 'div'} rounded shadow border on:click on:focusin on:focusout on:mouseenter on:mouseleave {href} {...$$restProps} class={cardClass}>
   {#if img}
-    <img class={imgClass} src={img} alt="" />
+    <img class={imgCls} src={img} alt="" />
     <div class={innerPadding}>
       <slot />
     </div>
@@ -63,10 +75,11 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let href: string | null | undefined = undefined;
-@prop export let horizontal: boolean = false;
-@prop export let reverse: boolean = false;
-@prop export let img: string | undefined = undefined;
-@prop export let padding: SizeType | 'none' = 'lg';
-@prop export let size: SizeType | 'none' = 'sm';
+@prop export let href: $$Props['href'] = undefined;
+@prop export let horizontal: $$Props['horizontal'] = false;
+@prop export let reverse: $$Props['reverse'] = false;
+@prop export let img: $$Props['img'] = undefined;
+@prop export let padding: NonNullable<$$Props['padding']> = 'lg';
+@prop export let size: NonNullable<$$Props['size']> = 'sm';
+@prop export let imgClass: $$Props['imgClass'] = '';
 -->

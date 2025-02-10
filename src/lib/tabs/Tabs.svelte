@@ -9,15 +9,25 @@
 </script>
 
 <script lang="ts">
+  import type { HTMLAttributes } from 'svelte/elements';
   import { twMerge } from 'tailwind-merge';
   import { setContext } from 'svelte';
 
-  export let style: 'full' | 'pill' | 'underline' | 'none' = 'none';
-  export let defaultClass: string = 'flex flex-wrap space-x-2 rtl:space-x-reverse';
-  export let contentClass: string = 'p-4 bg-gray-50 rounded-lg dark:bg-gray-800 mt-4';
-  export let divider: boolean = true;
-  export let activeClasses: string = 'p-4 text-primary-600 bg-gray-100 rounded-t-lg dark:bg-gray-800 dark:text-primary-500';
-  export let inactiveClasses: string = 'p-4 text-gray-500 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300';
+  interface $$Props extends HTMLAttributes<HTMLUListElement> {
+    tabStyle?: 'full' | 'pill' | 'underline' | 'none';
+    defaultClass?: string;
+    contentClass?: string;
+    divider?: boolean;
+    activeClasses?: string;
+    inactiveClasses?: string;
+  }
+
+  export let tabStyle: NonNullable<$$Props['tabStyle']> = 'none';
+  export let defaultClass: $$Props['defaultClass'] = 'flex flex-wrap space-x-2 rtl:space-x-reverse';
+  export let contentClass: $$Props['contentClass'] = 'p-4 bg-gray-50 rounded-lg dark:bg-gray-800 mt-4';
+  export let divider: $$Props['divider'] = true;
+  export let activeClasses: NonNullable<$$Props['activeClasses']> = 'p-4 text-primary-600 bg-gray-100 rounded-t-lg dark:bg-gray-800 dark:text-primary-500';
+  export let inactiveClasses: NonNullable<$$Props['inactiveClasses']> = 'p-4 text-gray-500 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300';
 
   // styles
   const styledActiveClasses = {
@@ -35,12 +45,12 @@
   };
 
   const ctx: TabCtxType = {
-    activeClasses: styledActiveClasses[style] || activeClasses,
-    inactiveClasses: styledInactiveClasses[style] || inactiveClasses,
+    activeClasses: styledActiveClasses[tabStyle] || activeClasses,
+    inactiveClasses: styledInactiveClasses[tabStyle] || inactiveClasses,
     selected: writable<HTMLElement>()
   };
 
-  $: divider = ['full', 'pill'].includes(style) ? false : divider;
+  $: divider = ['full', 'pill'].includes(tabStyle) ? false : divider;
 
   setContext('ctx', ctx);
 
@@ -52,27 +62,27 @@
     return { destroy };
   }
 
-  $: ulClass = twMerge(defaultClass, style === 'underline' && '-mb-px', $$props.class);
+  $: ulClass = twMerge(defaultClass, tabStyle === 'underline' && '-mb-px', $$props.class);
 </script>
 
-<ul class={ulClass}>
-  <slot {style} />
+<ul {...$$restProps} class={ulClass}>
+  <slot {tabStyle}></slot>
 </ul>
 {#if divider}
   <slot name="divider">
-    <div class="h-px bg-gray-200 dark:bg-gray-700" />
+    <div class="h-px bg-gray-200 dark:bg-gray-700"></div>
   </slot>
 {/if}
-<div class={contentClass} role="tabpanel" aria-labelledby="id-tab" use:init />
+<div class={contentClass} role="tabpanel" aria-labelledby="id-tab" use:init></div>
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let style: 'full' | 'pill' | 'underline' | 'none' = 'none';
-@prop export let defaultClass: string = 'flex flex-wrap space-x-2 rtl:space-x-reverse';
-@prop export let contentClass: string = 'p-4 bg-gray-50 rounded-lg dark:bg-gray-800 mt-4';
-@prop export let divider: boolean = true;
-@prop export let activeClasses: string = 'p-4 text-primary-600 bg-gray-100 rounded-t-lg dark:bg-gray-800 dark:text-primary-500';
-@prop export let inactiveClasses: string = 'p-4 text-gray-500 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300';
+@prop export let tabStyle: NonNullable<$$Props['tabStyle']> = 'none';
+@prop export let defaultClass: $$Props['defaultClass'] = 'flex flex-wrap space-x-2 rtl:space-x-reverse';
+@prop export let contentClass: $$Props['contentClass'] = 'p-4 bg-gray-50 rounded-lg dark:bg-gray-800 mt-4';
+@prop export let divider: $$Props['divider'] = true;
+@prop export let activeClasses: NonNullable<$$Props['activeClasses']> = 'p-4 text-primary-600 bg-gray-100 rounded-t-lg dark:bg-gray-800 dark:text-primary-500';
+@prop export let inactiveClasses: NonNullable<$$Props['inactiveClasses']> = 'p-4 text-gray-500 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300';
 -->

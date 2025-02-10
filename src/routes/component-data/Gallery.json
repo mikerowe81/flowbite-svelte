@@ -4,6 +4,6 @@
   "events": [],
   "props": [
     ["items", "ImgType[]", "[]"],
-    ["imgClass", "string", "'h-auto max-w-full rounded-lg'"]
+    ["imgClass?", "string", "'h-auto max-w-full rounded-lg'"]
   ]
 }

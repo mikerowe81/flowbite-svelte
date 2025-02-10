@@ -1,70 +1,67 @@
 <script lang="ts">
-  import { twMerge } from 'tailwind-merge';
+  import type { HTMLInputAttributes } from 'svelte/elements';
   import { getContext } from 'svelte';
   import type { FormColorType } from '../types';
   import { labelClass, inputClass } from './Radio.svelte';
   import Label from './Label.svelte';
+  import type { CheckboxItem } from '../types';
 
-  // properties forwarding
-  export let color: FormColorType = 'primary';
-  export let custom: boolean = false;
-  export let inline: boolean = false;
-  export let group: (string | number)[] = [];
-  export let value: string | number = 'on';
-  export let checked: boolean | undefined = undefined;
-  export let spacing: string = 'me-2';
+  interface $$Props extends HTMLInputAttributes {
+    color?: FormColorType;
+    custom?: boolean;
+    inline?: boolean;
+    group?: string[];
+    choices?: CheckboxItem[];
+    value?: string | number;
+    checked?: boolean;
+    spacing?: string;
+    groupLabelClass?: string;
+    groupInputClass?: string;
+    class?: string;
+    required?: boolean;
+  }
 
+  export let color: NonNullable<$$Props['color']> = 'primary';
+  export let custom: NonNullable<$$Props['custom']> = false;
+  export let inline: NonNullable<$$Props['inline']> = false;
+  export let group: $$Props['group'] = [];
+  export let choices: NonNullable<$$Props['choices']> = [];
+  export let value: $$Props['value'] = 'on';
+  export let checked: $$Props['checked'] = undefined;
+  export let spacing: NonNullable<$$Props['spacing']> = $$slots.default ? 'me-2' : '';
+  export let groupLabelClass: NonNullable<$$Props['groupLabelClass']> = '';
+  export let groupInputClass: NonNullable<$$Props['groupInputClass']> = '';
+  
   // tinted if put in component having its own background
   let background: boolean = getContext('background');
-
-  // react on external group changes
-  function init(_: HTMLElement, _group: (string | number)[]) {
-    if (checked === undefined) checked = _group.includes(value);
-    onChange();
-
-    return {
-      update(_group: (string | number)[]) {
-        checked = _group.includes(value);
-      }
-    };
-  }
-
-  function onChange() {
-    // There's a bug in Svelte and bind:group is not working with wrapped checkbox
-    // This workaround is taken from:
-    // https://svelte.dev/repl/de117399559f4e7e9e14e2fc9ab243cc?version=3.12.1
-    const index = group.indexOf(value);
-
-    if (checked === undefined) checked = index >= 0;
-
-    if (checked) {
-      if (index < 0) {
-        group.push(value);
-        group = group;
-      }
-    } else {
-      if (index >= 0) {
-        group.splice(index, 1);
-        group = group;
-      }
-    }
-  }
+  // group example is from https://svelte.dev/repl/faabda4cabd544bd858a8a8abd0095f5?version=3.12.1
 </script>
-
+{#if choices.length > 0}
+  {#each choices as {value, label}, i}
+    <Label class={labelClass(inline, groupLabelClass)} show={$$slots.default} for={`checkbox-${i}`}>{ label }
+      <input id={`checkbox-${i}`} type="checkbox" value={ value } bind:group {...$$restProps}  class={inputClass(custom, color, true, background, spacing, groupInputClass)} />
+      <slot />
+    </Label>
+  {/each}
+{:else}
 <Label class={labelClass(inline, $$props.class)} show={$$slots.default}>
-  <input use:init={group} type="checkbox" bind:checked on:keyup on:keydown on:keypress on:focus on:blur on:click on:mouseover on:mouseenter on:mouseleave on:paste on:change={onChange} on:change {value} {...$$restProps} class={twMerge(spacing, inputClass(custom, color, true, background, $$slots.default || $$props.class))} />
+  <input type="checkbox" bind:checked on:keyup on:keydown on:keypress on:focus on:blur on:click on:mouseover on:mouseenter on:mouseleave on:paste on:change {value} {...$$restProps} class={inputClass(custom, color, true, background, spacing, $$slots.default || $$props.class)} />
   <slot />
 </Label>
+{/if}
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let color: FormColorType = 'primary';
-@prop export let custom: boolean = false;
-@prop export let inline: boolean = false;
-@prop export let group: (string | number)[] = [];
-@prop export let value: string | number = 'on';
-@prop export let checked: boolean | undefined = undefined;
-@prop export let spacing: string = 'me-2';
+@prop export let color: NonNullable<$$Props['color']> = 'primary';
+@prop export let custom: NonNullable<$$Props['custom']> = false;
+@prop export let inline: NonNullable<$$Props['inline']> = false;
+@prop export let group: $$Props['group'] = [];
+@prop export let choices: NonNullable<$$Props['choices']> = [];
+@prop export let value: $$Props['value'] = 'on';
+@prop export let checked: $$Props['checked'] = undefined;
+@prop export let spacing: NonNullable<$$Props['spacing']> = $$slots.default ? 'me-2' : '';
+@prop export let groupLabelClass: NonNullable<$$Props['groupLabelClass']> = '';
+@prop export let groupInputClass: NonNullable<$$Props['groupInputClass']> = '';
 -->

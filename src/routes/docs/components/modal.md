@@ -28,7 +28,7 @@ Get started with multiple sizes, colors, and styles built with the utility class
 
 ## Default modal
 
-Modal visibility (open/close) is controlled by the `open` property. You can bind it to a variable that other element (usually button) will toggle. You can also use the `open=true` attribute to show open the modal by default. Opening and closing the modal will trigger the `show` and `close` events.
+Modal visibility (open/close) is controlled by the `open` property. You can bind it to a variable that other element (usually button) will toggle. You can also use the `open=true` attribute to show open the modal by default. Opening and closing the modal will trigger the `open` and `close` events.
 
 <p class="p-2"/>
 
@@ -151,7 +151,7 @@ Use this web3 modal component to show crypto wallet connection options like Meta
 
 <Button on:click={() => (walletModal = true)}>Crypto wallet modal</Button>
 
-<Modal title="Connect wallet" bind:open={walletModal} size="xs" padding="xs">
+<Modal title="Connect wallet" bind:open={walletModal} size="xs">
   <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Connect with one of our available wallet providers or create a new one.</p>
   <ul class="my-4 space-y-3">
     <li>
@@ -327,8 +327,10 @@ The component has the following props, type, and default values. See [types page
 
 - Use the `class` prop to overwrite `defaultClass`.
 - Use the `classBackdrop` prop to overwrite `backdropClass`.
-- Use the `bodyClass` prop to overwrite body modal default class.
 - Use the `classDialog` prop to overwrite `dialogClass`.
+- Use the `classHeader` prop to overwrite `headerClass`.
+- Use the `classBody` prop to overwrite `bodyClass`.
+- Use the `classFooter` prop to overwrite `footerClass`.
 
 <CompoAttributesViewer {dirName}/>
 

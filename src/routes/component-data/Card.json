@@ -1,13 +1,14 @@
 {
   "name": "Card",
   "slots": [],
-  "events": ["on:click", "on:focusin", "on:focusout", "on:mouseenter", "on:mouseleave"],
+  "events": ["click", "focusin", "focusout", "mouseenter", "mouseleave"],
   "props": [
-    ["href", "string | null | undefined", "undefined"],
-    ["horizontal", "boolean", "false"],
-    ["reverse", "boolean", "false"],
-    ["img", "string | undefined", "undefined"],
-    ["padding", "SizeType | 'none'", "'lg'"],
-    ["size", "SizeType | 'none'", "'sm'"]
+    ["href?", "string", "undefined"],
+    ["horizontal?", "boolean", "false"],
+    ["reverse?", "boolean", "false"],
+    ["img?", "string", "undefined"],
+    ["padding?", "SizeType | 'none'", ""],
+    ["size?", "SizeType | 'none'", ""],
+    ["imgClass?", "string", "''"]
   ]
 }

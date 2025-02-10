@@ -59,7 +59,7 @@ This example can be used to position the sticky banner to the bottom side of the
 ```svelte example class="flex flex-col relative"
 <script>
   import { Banner, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
-  import { SalePercentSolid, ArrowRightSolid } from 'flowbite-svelte-icons';
+  import { SalePercentSolid, ArrowRightOutline } from 'flowbite-svelte-icons';
 </script>
 
 <Skeleton class="py-4" />
@@ -73,7 +73,7 @@ This example can be used to position the sticky banner to the bottom side of the
     </span>
     <span>
       Get 5% commission per sale <a href="https://flowbite.com" class="flex items-center ms-0 text-sm font-medium text-primary-600 md:ms-1 md:inline-flex dark:text-primary-500 hover:underline">
-        Become a partner <ArrowRightSolid class="w-3 h-3 ms-2" />
+        Become a partner <ArrowRightOutline class="w-3 h-3 ms-2" />
       </a>
     </span>
   </p>
@@ -129,7 +129,7 @@ This example can be used to share important information with your website visito
 ```svelte example class="flex flex-col relative"
 <script>
   import { Banner, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
-  import { OpenBookSolid, ArrowRightSolid } from 'flowbite-svelte-icons';
+  import { BookOpenOutline, ArrowRightOutline } from 'flowbite-svelte-icons';
 </script>
 
 <Skeleton class="py-4" />
@@ -141,12 +141,45 @@ This example can be used to share important information with your website visito
     <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">You can integrate Flowbite with many tools.</p>
   </div>
   <a href="/" class="inline-flex items-center px-3 py-2 me-3 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-    <OpenBookSolid class="w-3 h-3 me-2" />
+    <BookOpenOutline class="w-3 h-3 me-2" />
     Learn more
   </a>
   <a href="/" class="inline-flex px-3 py-2 me-2 text-xs font-medium text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
-    Get started <ArrowRightSolid class="w-3 h-3 ms-2" />
+    Get started <ArrowRightOutline class="w-3 h-3 ms-2" />
   </a>
+</Banner>
+```
+
+## Transition
+
+The `transition` and `params` props allow you to apply transition effects to components when they enter or leave the view.  Svelte provides built-in transitions like `fly`, `slide`, `blur`, `fade`, and `scale`. 
+
+This example demonstrates a sliding transition using the slide transition from svelte/transition:
+
+```svelte example class="flex flex-col relative"
+<script>
+  import { slide } from 'svelte/transition';
+  import { quintOut } from 'svelte/easing';
+  import { Banner, Skeleton, ImagePlaceholder } from 'flowbite-svelte';
+  import { BullhornSolid } from 'flowbite-svelte-icons';
+  
+  const params = { delay: 250, duration: 500, easing: quintOut }
+  
+</script>
+
+<Skeleton class="py-4" />
+<ImagePlaceholder class="py-4" />
+
+<Banner id="default-banner" position="absolute" transition={slide} {params}>
+  <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
+    <span class="inline-flex p-1 me-3 bg-gray-200 rounded-full dark:bg-gray-600">
+      <BullhornSolid class="w-3 h-3 text-gray-500 dark:text-gray-400" />
+      <span class="sr-only">Light bulb</span>
+    </span>
+    <span>
+      New brand identity has been launched for the <a href="https://flowbite.com" class="inline font-medium text-primary-600 underline dark:text-primary-500 underline-offset-2 decoration-600 dark:decoration-500 decoration-solid hover:no-underline"> Flowbite Library </a>
+    </span>
+  </p>
 </Banner>
 ```
 

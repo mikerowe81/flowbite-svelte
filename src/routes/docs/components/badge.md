@@ -239,7 +239,7 @@ Use the `close-button` slot to add your desired button. Don't forget to use the 
 </Badge>
 ```
 
-A `dismiss` event will be dispatched during the dismissal, listen to it if needed.
+A `close` event will be dispatched during the dismissal, listen to it if needed.
 
 ```svelte example class="gap-4"
 <script>
@@ -251,6 +251,25 @@ A `dismiss` event will be dispatched during the dismissal, listen to it if neede
 </script>
 
 <Badge dismissable large on:close={handleClose}>Default</Badge>
+```
+
+## Dynamic color
+
+The color can be changed dynamically.
+
+```svelte example class="flex flex-wrap gap-4" hideResponsiveButtons
+<script>
+  import { Badge } from 'flowbite-svelte';
+
+  setInterval(handleHover, 500);
+
+  let color = 'primary';
+  function handleHover() {
+    color = color === 'primary' ? 'dark' : 'primary';
+  }
+</script>
+
+<Badge large {color}>Blinking badge</Badge>
 ```
 
 ## Component data

@@ -1,10 +1,14 @@
 <script lang="ts">
+  import type { HTMLAttributes } from 'svelte/elements';
   import type { SizeType } from '$lib/types';
   import { twMerge } from 'tailwind-merge';
   import { getContext } from 'svelte';
   import { clampSize } from '$lib/forms/Input.svelte';
 
-  export let size: 'sm' | 'md' | 'lg' | undefined = undefined;
+  interface $$Props extends HTMLAttributes<HTMLDivElement> {
+    size?: 'sm' | 'md' | 'lg';
+  }
+  export let size: $$Props['size'] = undefined;
 
   // tinted if put in component having its own background
   let background: boolean = getContext('background');
@@ -32,7 +36,7 @@
   // size: explicit, inherited, default
   $: _size = size || clampSize(group?.size) || 'md';
 
-  $: divClass = twMerge(textSizes[_size], prefixPadding[_size], background ? borderClasses['tinted'] : borderClasses['base'], 'text-gray-500 bg-gray-200', background ? darkBgClasses.tinted : darkBgClasses.base, background ? divider.tinted : divider.base, 'inline-flex items-center border-t border-b first:border-s border-e', 'first:rounded-s-lg last:rounded-e-lg', $$props.class);
+  $: divClass = twMerge(textSizes[_size], prefixPadding[_size], 'text-gray-500 bg-gray-200', background ? darkBgClasses.tinted : darkBgClasses.base, background ? divider.tinted : divider.base, background ? borderClasses['tinted'] : borderClasses['base'],'inline-flex items-center border', group && '[&:not(:first-child)]:-ms-px', 'first:rounded-s-lg last:rounded-e-lg', $$props.class);
 </script>
 
 <div {...$$restProps} class={divClass}>
@@ -43,5 +47,5 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let size: 'sm' | 'md' | 'lg' | undefined = undefined;
+@prop export let size: $$Props['size'] = undefined;
 -->

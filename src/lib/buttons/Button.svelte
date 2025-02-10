@@ -2,21 +2,42 @@
   import { twMerge } from 'tailwind-merge';
   import { getContext } from 'svelte';
   import type { SizeType } from '$lib/types';
-  import type { HTMLButtonAttributes } from 'svelte/elements';
+  import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
 
   type ButtonColor = keyof typeof colorClasses;
+  type CommonProps = {
+    pill?: boolean;
+    outline?: boolean;
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    color?: ButtonColor;
+    shadow?: boolean;
+    tag?: 'a' | 'button';
+    checked?: boolean;
+  }
 
+  type AnchorProps = CommonProps & Omit<HTMLAnchorAttributes, 'type'> & {
+    href?: string | undefined;
+  };
+
+  type ButtonProps = CommonProps & HTMLButtonAttributes & {
+    disabled?: HTMLButtonAttributes['disabled'];
+    type?: HTMLButtonAttributes['type'];
+  };
+
+  type $$Props = AnchorProps | ButtonProps;
+  
   const group: SizeType = getContext('group');
 
-  export let pill: boolean = false;
-  export let outline: boolean = false;
-  export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = group ? 'sm' : 'md';
+  export let pill: $$Props['pill'] = false;
+  export let outline: $$Props['outline'] = false;
+  export let size: NonNullable<$$Props['size']> = group ? 'sm' : 'md';
   export let href: string | undefined = undefined;
   export let type: HTMLButtonAttributes['type'] = 'button';
-  export let color: ButtonColor = group ? (outline ? 'dark' : 'alternative') : 'primary';
-  export let shadow: boolean = false;
-  export let tag: string = 'button';
-  export let checked: boolean | undefined = undefined;
+  export let color: NonNullable<$$Props['color']> = group ? (outline ? 'dark' : 'alternative') : 'primary';
+  export let shadow: $$Props['shadow'] = false;
+  export let tag: $$Props['tag'] = 'button';
+  export let checked: $$Props['checked'] = undefined;
+  export let disabled: HTMLButtonAttributes['disabled'] = false;
 
   const colorClasses = {
     alternative: 'text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 hover:text-primary-700 focus-within:text-primary-700 dark:focus-within:text-white dark:hover:text-white dark:hover:bg-gray-700',
@@ -108,21 +129,21 @@
     color === 'alternative' && (group && !checked ? 'dark:bg-gray-700 dark:text-white dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-600' : 'dark:bg-transparent dark:border-gray-600 dark:hover:border-gray-600'),
     outline && color === 'dark' && (group ? (checked ? 'bg-gray-900 border-gray-800 dark:border-white dark:bg-gray-600' : 'dark:text-white border-gray-800 dark:border-white') : 'dark:text-gray-400 dark:border-gray-700'),
     coloredFocusClasses[color],
-    hasBorder() && group && 'border-s-0 first:border-s',
+    hasBorder() && group && '[&:not(:first-child)]:-ms-px',
     group ? (pill && 'first:rounded-s-full last:rounded-e-full') || 'first:rounded-s-lg last:rounded-e-lg' : (pill && 'rounded-full') || 'rounded-lg',
     shadow && 'shadow-lg',
     shadow && coloredShadowClasses[color],
-    $$props.disabled && 'cursor-not-allowed opacity-50',
+    disabled && 'cursor-not-allowed opacity-50',
     $$props.class
   );
 </script>
 
-{#if href}
+{#if href && !disabled}
   <a {href} {...$$restProps} class={buttonClass} role="button" on:click on:change on:keydown on:keyup on:touchstart|passive on:touchend on:touchcancel on:mouseenter on:mouseleave>
     <slot />
   </a>
-{:else if tag === 'button'}
-  <button {type} {...$$restProps} class={buttonClass} on:click on:change on:keydown on:keyup on:touchstart|passive on:touchend on:touchcancel on:mouseenter on:mouseleave>
+{:else if tag === 'button' }
+  <button {type} {...$$restProps} {disabled} class={buttonClass} on:click on:change on:keydown on:keyup on:touchstart|passive on:touchend on:touchcancel on:mouseenter on:mouseleave>
     <slot />
   </button>
 {:else}
@@ -135,13 +156,14 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let pill: boolean = false;
-@prop export let outline: boolean = false;
-@prop export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = group ? 'sm' : 'md';
+@prop export let pill: $$Props['pill'] = false;
+@prop export let outline: $$Props['outline'] = false;
+@prop export let size: NonNullable<$$Props['size']> = group ? 'sm' : 'md';
 @prop export let href: string | undefined = undefined;
 @prop export let type: HTMLButtonAttributes['type'] = 'button';
-@prop export let color: ButtonColor = group ? (outline ? 'dark' : 'alternative') : 'primary';
-@prop export let shadow: boolean = false;
-@prop export let tag: string = 'button';
-@prop export let checked: boolean | undefined = undefined;
+@prop export let color: NonNullable<$$Props['color']> = group ? (outline ? 'dark' : 'alternative') : 'primary';
+@prop export let shadow: $$Props['shadow'] = false;
+@prop export let tag: $$Props['tag'] = 'button';
+@prop export let checked: $$Props['checked'] = undefined;
+@prop export let disabled: HTMLButtonAttributes['disabled'] = false;
 -->

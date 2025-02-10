@@ -10,7 +10,7 @@
     fluid?: boolean;
   }
 
-  export let fluid: boolean = false;
+  export let fluid: $$Props['fluid'] = false;
 
   let hidden = writable(true);
   setContext('navHidden', hidden);
@@ -33,5 +33,5 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let fluid: boolean = false;
+@prop export let fluid: $$Props['fluid'] = false;
 -->

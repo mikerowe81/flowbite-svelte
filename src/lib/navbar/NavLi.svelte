@@ -2,10 +2,19 @@
   import { getContext } from 'svelte';
   import { twMerge } from 'tailwind-merge';
   import type { NavbarLiType } from './NavUl.svelte';
+  import type { HTMLAttributes, HTMLAnchorAttributes  } from 'svelte/elements';
 
-  export let href: string = '';
-  export let activeClass: string | undefined = undefined;
-  export let nonActiveClass: string | undefined = undefined;
+  interface NavLiProps {
+    href?: string;
+    activeClass?: string;
+    nonActiveClass?: string;
+  }
+
+  type $$Props = NavLiProps & (HTMLAnchorAttributes | HTMLAttributes<HTMLDivElement>);
+
+  export let href: $$Props['href'] = '';
+  export let activeClass: $$Props['activeClass'] = undefined;
+  export let nonActiveClass: $$Props['nonActiveClass'] = undefined;
 
   const context = getContext<NavbarLiType>('navbarContext') ?? {};
   const activeUrlStore = getContext('activeUrl') as { subscribe: (callback: (value: string) => void) => void };
@@ -31,7 +40,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/)
 ## Props
-@prop export let href: string = '';
-@prop export let activeClass: string | undefined = undefined;
-@prop export let nonActiveClass: string | undefined = undefined;
+@prop export let href: $$Props['href'] = '';
+@prop export let activeClass: $$Props['activeClass'] = undefined;
+@prop export let nonActiveClass: $$Props['nonActiveClass'] = undefined;
 -->

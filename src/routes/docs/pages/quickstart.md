@@ -61,6 +61,14 @@ Run the following command to install all Flowbite dependencies and libraries:
 pnpm i -D flowbite-svelte flowbite
 ```
 
+### Optional
+
+Install `flowbite-svelte-icons` for the examples to work properly:
+
+```sh
+pnpm i -D flowbite-svelte-icons
+```
+
 ### Configuration
 
 Update the `tailwind.config.cjs` file from your root project folder to let the Tailwind CSS compiler know where to look for the utility classes and also set up the Flowbite plugin.
@@ -68,13 +76,12 @@ Update the `tailwind.config.cjs` file from your root project folder to let the T
 In the provided code below, you can customize the primary color by modifying the appropriate color values. To change the primary color, simply uncomment the desired color object and modify the corresponding color values as needed.
 
 ```js
-const config = {
+import type { Config } from 'tailwindcss';
+import flowbitePlugin from 'flowbite/plugin'
+
+export default {
   content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'],
-
-  plugins: [require('flowbite/plugin')],
-
-  darkMode: 'class',
-
+  darkMode: 'selector',
   theme: {
     extend: {
       colors: {
@@ -93,10 +100,9 @@ const config = {
         }
       }
     }
-  }
-};
-
-module.exports = config;
+  },
+  plugins: [flowbitePlugin]
+} as Config;
 ```
 
 Now you should be able to work with the Flowbite Svelte library and import components such as the navbar, dropdown, modal, and more.

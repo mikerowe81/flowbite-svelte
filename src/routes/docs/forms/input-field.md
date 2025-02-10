@@ -122,6 +122,19 @@ Get started with this example if you want to apply the disabled state to an inpu
 <Input class="mb-6" disabled readonly value="Disabled readonly input" />
 ```
 
+## Clearable
+
+This example shows how to create an input field where the user can remove the
+text with one click.
+
+```svelte example hideScript
+<script>
+  import { Input } from 'flowbite-svelte';
+</script>
+
+<Input clearable value="Clearable input" />
+```
+
 ## Validation
 
 Use the following example to apply validation styles for success and error messages.
@@ -342,12 +355,12 @@ Use this example to show a dropdown menu right next to the input field.
 ```svelte example class="h-64"
 <script>
   import { Input, InputAddon, ButtonGroup, Button, Dropdown, DropdownItem } from 'flowbite-svelte';
-  import { ChevronDownSolid, SearchOutline } from 'flowbite-svelte-icons';
+  import { ChevronDownOutline, SearchOutline } from 'flowbite-svelte-icons';
 </script>
 
 <ButtonGroup class="w-full">
   <Button color="none" class="flex-shrink-0 text-gray-900 bg-gray-100 border border-gray-300 dark:border-gray-700 dark:text-white hover:bg-gray-200 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-    All categories<ChevronDownSolid class="w-3 h-3 ms-2 text-white dark:text-white" />
+    All categories<ChevronDownOutline class="w-6 h-6 ms-2" />
   </Button>
   <Dropdown>
     <DropdownItem>Shopping</DropdownItem>

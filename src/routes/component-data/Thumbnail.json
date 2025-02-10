@@ -3,8 +3,9 @@
   "slots": [],
   "events": [],
   "props": [
-    ["selected", "boolean", "false"],
-    ["activeClass", "string", "'opacity-100'"],
-    ["inactiveClass", "string", "'opacity-60'"]
+    ["selected?", "boolean", ""],
+    ["alt?", "string | undefined | null", ""],
+    ["activeClass?", "string", ""],
+    ["inactiveClass?", "string", ""]
   ]
 }

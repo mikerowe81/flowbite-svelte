@@ -9,6 +9,7 @@
     ["transition", "TransitionFunc | null", "null"],
     ["duration", "number", "0"],
     ["ariaLabel", "string", "'Draggable Carousel'"],
+    ["disableSwipe", "boolean", "false"],
     ["imgClass", "string", "''"]
   ]
 }

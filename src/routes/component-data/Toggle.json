@@ -7,6 +7,8 @@
     ["group?", "string[]", "[]"],
     ["value?", "string | number", "''"],
     ["checked?", "boolean", "undefined"],
-    ["customSize?", "string", "''"]
+    ["customSize?", "string", "''"],
+    ["classDiv?", "string", ""],
+    ["disabled?", "boolean", "false"]
   ]
 }

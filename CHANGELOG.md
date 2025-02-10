@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.47.4
+
+### Patch Changes
+
+- fix: datepicker
+
+## 0.47.3
+
+### Patch Changes
+
+- fix: #1392 #1455 #1463 #1468 #1475 #1476
+
+## 0.47.2
+
+### Patch Changes
+
+- fix: #1470 #1467 #1031
+
 ## 0.47.1
 
 ### Patch Changes

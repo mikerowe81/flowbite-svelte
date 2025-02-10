@@ -10,6 +10,8 @@
     ["innerClass?", "string", "'flex'"],
     ["bannerStatus?", "boolean", "true"],
     ["transition?", "TransitionFunc", ""],
-    ["params?", "object", "{}"]
+    ["params?", "object", "{}"],
+    ["classDiv?", "string", "''"],
+    ["classInner?", "string", "''"]
   ]
 }

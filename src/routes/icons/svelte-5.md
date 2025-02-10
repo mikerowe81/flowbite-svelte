@@ -1,12 +1,11 @@
 ---
 layout: componentLayout
-title: Svelte 5 Getting started - Flowbite Svelte Icons v2
-breadcrumb_title: Svelte 5 Getting started
-component_title: Svelte 5 Getting started
+title: Svelte 5 Icons - Flowbite
+breadcrumb_title: Svelte 5 Icons
+component_title: Svelte 5 Icons
 dir: Icons
-description: Svelte 5 Getting started
+description: Get started with a collection of open-source Svelte 5 powered icons built by the Flowbite community and based on the official design system
 ---
-
 
 <script>
   import { Banner } from 'flowbite-svelte';
@@ -14,7 +13,7 @@ description: Svelte 5 Getting started
   import { removeHyphensAndCapitalize } from './utils/utils';
 </script>
 
-# Svelte 5 Getting started - Flowbite Svelte Icons v2
+Use well over 500 SVG icons based on the open-source [Flowbite Icons](https://flowbite.com/icons/) library to power your Svelte application with optimized icons provided with both outline and solid styles. This page allows usage for Svelte 5 applications.
 
 <div class="flex gap-2 my-8">
 <a href="https://github.com/sponsors/shinokada" target="_blank"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="sponsor" ></a>
@@ -26,7 +25,7 @@ description: Svelte 5 Getting started
 ## Requirements
 
 ```markdown
-- Svelte 5:Runes
+- Svelte 5 or later
 - TailwindCSS
 - tailwind-merge
 ```
@@ -36,37 +35,15 @@ description: Svelte 5 Getting started
 Install Svelte and TailwindCSS:
 
 ```sh
-// install Svelte 5
-npm create svelte@latest my-project
-cd my-project
-npx svelte-add@latest tailwindcss
-pnpm i
+npx sv create myapp
+// select tailwindcss to install
+cd myapp
 ```
 
-Install `flowbite-svelte-icons v2`:
+Install `flowbite-svelte-icons`:
 
 ```sh
-pnpm i -D flowbite-svelte-icons@next
-```
-
-Enable Runes in `svelte.config.js`:
-
-```js
-import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	preprocess: [vitePreprocess({})],
-	compilerOptions: {
-		runes: true
-	},
-	kit: {
-		adapter: adapter()
-	}
-};
-
-export default config;
+pnpm i -D flowbite-svelte-icons
 ```
 
 ## tailwind.config.cjs

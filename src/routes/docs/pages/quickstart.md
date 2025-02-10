@@ -23,7 +23,7 @@ Learn how to get started with Flowbite Svelte by following the quickstart guide 
 You can install SvelteKit or Svelte to start your app. For SvelteKit:
 
 ```bash example
-npm create svelte@latest my-app
+npx sv create my-app
 cd my-app
 pnpm install
 ```
@@ -43,7 +43,7 @@ pnpm install
 In order to enable the utility classes from Tailwind CSS install the package using NPM:
 
 ```bash
-npx svelte-add@latest tailwindcss
+npx sv add tailwindcss
 pnpm i
 ```
 
@@ -107,7 +107,7 @@ export default {
 
 Now you should be able to work with the Flowbite Svelte library and import components such as the navbar, dropdown, modal, and more.
 
-<div class="h-8" />
+<div class="h-8" ></div>
 
 Now you are ready to go! Add the following to `src/routes/+page.svelte` and if you see the following image, then your setting is complete.
 

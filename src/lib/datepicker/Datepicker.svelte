@@ -25,8 +25,8 @@
   const dispatch = createEventDispatcher();
   let isOpen: boolean = inline;
   let inputElement: HTMLInputElement;
+  let datepickerContainerElement: HTMLDivElement;
   let currentMonth: Date = value || defaultDate || new Date();
-  currentMonth.setDate(1); // Set to first day of the month
   let focusedDate: Date | null = null;
   let calendarRef: HTMLDivElement;
 
@@ -92,7 +92,7 @@
     let start = firstDay.getDay() - firstDayOfWeek;
     if (start < 0) start += 7;
     for (let i = 0; i < start; i++) {
-      daysArray.push(new Date(year, month, -i));
+      daysArray.unshift(new Date(year, month, -i));
     }
 
     // Add days of the current month
@@ -151,7 +151,7 @@
   }
 
   function handleClickOutside(event: MouseEvent) {
-    if (isOpen && !inputElement.contains(event.target as Node)) {
+    if (isOpen && datepickerContainerElement && !datepickerContainerElement.contains(event.target as Node)) {
       isOpen = false;
     }
   }
@@ -161,12 +161,17 @@
     return date.toLocaleDateString(locale, dateFormat);
   }
 
-  function isSelected(day: Date): boolean {
-    if (range) {
-      return !!(rangeFrom && day.toDateString() === rangeFrom.toDateString()) || !!(rangeTo && day.toDateString() === rangeTo.toDateString());
-    }
-    return !!(value && day.toDateString() === value.toDateString());
+  function isSameDate(date1: Date | null, date2: Date | null): boolean {
+    if (!date1 || !date2) return false;
+    return date1.toDateString() === date2.toDateString();
   }
+
+  $: isSelected = (day: Date): boolean => {
+    if (range) {
+      return isSameDate(day, rangeFrom) || isSameDate(day, rangeTo);
+    }
+    return isSameDate(day, value);
+  };
 
   function isInRange(day: Date): boolean {
     if (!range || !rangeFrom || !rangeTo) return false;
@@ -245,7 +250,7 @@
   }
 </script>
 
-<div class="relative {inline ? 'inline-block' : ''}">
+<div bind:this={datepickerContainerElement} class="relative {inline ? 'inline-block' : ''}">
   {#if !inline}
     <div class="relative">
       <input bind:this={inputElement} type="text" class="w-full px-4 py-2 text-sm border rounded-md focus:outline-none dark:bg-gray-700 dark:text-white dark:border-gray-600 {getFocusRingClass(color)} {inputClass}" {placeholder} value={range ? `${formatDate(rangeFrom)} - ${formatDate(rangeTo)}` : formatDate(value)} on:focus={() => (isOpen = true)} on:input={handleInputChange} on:keydown={handleInputKeydown} {disabled} {required} aria-haspopup="dialog" />

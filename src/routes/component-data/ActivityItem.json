@@ -11,6 +11,14 @@
     ["innerDivClass?", "string", "'justify-between items-center mb-3 sm:flex'"],
     ["timeClass?", "string", "'mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0'"],
     ["titleClass?", "string", "'text-sm font-normal text-gray-500 lex dark:text-gray-300'"],
-    ["textClass?", "string", "'p-3 text-xs italic font-normal text-gray-500 bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300'"]
+    ["textClass?", "string", "'p-3 text-xs italic font-normal text-gray-500 bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300'"],
+    ["classLi?", "string", "''"],
+    ["classSpan?", "string", "''"],
+    ["classImg?", "string", "''"],
+    ["classOuterDiv?", "string", "''"],
+    ["classInnerDiv?", "string", "''"],
+    ["classTime?", "string", "''"],
+    ["classTitle?", "string", "''"],
+    ["classText?", "string", "''"]
   ]
 }

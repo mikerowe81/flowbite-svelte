@@ -4,6 +4,7 @@
   "events": [],
   "props": [
     ["options", "ApexOptions", ""],
-    ["class?", "string", ""]
+    ["class?", "string", ""],
+    ["chart?", "ApexCharts", ""]
   ]
 }

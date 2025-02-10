@@ -23,6 +23,9 @@
     defaultClass?: string;
     color?: 'base' | 'green' | 'red';
     floatClass?: string;
+    classLeft?: string;
+    classRight?: string;
+
   }
 
   export let type: $$Props['type'] = 'text';
@@ -32,6 +35,8 @@
   export let defaultClass: $$Props['defaultClass'] = 'block w-full disabled:cursor-not-allowed disabled:opacity-50 rtl:text-right';
   export let color: NonNullable<$$Props['color']> = 'base';
   export let floatClass: $$Props['floatClass'] = 'flex absolute inset-y-0 items-center text-gray-500 dark:text-gray-400';
+  export let classLeft: $$Props['classLeft'] = '';
+  export let classRight: $$Props['classRight'] = '';
 
   /* MGR: Adds an autofocus option to input fields */
   export let inputRef: HTMLInputElement
@@ -92,7 +97,7 @@
 
 <Wrapper class="relative w-full" show={$$slots.left || $$slots.right}>
   {#if $$slots.left}
-    <div class="{twMerge(floatClass, $$props.classLeft)} start-0 ps-2.5 pointer-events-none">
+    <div class="{twMerge(floatClass, classLeft)} start-0 ps-2.5 pointer-events-none">
       <slot name="left" />
     </div>
   {/if}
@@ -100,12 +105,12 @@
     <input {...$$restProps} bind:value bind:this={inputRef} on:blur on:change on:click on:contextmenu on:focus on:keydown on:keypress on:keyup on:mouseover on:mouseenter on:mouseleave on:paste on:input {...{ type }} class={inputClass} />
   </slot>
   {#if $$slots.right}
-  <div class="{twMerge(floatClass, $$props.classRight)} end-0 pe-2.5">
+  <div class="{twMerge(floatClass, classRight)} end-0 pe-2.5">
     <slot name="right"></slot>
   </div>
   {/if}
   {#if clearable && value && `${value}`.length > 0}
-    <CloseButton {size} on:click={clearAll} color="none" class=" {twMerge(floatClass, $$props.classRight)} focus:ring-0 end-6 focus:ring-gray-400 dark:text-white" />
+    <CloseButton {size} on:click={clearAll} color="none" class=" {twMerge(floatClass, classRight)} focus:ring-0 end-6 focus:ring-gray-400 dark:text-white" />
   {/if}
 </Wrapper>
 
@@ -120,4 +125,6 @@
 @prop export let defaultClass: $$Props['defaultClass'] = 'block w-full disabled:cursor-not-allowed disabled:opacity-50 rtl:text-right';
 @prop export let color: NonNullable<$$Props['color']> = 'base';
 @prop export let floatClass: $$Props['floatClass'] = 'flex absolute inset-y-0 items-center text-gray-500 dark:text-gray-400';
+@prop export let classLeft: $$Props['classLeft'] = '';
+@prop export let classRight: $$Props['classRight'] = '';
 -->

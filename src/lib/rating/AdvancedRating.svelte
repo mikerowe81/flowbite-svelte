@@ -7,12 +7,17 @@
   export let ratingClass: string = 'h-5 bg-yellow-400 rounded';
   export let rightLabelClass: string = 'text-sm font-medium text-gray-600 dark:text-gray-500';
   export let unit: string = '%';
+  export let classDiv: string = '';
+  export let classLabel: string = '';
+  export let classRatingDiv: string = '';
+  export let classRating: string = '';
+  export let classRightLabel: string = '';
 
-  let divCls: string = twMerge(divClass, $$props.classDiv);
-  let labelCls: string = twMerge(labelClass, $$props.classLabel);
-  let ratingDivCls: string = twMerge(ratingDivClass, $$props.classRatingDiv);
-  let ratingCls: string = twMerge(ratingClass, $$props.classRating);
-  let rightLabelCls: string = twMerge(rightLabelClass, $$props.classRightLabel);
+  let divCls: string = twMerge(divClass, classDiv);
+  let labelCls: string = twMerge(labelClass, classLabel);
+  let ratingDivCls: string = twMerge(ratingDivClass, classRatingDiv);
+  let ratingCls: string = twMerge(ratingClass, classRating);
+  let rightLabelCls: string = twMerge(rightLabelClass, classRightLabel);
 </script>
 
 {#if $$slots.rating}
@@ -42,4 +47,9 @@
 @prop export let ratingClass: string = 'h-5 bg-yellow-400 rounded';
 @prop export let rightLabelClass: string = 'text-sm font-medium text-gray-600 dark:text-gray-500';
 @prop export let unit: string = '%';
+@prop export let classDiv: string = '';
+@prop export let classLabel: string = '';
+@prop export let classRatingDiv: string = '';
+@prop export let classRating: string = '';
+@prop export let classRightLabel: string = '';
 -->

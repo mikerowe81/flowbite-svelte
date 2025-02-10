@@ -10,6 +10,9 @@
     ["src?", "string", "''"],
     ["alt?", "string", "''"],
     ["name?", "string", "''"],
-    ["target?", "string", "''"]
+    ["target?", "string", "''"],
+    ["classA?", "string", "''"],
+    ["classSpan?", "string", "''"],
+    ["classImg?", "string", "''"]
   ]
 }

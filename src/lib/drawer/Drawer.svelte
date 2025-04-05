@@ -15,6 +15,7 @@
     bottomOffset?: string;
     width?: string;
     backdrop?: boolean;
+    backdropClass?: string;
     bgColor?: string;
     bgOpacity?: string;
     placement?: 'left' | 'right' | 'top' | 'bottom';
@@ -23,6 +24,7 @@
     transitionParams?: drawerTransitionParamTypes;
     transitionType?: TransitionTypes;
   }
+
   export let activateClickOutside: $$Props['activateClickOutside'] = true;
   export let hidden: $$Props['hidden'] = true;
   export let position: $$Props['position'] = 'fixed';
@@ -32,8 +34,9 @@
   export let bottomOffset: $$Props['bottomOffset'] = 'inset-x-0 bottom-0';
   export let width: $$Props['width'] = 'w-80';
   export let backdrop: $$Props['backdrop'] = true;
+  export let backdropClass: $$Props['backdropClass'] = '';
   export let bgColor: $$Props['bgColor'] = 'bg-gray-900';
-  export let bgOpacity: $$Props['bgOpacity'] = 'bg-opacity-75';
+  export let bgOpacity: $$Props['bgOpacity'] = 'bg-black/75';
   export let placement: NonNullable<$$Props['placement']> = 'left';
   export let id: $$Props['id'] = 'drawer-example';
   export let divClass: $$Props['divClass'] = 'overflow-y-auto z-50 p-4 bg-white dark:bg-gray-800';
@@ -44,7 +47,7 @@
     switch (transitionType) {
       case 'slide':
         return slide(node, params);
-      case 'blur':
+      case 'blur-sm':
         return blur(node, params);
       case 'fade':
         return fade(node, params);
@@ -66,7 +69,7 @@
 
   const handleClickOutside = () => activateClickOutside && !hidden && handleDrawer();
 
-  let backdropDivClass = twMerge('fixed top-0 start-0 z-50 w-full h-full', backdrop && bgColor, backdrop && bgOpacity);
+  let backdropDivClass = twMerge('fixed top-0 start-0 z-50 w-full h-full', backdrop && bgColor, backdrop && bgOpacity, backdropClass);
 
   function clickOutsideWrapper(node: HTMLElement, callback: () => void) {
     return activateClickOutside ? clickOutside(node, callback) : undefined;
@@ -99,7 +102,7 @@
 @prop export let width: $$Props['width'] = 'w-80';
 @prop export let backdrop: $$Props['backdrop'] = true;
 @prop export let bgColor: $$Props['bgColor'] = 'bg-gray-900';
-@prop export let bgOpacity: $$Props['bgOpacity'] = 'bg-opacity-75';
+@prop export let bgOpacity: $$Props['bgOpacity'] = 'bg-black/75';
 @prop export let placement: NonNullable<$$Props['placement']> = 'left';
 @prop export let id: $$Props['id'] = 'drawer-example';
 @prop export let divClass: $$Props['divClass'] = 'overflow-y-auto z-50 p-4 bg-white dark:bg-gray-800';

@@ -14,7 +14,7 @@
     color?: TableColorType;
     customeColor?: string;
     items?: T[];
-    filter?:  ((t: T, term: string) => boolean) | null;
+    filter?: ((t: T, term: string) => boolean) | null;
     placeholder?: string;
     innerDivClass?: string;
     searchClass?: string;
@@ -70,7 +70,7 @@
   setContext('filter', filterStore);
   $: searchTermStore.set(searchTerm);
   $: {
-    if(filter) filterStore.set(filter)
+    if (filter) filterStore.set(filter);
   }
   setContext('sorter', writable(null));
 </script>
@@ -88,7 +88,7 @@
               </svg>
             </slot>
           </div>
-          <input bind:value={searchTerm} type="text" id="table-search" class={inputCls} {placeholder} />
+          <input bind:value={searchTerm} type="search" id="table-search" class={inputCls} {placeholder} />
         </div>
         <slot name="header" />
       </div>

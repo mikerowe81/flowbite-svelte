@@ -29,23 +29,7 @@
 </script>
 
 <Button tag="label" checked={value === group} {pill} {outline} {size} {color} {shadow} class={buttonClass}>
-  <input
-    type="radio"
-    bind:group
-    {value}
-    {...$$restProps}
-    class="sr-only"
-    on:keyup
-    on:keydown
-    on:keypress
-    on:focus
-    on:blur
-    on:click
-    on:mouseover
-    on:mouseenter
-    on:mouseleave
-    on:paste
-    on:change />
+  <input type="radio" bind:group {value} {...$$restProps} class="sr-only" on:keyup on:keydown on:keypress on:focus on:blur on:click on:mouseover on:mouseenter on:mouseleave on:paste on:change />
   <slot />
 </Button>
 

@@ -11,21 +11,23 @@
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     color?: ButtonColor;
     shadow?: boolean;
-    tag?: 'a' | 'button'| 'label'; 
+    tag?: 'a' | 'button' | 'label';
     checked?: boolean;
-  }
-
-  type AnchorProps = CommonProps & Omit<HTMLAnchorAttributes, 'type'> & {
-    href?: string | undefined;
   };
 
-  type ButtonProps = CommonProps & HTMLButtonAttributes & {
-    disabled?: HTMLButtonAttributes['disabled'];
-    type?: HTMLButtonAttributes['type'];
-  };
+  type AnchorProps = CommonProps &
+    Omit<HTMLAnchorAttributes, 'type'> & {
+      href?: string | undefined;
+    };
+
+  type ButtonProps = CommonProps &
+    HTMLButtonAttributes & {
+      disabled?: HTMLButtonAttributes['disabled'];
+      type?: HTMLButtonAttributes['type'];
+    };
 
   type $$Props = AnchorProps | ButtonProps;
-  
+
   const group: SizeType = getContext('group');
 
   export let pill: $$Props['pill'] = false;
@@ -119,7 +121,7 @@
     'text-center font-medium',
     group ? 'focus-within:ring-2' : 'focus-within:ring-4',
     group && 'focus-within:z-10',
-    group || 'focus-within:outline-none',
+    group || 'focus-within:outline-hidden',
     'inline-flex items-center justify-center ' + sizeClasses[size],
     outline && checked && 'border dark:border-gray-900',
     outline && checked && colorCheckedClasses[color],
@@ -129,7 +131,7 @@
     color === 'alternative' && (group && !checked ? 'dark:bg-gray-700 dark:text-white dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-600' : 'dark:bg-transparent dark:border-gray-600 dark:hover:border-gray-600'),
     outline && color === 'dark' && (group ? (checked ? 'bg-gray-900 border-gray-800 dark:border-white dark:bg-gray-600' : 'dark:text-white border-gray-800 dark:border-white') : 'dark:text-gray-400 dark:border-gray-700'),
     coloredFocusClasses[color],
-    hasBorder() && group && '[&:not(:first-child)]:-ms-px',
+    hasBorder() && group && 'not-first:-ms-px',
     group ? (pill && 'first:rounded-s-full last:rounded-e-full') || 'first:rounded-s-lg last:rounded-e-lg' : (pill && 'rounded-full') || 'rounded-lg',
     shadow && 'shadow-lg',
     shadow && coloredShadowClasses[color],
@@ -139,15 +141,15 @@
 </script>
 
 {#if href && !disabled}
-  <a {href} {...$$restProps} class={buttonClass} role="button" on:click on:change on:keydown on:keyup on:touchstart|passive on:touchend on:touchcancel on:mouseenter on:mouseleave>
+  <a {href} {...$$restProps} class={buttonClass} role="button" on:click on:change on:keydown on:keyup on:touchstart|passive on:touchend on:touchcancel on:mouseenter on:mouseleave on:mouseup on:mousedown>
     <slot />
   </a>
 {:else if tag === 'label'}
   <label {...$$restProps} class={buttonClass}>
     <slot />
   </label>
-{:else if tag === 'button' }
-  <button {type} {...$$restProps} {disabled} class={buttonClass} on:click on:change on:keydown on:keyup on:touchstart|passive on:touchend on:touchcancel on:mouseenter on:mouseleave>
+{:else if tag === 'button'}
+  <button {type} {...$$restProps} {disabled} class={buttonClass} on:click on:change on:keydown on:keyup on:touchstart|passive on:touchend on:touchcancel on:mouseenter on:mouseleave on:mouseup on:mousedown>
     <slot />
   </button>
 {:else}

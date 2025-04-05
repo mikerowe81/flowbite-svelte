@@ -14,7 +14,7 @@
     size?: SizeType;
     color?: ButtonColorType;
     shadow?: boolean;
-  }
+  };
 
   export let group: $$Props['group'] = [];
   export let value: $$Props['value'] = 'on';
@@ -62,25 +62,7 @@
 </script>
 
 <Button {checked} {pill} {outline} {size} {color} {shadow} class={buttonClass}>
-  <input
-    use:init={group}
-    type="checkbox"
-    bind:checked
-    value={value !== undefined ? value : 'on'}
-    {...$$restProps}
-    class="sr-only"
-    on:keyup
-    on:keydown
-    on:keypress
-    on:focus
-    on:blur
-    on:click
-    on:mouseover
-    on:mouseenter
-    on:mouseleave
-    on:paste
-    on:change={onChange}
-    on:change />
+  <input use:init={group} type="checkbox" bind:checked value={value !== undefined ? value : 'on'} {...$$restProps} class="sr-only" on:keyup on:keydown on:keypress on:focus on:blur on:click on:mouseover on:mouseenter on:mouseleave on:paste on:change={onChange} on:change />
   <slot />
 </Button>
 

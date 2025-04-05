@@ -153,7 +153,7 @@ Use this example to show a list and a description inside an alert component.
   import { InfoCircleSolid } from 'flowbite-svelte-icons';
 </script>
 
-<Alert class="!items-start">
+<Alert class="items-start!">
   <span slot="icon">
     <InfoCircleSolid class="w-5 h-5" />
     <span class="sr-only">Info</span>
@@ -165,7 +165,7 @@ Use this example to show a list and a description inside an alert component.
     <li>Inclusion of at least one special character, e.g., ! @ # ?</li>
   </ul>
 </Alert>
-<Alert color="blue" class="!items-start">
+<Alert color="blue" class="items-start!">
   <span slot="icon">
     <InfoCircleSolid class="w-5 h-5" />
     <span class="sr-only">Info</span>

@@ -11,7 +11,7 @@
   import Popper from '$lib/utils/Popper.svelte';
   import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
-  import type {FrameColor} from '$lib/utils/Frame.svelte';
+  import type { FrameColor } from '$lib/utils/Frame.svelte';
 
   interface $$Props extends ComponentProps<Popper> {
     activeUrl?: string;
@@ -57,13 +57,12 @@
   $: activeUrlStore.set(activeUrl ?? '');
 
   setContext('activeUrl', activeUrlStore);
- 
+
   $: containerCls = twMerge(containerClass, classContainer);
   $: headerCls = twMerge(headerClass, classHeader);
   $: ulCls = twMerge('py-1', $$props.class);
   $: footerCls = twMerge(footerClass, classFooter);
   // let arrow, trigger, placement, color, shadow, rounded;
-  
 </script>
 
 <Popper activeContent {...$$restProps} {trigger} {arrow} {placement} {shadow} {rounded} {color} class={containerCls} on:show bind:open>

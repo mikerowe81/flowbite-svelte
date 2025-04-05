@@ -78,10 +78,10 @@
   };
 
   let dotClass: string;
-  $: dotClass = twMerge('flex-shrink-0', rounded ? 'rounded' : 'rounded-full', border && 'border-2 border-white dark:border-gray-800', sizes[size], colors[color], $$slots.default && 'inline-flex items-center justify-center', placement && 'absolute ' + placements[placement], placement && offset && offsets[placement], $$props.class);
+  $: dotClass = twMerge('shrink-0', rounded ? 'rounded' : 'rounded-full', border && 'border-2 border-white dark:border-gray-800', sizes[size], colors[color], $$slots.default && 'inline-flex items-center justify-center', placement && 'absolute ' + placements[placement], placement && offset && offsets[placement], $$props.class);
 </script>
 
-<div {...$$restProps} class={dotClass} ><slot /></div>
+<div {...$$restProps} class={dotClass}><slot /></div>
 
 <!--
 @component
